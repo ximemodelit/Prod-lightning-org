@@ -1,0 +1,8 @@
+<apex:page >
+  
+  <div style="BACKGROUND-COLOR: white" class="sidebarModuleBody" align="center"><apex:image url="{!$Resource.ConcenterLogo}"/>
+  <div class="sidebarModuleBody" align="center"> 
+  <div style="BACKGROUND-COLOR: white"><a href="http://www.concenterservices.com/" target="_blank"><font size="1"><strong>Concenter Services Website</strong></font></a><br/><br/>
+  <a href="http://www.concenterservices.com/opencase.html" target="_blank"><font size="1"><strong>Open Case</strong></font></a><br/></div></div></div>
+  
+</apex:page>

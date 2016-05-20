@@ -1,0 +1,21 @@
+<apex:page standardController="XLR8_Assets_Liabilities__c" extensions="RMDAssetAndLiabilityCalculatorController">
+    <apex:includeScript value="{!URLFOR($Resource.OverlayResource, 'js/overlay.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.OverlayResource, 'css/overlay.css')}"/>
+    <apex:form id="rmdCalculatorForm">
+        <apex:sectionHeader title="Asset and Liability" subtitle="{!asset.Name}" />
+        <apex:pageBlock title="RMD Calculator">
+        <apex:pageMessages />
+        <apex:pageBlockSection columns="1" title="Enter the year for the calculation" collapsible="false">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Year" />
+                <apex:inputText value="{!year}" maxlength="4"/>
+            </apex:pageBlockSectionItem>
+            <apex:outputText value="Disclaimer: This calculation is based on the Required Minimum Distribution (RMD) Worksheets provided by the Internal Revenue Service as of January 26, 2015. Each RMD must be recalculated every year and certain exceptions may exist that may affect the table used or the outcome of the calculations. The accuracy of this tool and its calculation is not guaranteed and is not intended as a substitute for specific legal, investment planning, or individualized tax advice."></apex:outputText>
+        </apex:pageBlockSection>    
+        <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton action="{!calculateRMDAmount}" value="Calculate" rerender="rmdCalculatorForm" onclick="showOverlay();" oncomplete="hideOverlay();"/>
+                </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <div id="loadingDiv" class="overlay" style="display:none"><apex:image id="ajaxSpinner"  value="{!URLFOR($Resource.OverlayResource, 'images/loadinfo.gif')}" styleClass="loader"/></div>
+</apex:page>

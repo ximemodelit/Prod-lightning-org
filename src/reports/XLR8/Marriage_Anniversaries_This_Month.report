@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Marriage_Date__c</field>
+    </columns>
+    <columns>
+        <field>Account.Marriage_Anniversary_This_Year__c</field>
+    </columns>
+    <columns>
+        <field>Account.Years_at_Next_Anniversary__c</field>
+    </columns>
+    <description>XLR8 report of client marriage anniversaries occurring in the current month.</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Active_Status__c</column>
+            <operator>equals</operator>
+            <value>Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Marriage_Anniversary_This_Year__c</column>
+            <operator>equals</operator>
+            <value>THIS_MONTH</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Marriage Anniversaries This Month</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account.Marriage_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,2592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>XLR8 custom object that holds Client Household Use Assets, Financial Assets, Retirement Assets and Liabilities data.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AUM__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this is a managed account.</inlineHelpText>
+        <label>AUM</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Acquired_Opened_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Acquired/Opened Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amortization_Term__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Record the amortization terms in number of years.</inlineHelpText>
+        <label>Amortization Term</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Aquisition_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Aquisition Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>As_of_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>As of Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Asset_Classification__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Asset Classification</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cash &amp; Cash Equivalents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fixed Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Equities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alternative Assets</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Liabilities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Assets</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Billable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billable</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cash_Reserve_Needs__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Reserve Needs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Cash_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cash Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>529 Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aircraft Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Airplane</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automobiles</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Boat Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brokerage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Certificate of Deposit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Checking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Club Membership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collection (Artwork, Stamps, Coins)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit Card Debt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home Equity Line of Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Income Tax Liability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inherited IRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inherited Roth IRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investment Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IRA Rollover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Irrevocable Living Trust</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Life Insurance Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Margin Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mortgage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Notes/Loans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Property &amp; Furniture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal Residence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Profit Sharing Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Raw Land</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rental Property</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retirement Plan Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Revocable Living Trust</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roth Conversion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roth IRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Second Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SEP-IRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stock Options</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Testamentary Trust</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>U.S. Savings Bonds</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UTMA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Check_Writing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Check Writing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contingent_Beneficiary__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contingent Beneficiary</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contribution_Tax_Year__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contribution Tax Year</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contributions_Description_Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contributions Description/Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Basis__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cost Basis</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Custodian__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Custodian</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Fidelity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pershing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Schwab</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TD Ameritrade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Data_Source__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Data Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Manual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe this debt&apos;s interest rate or terms.  E.g. 5 year adjustable arm with initial rate of 6.7%</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Distributions_Description_Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Distributions Description/Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Assets &amp; Liabilities</relationshipLabel>
+        <relationshipName>R00N40000001YLFUEA4</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Estimated_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Payoff_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Expected Payoff Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Deduct__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fee Deduct</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Guarantors__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Guarantors</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>IRA_Contribution_Eligible__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>IRA Contribution Eligible</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Import_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <inlineHelpText>This field is used for migration purposes only. It can be hidden post migration, or if no migration will be performed.</inlineHelpText>
+        <label>Import ID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inactive_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Inactive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Include_In_Net_Worth__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Include In Net Worth</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Initial_Loan_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Initial Loan Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Institution__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Institution</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AmSouth Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bank of America</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Charter One Mortgage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cheviot Bldg &amp; Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Citigroup</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Loans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fifth Third Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foundation Savings Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guardian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Huntington Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>National City Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Northwestern Mutual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Norwest Mortgage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>P&amp;G</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pacific Mutual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Peoples Community Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PNC Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Third Federal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Union Savings</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>US Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Washington Mutual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wells Fargo Bank</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Winton Savings</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Interest Rate</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Last_IRA_Contribution_Amt__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last IRA Contribution Amt</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Last_IRA_Contribution_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last IRA Contribution Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_RMD_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last RMD Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Last_RMD_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last RMD Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Loan_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Loan Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Funded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unfunded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Margin__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Margin</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Maturity_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Maturity Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Frequency</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Beneficiary__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Primary Beneficiary</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Primary Owner</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Assets &amp; Liabilities (Primary Owner)</relationshipLabel>
+        <relationshipName>Assets_Liabilities</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RMD Member</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>RMD Member</relationshipLabel>
+        <relationshipName>R00N40000001Zq5kEAC</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Spouse__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RMD Spouse</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Assets &amp; Liabilities (RMD Spouse)</relationshipLabel>
+        <relationshipName>Assets_Liabilities2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RMD__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( NOT(ISBLANK( RMD_Member__c )), TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>If the RMD Member field is populated, then this checkbox will be automatically checked to indicate that the Retirement Account is required to take RMD.</inlineHelpText>
+        <label>RMD</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Rate_Structure__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Rate Structure</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Variable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Registration__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Registration</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Co-Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Community Property</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Community Property with R.S.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Ownership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Joint Tenants with R.S.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Joint Tenants w/out R.S.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Separate Property</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tenants by Entirety</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tenants in Common</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Repayment_Terms__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Repayment Terms</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Amortizing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interest Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Required_Payoff_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Required Payoff Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Restricted_Asset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Restricted Asset</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Revolving_Loan__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Revolving Loan</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SLOA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Standing Letter of Authorization</inlineHelpText>
+        <label>SLOA</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sale_Comments__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Sale Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Sale_Inactive_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Sale/Inactive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sale_Price__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Sale Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Secondary_Beneficiary__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Secondary Beneficiary</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Secondary_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Secondary Owner</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Assets &amp; Liabilities (Secondary Owner)</relationshipLabel>
+        <relationshipName>Assets_Liabilities1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Closing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Opening</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TIN_EIN__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>TIN/EIN</label>
+        <length>11</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_RMD_Requirement_Records__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculates the amount of RMD Requirements</description>
+        <externalId>false</externalId>
+        <label>Total RMD Requirement Records</label>
+        <summaryFilterItems>
+            <field>RMD_Requirement__c.RMD_Amount__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </summaryFilterItems>
+        <summaryForeignKey>RMD_Requirement__c.Financial_Account__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Trading_Authorization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Trading Authorization</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>VIN_HULL__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the VIN (vehicle identification number) for the vehicle or for boats, enter the Hull number for both the boat and the motor.</inlineHelpText>
+        <label>VIN/Hull #</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value_Balance__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Value/Balance</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Assets &amp; Liabilities</label>
+    <listViews>
+        <fullName>All_Assets_Liabilities</fullName>
+        <columns>NAME</columns>
+        <columns>Entity__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Value_Balance__c</columns>
+        <columns>As_of_Date__c</columns>
+        <columns>Acquired_Opened_Date__c</columns>
+        <columns>Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Assets &amp; Liabilities</label>
+    </listViews>
+    <nameField>
+        <label>Asset/Account Number</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Assets &amp; Liabilities</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Financial_Asset</fullName>
+        <active>true</active>
+        <description>Non-Retirement invested assets such as Brokerage or Limited Partnerships.</description>
+        <label>Financial Asset</label>
+        <picklistValues>
+            <picklist>Asset_Classification__c</picklist>
+            <values>
+                <fullName>Alternative Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash %26 Cash Equivalents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Income</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Liabilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>529 Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brokerage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Certificate of Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Checking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stock Options</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Savings Bonds</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Custodian__c</picklist>
+            <values>
+                <fullName>Fidelity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pershing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schwab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TD Ameritrade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Data_Source__c</picklist>
+            <values>
+                <fullName>Manual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantors__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Institution__c</picklist>
+            <values>
+                <fullName>AmSouth Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bank of America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charter One Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheviot Bldg %26 Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Citigroup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Loans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fifth Third Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foundation Savings Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Huntington Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National City Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northwestern Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norwest Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%26G</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PNC Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peoples Community Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Federal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Union Savings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wells Fargo Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Winton Savings</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Loan_Type__c</picklist>
+            <values>
+                <fullName>Funded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unfunded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rate_Structure__c</picklist>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Variable</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration__c</picklist>
+            <values>
+                <fullName>Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Co-Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Property with R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Tenants w%2Fout R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Tenants with R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Separate Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tenants by Entirety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tenants in Common</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repayment_Terms__c</picklist>
+            <values>
+                <fullName>Amortizing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Revolving_Loan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Closing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Opening</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Liability</fullName>
+        <active>true</active>
+        <description>Principle balance of a debt amount - mortgages, auto loans, credit cards, etc.</description>
+        <label>Liability</label>
+        <picklistValues>
+            <picklist>Asset_Classification__c</picklist>
+            <values>
+                <fullName>Alternative Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash %26 Cash Equivalents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Income</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Liabilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Aircraft Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Boat Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Card Debt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Equity Line of Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Income Tax Liability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Life Insurance Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Margin Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Notes%2FLoans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Plan Loan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Custodian__c</picklist>
+            <values>
+                <fullName>Fidelity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schwab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TD Ameritrade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Data_Source__c</picklist>
+            <values>
+                <fullName>Manual</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantors__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Institution__c</picklist>
+            <values>
+                <fullName>AmSouth Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bank of America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charter One Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheviot Bldg %26 Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Citigroup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Loans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fifth Third Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foundation Savings Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Huntington Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National City Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northwestern Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norwest Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%26G</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PNC Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peoples Community Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Federal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Union Savings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wells Fargo Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Winton Savings</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Loan_Type__c</picklist>
+            <values>
+                <fullName>Funded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unfunded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rate_Structure__c</picklist>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Variable</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration__c</picklist>
+            <values>
+                <fullName>Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Co-Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Property with R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Tenants w%2Fout R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Tenants with R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Separate Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tenants by Entirety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tenants in Common</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repayment_Terms__c</picklist>
+            <values>
+                <fullName>Amortizing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Revolving_Loan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Opening</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Retirement_529_Plan_Asset</fullName>
+        <active>true</active>
+        <description>Individual Retirement Assets</description>
+        <label>Retirement Asset</label>
+        <picklistValues>
+            <picklist>Asset_Classification__c</picklist>
+            <values>
+                <fullName>Alternative Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash %26 Cash Equivalents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Income</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Liabilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRA Rollover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inherited IRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inherited Roth IRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Roth Conversion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Roth IRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEP-IRA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Custodian__c</picklist>
+            <values>
+                <fullName>Fidelity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pershing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schwab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TD Ameritrade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Data_Source__c</picklist>
+            <values>
+                <fullName>Manual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantors__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Institution__c</picklist>
+            <values>
+                <fullName>AmSouth Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bank of America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charter One Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheviot Bldg %26 Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Citigroup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Loans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fifth Third Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foundation Savings Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Huntington Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National City Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northwestern Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norwest Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%26G</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PNC Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peoples Community Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Federal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Union Savings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wells Fargo Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Winton Savings</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Loan_Type__c</picklist>
+            <values>
+                <fullName>Funded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unfunded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rate_Structure__c</picklist>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Variable</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration__c</picklist>
+            <values>
+                <fullName>Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Co-Client</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repayment_Terms__c</picklist>
+            <values>
+                <fullName>Amortizing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Revolving_Loan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Closing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Opening</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>UseAssets</fullName>
+        <active>true</active>
+        <description>Personal use assets such as a residence, automobile, collectible etc.</description>
+        <label>Use Assets</label>
+        <picklistValues>
+            <picklist>Asset_Classification__c</picklist>
+            <values>
+                <fullName>Alternative Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash %26 Cash Equivalents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fixed Income</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Liabilities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Assets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Airplane</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automobiles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Club Membership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Collection %28Artwork%2C Stamps%2C Coins%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Property %26 Furniture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal Residence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Raw Land</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rental Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Home</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Custodian__c</picklist>
+            <values>
+                <fullName>Fidelity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schwab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TD Ameritrade</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Data_Source__c</picklist>
+            <values>
+                <fullName>Manual</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Guarantors__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Institution__c</picklist>
+            <values>
+                <fullName>AmSouth Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bank of America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charter One Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cheviot Bldg %26 Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Citigroup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Loans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fifth Third Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foundation Savings Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guardian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Huntington Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National City Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Northwestern Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norwest Mortgage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%26G</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PNC Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pacific Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peoples Community Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Federal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Union Savings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington Mutual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wells Fargo Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Winton Savings</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Loan_Type__c</picklist>
+            <values>
+                <fullName>Funded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unfunded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rate_Structure__c</picklist>
+            <values>
+                <fullName>Fixed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Variable</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Registration__c</picklist>
+            <values>
+                <fullName>Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Co-Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Property with R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Tenants w%2Fout R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint Tenants with R%2ES%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Separate Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tenants by Entirety</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tenants in Common</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Repayment_Terms__c</picklist>
+            <values>
+                <fullName>Amortizing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Only</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Revolving_Loan__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Opening</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Value_Balance__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>As_of_Date__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Entity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Value_Balance__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>As_of_Date__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Value_Balance__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>As_of_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Liability_Negative_Needed</fullName>
+        <active>true</active>
+        <description>Confirms that the liability is entered as a negative number.</description>
+        <errorConditionFormula>AND( $RecordType.Name = &quot;Liability&quot;,   Value_Balance__c  &gt;0)</errorConditionFormula>
+        <errorDisplayField>Value_Balance__c</errorDisplayField>
+        <errorMessage>Liability balances must be entered as a negative number ( example =  &quot;-100.00&quot;)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Account_Number_Update_When_RMD_Reqs</fullName>
+        <active>true</active>
+        <description>Do not allow Asset/Account Number to be updated on a Financial or Retirement Account once RMD Requirements with amounts exist.</description>
+        <errorConditionFormula>AND(Total_RMD_Requirement_Records__c&gt;0,   NOT(PRIORVALUE(Name)=Name))</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Asset/Account Number cannot be updated on Retirement Assets once RMD Requirements with values exist.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>RMD_Calculator</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>RMD Calculator</masterLabel>
+        <openType>sidebar</openType>
+        <page>RMDAssetAndLiabilityCalculator</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

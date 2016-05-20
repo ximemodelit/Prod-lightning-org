@@ -1,0 +1,25 @@
+<apex:page standardController="Account" recordsetVar="accounts" 
+    extensions="MassCreateProcessController" tabStyle="Account">
+	<apex:form id="massCreateForm" >
+	    <apex:pageMessages >
+	    </apex:pageMessages>
+	    <apex:pageBlock title="Mass Create Processes" rendered="{! !RecordsAreSelected}">
+	    	<apex:pageBlockButtons location="bottom">
+	    		<input type="button" class="btn" value="Back" onclick="window.history.back();" />
+	    	</apex:pageBlockButtons>
+	    </apex:pageBlock>
+	    <apex:pageBlock title="Mass Create Processes" mode="edit" rendered="{! AND(RecordsAreSelected, processes.size == 0)}">
+	        <apex:pageBlockButtons location="bottom">
+	            <apex:commandButton value="Create Processes" action="{!createProcesses}" rerender="massCreateForm"/>
+	            <apex:commandButton value="Cancel" action="{!cancel}" />
+	        </apex:pageBlockButtons>
+	        <c:MassCreateComponent recordCount="{!RecordCount}" 
+	            selectedTemplateId="{!SelectedTemplateId}" 
+	            templateSelectOptions="{!TemplateSelectOptions}" 
+	            deadline="{!deadline}"/>        
+	    </apex:pageBlock>
+
+	    <c:MassCreateResultComponent rendered="{! processes.size > 0 }" templateType="Entity" processes="{!processes}"/>
+
+	</apex:form>
+</apex:page>

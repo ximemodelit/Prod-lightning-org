@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>XLR8 custom object that holds income tax data.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AGI_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>AGI Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Alt_Min_Tax_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Alt Min Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Charitable_Gift_Carry_Forward__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Charitable Gift Carry Forward</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Date_Filed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Date Filed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Income Taxes</relationshipLabel>
+        <relationshipName>R00N40000001YuNcEAK</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Federal_Effective_Tax_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Federal Effective Tax Rate</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Import_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is used for migration purposes only. It can be hidden post migration, or if no migration will be performed.</description>
+        <externalId>true</externalId>
+        <label>Import ID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Marginal_Fed_Bracket__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marginal Fed Bracket</label>
+        <picklist>
+            <picklistValues>
+                <fullName>10%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>25%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>28%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>33%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>35%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>39.6%</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Next_Year_Safe_Harbor_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Next Year Safe Harbor Amount</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Form_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Primary Form Owner</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Income Taxes</relationshipLabel>
+        <relationshipName>R00N40000001YuP3EAK</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quarterly_Payment_Amt_Next_Year__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quarterly Payment Amt Next Year</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Quarterly_Payment_Amt__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quarterly Payment Amt</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Quarterly_Payments_Advised_Next_Year__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quarterly Payments Advised Next Year?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Quarterly_Payments__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quarterly Payments</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Received_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Date Received</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Return_Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Return Notes</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Reviewed_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Reviewed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N40000001ZC99EAG</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reviewed_by_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that this return was officially reviewed.</inlineHelpText>
+        <label>Reviewed by Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Schedule_C_Included__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Schedule C Included?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Secondary_Form_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Secondary Form Owner</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Income Taxes (Secondary Form Owner)</relationshipLabel>
+        <relationshipName>Income_Taxes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>State_Returns_filed_in__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>State Returns filed in</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Form__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Form</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1040 - Head of Household</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1040 - Married Filing Jointly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1040 - Married Filing Separately</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1040 - Qualifying Widower</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1040 - Single</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1040 - UGMA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1041 - Charitable Remainder Unit Trust</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1041 - Generation Skipping Trust</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1041 - Irrevocable Life Insurance Trust</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1041 - Irrevocable Trust</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1041 - Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1065 - Partnership Return</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1120 - Corporation Return</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1120S - Subchapter S Return</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5500 - Annual Return/Report of Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>706 - Estate Return</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>709 - Gift Tax Return</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Form_on_File__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Form on File</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Loss_Carry_Forward__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax Loss Carry Forward</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Year__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the year of the tax return with format YYYY.</inlineHelpText>
+        <label>Tax Year</label>
+        <length>4</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Taxable_Income__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Taxable Income</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Taxes_Paid__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Taxes Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Income Tax</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Entity__c</columns>
+        <columns>Tax_Year__c</columns>
+        <columns>Tax_Form__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>IT{00000}</displayFormat>
+        <label>Income Tax ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Income Taxes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tax_Form__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tax_Year__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Entity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Tax_Form__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Tax_Year__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Tax_Form__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Tax_Year__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Tax_Year_Must_be_Number</fullName>
+        <active>true</active>
+        <description>Tax Year Must be Number</description>
+        <errorConditionFormula>NOT(ISNUMBER( Tax_Year__c) )</errorConditionFormula>
+        <errorDisplayField>Tax_Year__c</errorDisplayField>
+        <errorMessage>Tax Year Must be entered as a Year in Format YYYY.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>GoToIRS</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Go To IRS</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://search.irs.gov/web/query.html?col=allirs&amp;charset=utf-8&amp;qp=&amp;qs=-Wct%3A%22Internal+Revenue+Manual%22&amp;qc=&amp;qm=0&amp;rf=0&amp;oq=&amp;qt={!XLR8_Income_Tax__c.Tax_Form__c}</url>
+    </webLinks>
+</CustomObject>

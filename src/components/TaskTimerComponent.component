@@ -1,0 +1,79 @@
+<apex:component controller="TaskTimerController" allowDml="true">
+    <apex:stylesheet value="{!URLFOR($Resource.TaskTimerResource, 'style/timerStyle.css')}"/>        
+    <apex:includeScript value="{!URLFOR($Resource.TaskTimerResource, 'js/jquery-1.10.1.min.js')}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.TaskTimerResource, 'js/timerJS.js')}"/>  
+    <head>       
+        <script>          
+            var previousTime = '{!duration}'; 
+            var previousSeconds = getPreviousSeconds(previousTime);
+            var timeStamp = previousTime; 
+            var timeStampWOSecs = timeStamp.substring(0,5);
+            var seconds = 0;
+            var minutes = 0;
+            var hours = 0;    
+            var timerOn = false;
+          
+            $(document).ready(function(){ 
+                bindEvents();  
+            });
+          
+            // prevents focus on date picker 
+            function setFocusOnLoad() {}
+            
+            function isNumber(evt) {
+                evt = (evt) ? evt : window.event;
+                var charCode = (evt.which) ? evt.which : evt.keyCode;
+                if (charCode == 44){
+                    return true;
+                }
+                if ( charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body onbeforeunload="showMessage()">       
+        <apex:form id="timerForm">
+            <apex:actionFunction name="saveTime" action="{!SaveTime}" reRender="duration">
+                <apex:param name="timeToAdd" value="" />
+            </apex:actionFunction>
+            <apex:actionFunction name="saveTimeAndClose" action="{!SaveTime}" reRender="duration" oncomplete="window.open('{!TaskURL}','_parent');">
+                <apex:param name="timeToAdd" value="" />
+            </apex:actionFunction>
+            <apex:pageMessages />  
+            <apex:sectionHeader title="Timer" subtitle="Task: {!taskSubject}" />          
+            <apex:pageBlock rendered="{!NOT(showTimer)}" mode="edit" title="Log Time">                 
+                <apex:pageBlockSection title="Task Time" columns="1">                       
+                    <apex:inputField value="{!timerActivity.Billable__c}"/>
+                    <apex:inputField value="{!timerActivity.Date__c}"/> 
+                    <apex:inputField value="{!timerActivity.Duration__c}" style="width:200px;" onkeypress="return isNumber(event)"  />                                 
+                    <apex:inputField value="{!timerActivity.Description__c}" style="width:200px;"/>
+                </apex:pageBlockSection>      
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="Save" rerender="timerForm" onclick="toggleBtn();" oncomplete="toggleBtn();reloadDuration('{!duration}'); "/>
+                    <input type="button" class="btn" value="Back" onclick="window.history.back();" />
+                </apex:pageBlockButtons>  
+            </apex:pageBlock>   
+          
+            <apex:pageBlock rendered="{!showTimer}" mode="maindetail" title="Log Details">    
+                <apex:pageBlockSection title="Project Time" columns="2" collapsible="false" showHeader="false" >
+                    <apex:outputText label="Task"><a href="/{!taskId}" id="taskSubject">{!taskSubject}</a></apex:outputText>
+                    <apex:inputCheckbox value="{!timerActivity.Billable__c}" disabled="true"/>
+                    <apex:outputField value="{!timerActivity.Date__c}"></apex:outputField>
+                        <apex:outputField value="{!timerActivity.Duration__c}"></apex:outputField> 
+                    <apex:outputField value="{!timerActivity.Description__c}"></apex:outputField>
+                </apex:pageBlockSection>
+                    <apex:outputPanel layout="block" styleClass="TimerBox">
+                        <apex:outputPanel layout="inline" styleClass="TimerBoxTitle">Timer</apex:outputPanel>                      
+                        <apex:outputPanel layout="block" id="timer" style="margin:15px;">
+                            <div id="timeCount"></div>
+                            <input type="button" id="start" value="Start" class="btn" style="margin-top:15px;" /> 
+                        </apex:outputPanel> 
+                    </apex:outputPanel>
+            </apex:pageBlock>               
+        </apex:form>
+        <div id="loadingDiv" class="overlay" style="display:none"><apex:image id="ajaxSpinner"  value="{!URLFOR($Resource.OverlayResource, 'images/loadinfo.gif')}" styleClass="loader"/></div>
+    </body>
+    
+</apex:component>

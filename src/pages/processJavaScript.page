@@ -1,0 +1,17 @@
+<apex:page standardController="Process__c">
+<script type="text/javascript">
+function checkTaskCreated(processStepid, bTaskCreated)
+{
+    alert('here');
+    if (bTaskCreated == 'Y')
+    {
+        alert('Created');
+    }
+    else
+    {
+        alert("Not Created");
+    }
+}
+
+</script>
+</apex:page>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>application/pdf</contentType>
+    <description>This document explains how to customize the Process Engine to utilize Assign To Roles that are tailored for your firm.</description>
+</StaticResource>

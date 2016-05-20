@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>application/pdf</contentType>
+    <description>This document details the procedure for maintaining the volume of Task History records and explains how to extract/delete the records from XLR8 and store them in your document management system or server.</description>
+</StaticResource>

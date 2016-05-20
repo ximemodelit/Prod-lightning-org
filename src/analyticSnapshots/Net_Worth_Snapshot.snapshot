@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnalyticSnapshot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Snapshot runs the XLR8 Net Worth Snapshot report and creates records in the Net Worth History object.</description>
+    <mappings>
+        <sourceField>ACCOUNT_ID</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Net_Worth_History__c.Entity__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>Account.Net_Worth_Adjusted__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Net_Worth_History__c.Net_Worth_Adjusted__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>Account.Net_Worth__c</sourceField>
+        <sourceType>tabular</sourceType>
+        <targetField>Net_Worth_History__c.Net_Worth__c</targetField>
+    </mappings>
+    <mappings>
+        <sourceField>ExecutionTime</sourceField>
+        <sourceType>snapshot</sourceType>
+        <targetField>Net_Worth_History__c.Snapshot_Date__c</targetField>
+    </mappings>
+    <name>Net Worth Snapshot</name>
+    <runningUser>angelica@xlr8prod.org</runningUser>
+    <sourceReport>XLR8/Net_Worth_Snapshot_Report</sourceReport>
+    <targetObject>Net_Worth_History__c</targetObject>
+</AnalyticSnapshot>

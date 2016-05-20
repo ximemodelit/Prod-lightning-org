@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_CNTC_FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_BIRTHDATE</field>
+    </columns>
+    <columns>
+        <field>FK_$Contact.Age_EOY__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Contact.Date_Turns_70_5__c</field>
+    </columns>
+    <description>XLR8 Report of all clients whose age is greater than or equal to 70.5 at the end of the current year.</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Contact.Inactive__c</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Contact.Age_EOY__c</column>
+            <operator>greaterOrEqual</operator>
+            <value>70.5</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ACCOUNT.NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>RMD Members</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$XLR8_Assets_Liabilities__c@XLR8_Assets_Liabilities__c.RMD_Member__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>FK_$Contact.Date_Turns_70_5__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

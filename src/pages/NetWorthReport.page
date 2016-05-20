@@ -1,0 +1,18 @@
+<apex:page standardController="Account" extensions="ReportIDController">
+ <script type="text/javascript">
+      function OpenReport(url){
+           //00OG0000006gpsD?pv0={!Account.Entity_ID_18__c}
+           var url = '/'+url+'?pv0={!Account.Entity_ID_18__c}';
+           window.parent.location.replace(url);
+           //window.location.reload();
+       }
+</script>
+  <H1>Net Worth</H1>
+    <!--This is: NetWorthReport -->
+ <apex:outputLink onclick="OpenReport('{!XLR8NetWorthID}');">
+ <analytics:reportChart reportId="{!XLR8NetWorthReportVFID}" 
+                         filter="{column:'{!colAccountEntityID18}', operator:'equals', value:'{!Account.Entity_ID_18__c}'},
+                         {column:'{!colAssAndLblIncldnNW}', operator:'equals', value:'1'}" 
+                         size="tiny" cacheResults="false"></analytics:reportChart>
+ </apex:outputLink>
+  </apex:page>

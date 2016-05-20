@@ -1,0 +1,15 @@
+<apex:page standardController="Process__c" extensions="HandleOwnerNotification" >
+  <apex:form >
+    <apex:actionFunction name="handleMailNotification" action="{!handleMailNotification}" rerender="errors-container"/>
+  </apex:form>
+ 
+	<script type="text/javascript">
+		handleMailNotification();
+	</script>
+
+	<apex:form id="errors-container">
+		<apex:pageMessages />
+		<apex:commandLink value="Go to Process" action="/{!processId}" rendered="{! init == false}"/>
+	</apex:form>
+	
+</apex:page>

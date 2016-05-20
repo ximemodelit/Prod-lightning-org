@@ -1,0 +1,66 @@
+<apex:component controller="DataMoverStep2ComponentController" allowDML="true">
+	 <apex:attribute name="ComponentPageController" type="DataMoverPageController" assignTo="{!pageController}" description="The controller for the page." />
+	 <div id="step2component" >
+		<div id="navBarContainer" class="container">
+	    	<ul id="navBar" class="nav nab-tabs nav-justified">
+	        	<li class="allNavItems inactiveNavItem">1. Package</li>
+	            <li class="allNavItems currentNavItem">2. Object Mapping</li>
+	            <li class="allNavItems inactiveNavItem">3. Field Mapping</li>
+	            <li class="allNavItems inactiveNavItem">4. Schedule Job</li>
+	        </ul>
+	    </div>
+	    <div class="container">
+	    	<div class="titles">
+	        	<h2>Select Objects</h2>
+	        </div>
+	        <div class="content">
+	        	<p class="infoText">Select the objects to be mapped:</p>
+					<apex:form >
+					<apex:actionFunction name="goToStep3" action="{!goToStep3From2}" rerender="componentContainer"></apex:actionFunction>
+					<apex:actionRegion > 
+	        		<div class="jumbotron diffBackColor">
+	        			<div id="showPackage">
+			        		<label id="packLbl">Package:&nbsp;</label>
+				            <apex:outputText value="{!pageController.selectedPackage}"></apex:outputText>
+			            </div>
+			            <p class="errorMessage"><apex:outputText id="errorMsgTxt" rendered="{!pageController.noObjectSelected}">No object was selected.</apex:outputText></p> 
+			            <apex:dataTable id="tableOfObjects" value="{!pageController.srcTrgWrappers}" var="wrap" styleClass="objectTable" border="2px" headerClass="tableHeader" rowClasses="oddRow, evenRow">
+			            	<apex:column styleClass="objectTableColSrc">
+			            		<apex:facet name="header"> <span>{!pageController.selectedPackage}</span> Objects (Source)</apex:facet>
+			            		<apex:outputText value="{!wrap.sourceLabel}"></apex:outputText>
+			            	</apex:column>
+			            	<apex:column styleClass="objectTableColTrg">
+			            		<apex:facet name="header">
+			            			XLR8 Objects (Target)
+			            		</apex:facet>
+			            		<apex:selectList id="sourceLabels" value="{!wrap.targetLabel}" multiselect="false" size="1" styleClass="btn-default selectLists">
+			            			<apex:selectOptions value="{!pageController.OptionsTrgt}"/>
+			            		</apex:selectList>		            		
+			            	</apex:column>
+			            </apex:dataTable>
+			            <apex:outputPanel styleClass="securitiesPanel">
+			            	<label>Import securities?</label>
+			            	<apex:inputCheckbox id="securitiesCheckbox" styleClass="checkbox" value="{!securitiesChecked}" onclick="showListObjectsToMapSecurity()"></apex:inputCheckbox>
+			            	<div id="hidingDiv" class="invisible">
+			            		<label>Source object:</label>
+			            		<apex:selectList id="mappedToSecurity" value="{!securitiesObject.sourceLabel}" size="1" styleClass="btn-default selectLists">
+			            			<apex:selectOptions value="{!pageController.OptionsSrc}"/>
+			            		</apex:selectList>
+			            	</div>	
+			            </apex:outputPanel>
+			        </div>
+			        <div class="divButtons">
+			        	<apex:commandButton styleClass="nextAndBackButton" value="Back" action="{!goBackToStep1}" onclick="toggleDiv();"/>
+						<input type="button" class="nextAndBackButton btnSfAlike" value="Next" onclick="toggleDiv();validateFieldsStep2();"/>
+						<!-- <apex:CommandButton styleClass="nextAndBackButton" value="Next" action="{!goToStep3From2}" rerender="componentContainer" onClick="toggleDiv();scrollUp();"/>	
+						 -->
+					</div>
+					</apex:actionRegion>
+				</apex:form>
+	        </div>
+	    </div>
+    </div>
+    <div id="loadingDiv" class="overlay doNotDisplay">
+    	<apex:image id="loadingImg" url="{!URLFOR($Resource.DataMoverResources, 'LoadingGif.gif')}" styleClass="loader"/>
+    </div>
+</apex:component>

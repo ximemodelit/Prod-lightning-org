@@ -1,0 +1,4 @@
+<apex:page >
+<IMG SRC="{!$Resource.XLR8HomeSidebarLogo}">
+</IMG>
+</apex:page>

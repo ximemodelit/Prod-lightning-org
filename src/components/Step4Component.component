@@ -1,0 +1,148 @@
+<apex:component controller="DataMoverStep4ComponentController" allowDML="true">
+	<apex:attribute name="ComponentPageController" type="DataMoverPageController" assignTo="{!pageController}" description="The controller for the page."/> 
+	<script>
+		window.setTimeout(function(){
+			$( "input[id$=startDateInput]" ).datepicker({
+				changeMonth: true,
+				changeYear: true, 
+				minDate: 0
+			});
+	    	$( "input[id$='endDateInput']" ).datepicker({
+	    		changeMonth: true,
+	    		changeYear: true, 
+				minDate: 0
+	    	});
+	    	$( "input[id$=startDateInput]" ).attr('readonly', true);
+	    	$( "input[id$=endDateInput]" ).attr('readonly', true);
+    	}, 1000);
+	</script>
+	<apex:messages id="errors"/>
+	<div id="step4component" >
+		<div id="navBarContainer" class="container">
+	    	<ul id="navBar" class="nav nab-tabs nav-justified">
+	        	<li class="allNavItems inactiveNavItem">1. Package</li>
+	            <li class="allNavItems inactiveNavItem">2. Object Mapping</li>
+	            <li class="allNavItems inactiveNavItem">3. Field Mapping</li>
+	            <li class="allNavItems currentNavItem">4. Schedule Job</li>
+	        </ul>
+	    </div>
+	    <div class="container">
+	    	<div class="titles">
+	        	<h2>Job Frequency</h2>
+	        </div> 
+	        <div class="content">
+	        	<apex:form >
+	        	<apex:actionFunction name="checkJobName" action="{!checkIfScheduledJobNameAlreadyExists}" rerender="JobAlreadyExistsPanel" oncomplete="checkIfMappingCanBeFinished({!pageController.jobExists});">
+	        		<apex:param name="jobName" value=""/>
+	        	</apex:actionFunction>
+	        	<apex:actionRegion >
+		        	<p class="infoText">Select the frequency to run the mapping:</p>
+		        	<div class="jumbotron diffBackColor">
+		        		<apex:outPutPanel id="panelToRerender">
+			        		<apex:outputPanel rendered="{!mappingObjectNamesOfObjectsWithJobs.size > 0}">
+			        			<apex:outputText styleClass="warning" value="The creation of this scheduled job would affect the jobs already created for other object mappings. They will be replaced with the new job. These objects are:" ></apex:outputText>
+			        			<apex:repeat value="{!mappingObjectNamesOfObjectsWithJobs}" var="mapObj" >
+			        				<p class="warning"><apex:outputText value="{!mapObj}"/></p>
+			        			</apex:repeat>
+		        			</apex:outputPanel>
+		        			<apex:outputPanel id="JobAlreadyExistsPanel">
+		        				<p class="errorMessageForJob">
+		        					<apex:outputText value="The selected Job Name already exists" rendered="{!pageController.jobExists}"></apex:outputText>
+		        				</p>
+		        			</apex:outputPanel>
+			        		<p id="errorsFromJs" class="errorMessageForJob"></p>
+			        		<div id="freqDaysMonths">
+			        			<div id="divForJobName">
+			        				<label class="labelsForStartend">Job Name:</label>
+			        				<apex:inputText id="jobNameInput" styleClass="selectLists" value="{!jobName}" />
+			        			</div> 
+			        			<apex:outputPanel id="panelToRerenderFreq">
+						            <apex:outputPanel styleClass="freq">
+						            	<apex:selectRadio layout="pageDirection" value="{!weeklyOrMonthly}" > 
+						            		<apex:selectOption id="weeklyOpt" itemValue="Weekly" itemLabel="Weekly"/>
+						            		<apex:selectOption id="monthlyOpt" itemValue="Monthly" itemLabel="Monthly"/>
+						            		<apex:actionSupport event="onchange" action="{!changePanel}" />
+						            	</apex:selectRadio>
+						            </apex:outputPanel>
+						            <apex:outputPanel id="WeekInfo" styleClass="weekClass" rendered="{!showWeekInfo}">
+						            	<p>Repeat every week on:</p>
+						            	<apex:selectCheckboxes id="daysOfWeek" value="{!selectedDaysOfTheWeek}" layout="pageDirection" >
+							            	<apex:selectOptions value="{!DaysOfWeek}" />
+							        	</apex:selectCheckboxes>
+						            </apex:outputPanel>
+						            <apex:outputPanel id="MonthInfo" styleClass="monthClass" rendered="{!showMonthInfo}">
+						            	<p>Repeat every month on:</p>
+						            	<div>
+						            		<apex:selectRadio id="daysOrDate" value="{!dateOrDays}" layout="pageDirection" > 
+							            		<apex:selectOption itemValue="Date" itemLabel="Day of Certain Week"/>
+							            		<apex:selectOption itemValue="Days" itemLabel="Date"/>
+							            		<apex:actionSupport event="onchange" action="{!changePanelDayDate}" rerender="dayAndDatePanel"/>
+							            	</apex:selectRadio>	
+							            	<apex:outputPanel id="dayAndDatePanel">
+								            	<apex:outputPanel id="dayPanel" rendered="{!showDayPanel}">
+								            		<span>On day </span>
+								            		<apex:selectList value="{!selectedDate}" size="1" styleClass="selectLists"> 
+								            			<apex:selectOptions value="{!DaysOfMonth}"/>
+								            		</apex:selectList>
+								            		<span> of every month.</span>
+								            	</apex:outputPanel>	
+								            	<apex:outputPanel id="datePanel" rendered="{!showDatePanel}">
+								            		<span>On the </span>
+								            			<apex:selectList id="selectedWeek" value="{!selectedDayOfMonth}" size="1" styleClass="selectLists"> 
+								            				<apex:selectOptions value="{!Ordinals}"/>
+								            			</apex:selectList>
+								            			<apex:selectList value="{!selectedDayWeekForMonthly}" size="1" styleClass="selectLists"> 
+								            				<apex:selectOptions value="{!DaysOfWeek}"/>
+								            			</apex:selectList>
+								            		<span>of every month.</span>
+							            		</apex:outputPanel> 
+							            	</apex:outputPanel>	 
+						            	</div>
+						            </apex:outputPanel>
+						        </apex:outputPanel>
+					        </div>	
+					    </apex:outPutPanel>
+			            <div id="startTime">
+			            	<label class="labelsForStartend">Start Date: </label>
+			            	<apex:input id="startDateInput"  styleClass="selectLists datePickers" value="{!startDate}" ></apex:input>
+			            	<label class="labelsForStartend">End Date: </label>
+			            	<apex:input id="endDateInput"  styleClass="selectLists datePickers" value="{!endDate}" ></apex:input>
+			            	<label class="labelsForStartend">Preferred Start Time: </label>
+			            	<apex:selectList id="prefStartTimeSelect" value="{!timeToStart}" size="1" styleClass="selectLists"> 
+				            	<apex:selectOptions value="{!HoursOfDay}"/>
+				            </apex:selectList>
+			            </div>
+			        </div>  
+			        <div class="divButtons">
+				        <apex:commandButton styleClass="buttonsStep4" value="Back" action="{!goBackToStep3}" onclick="toggleDiv();highlightFirstSelectedObject();"/>
+			            <input type="button" class="buttonsStep4 btnSfAlike" value="Save All" onclick="validateFieldsFor4();" />
+	            	</div>  
+	            	</apex:actionRegion>
+	            	<div id="successMsg" class="modal fade bs-example-modal-sm" >
+			        	<apex:outputPanel id="msgPanel">
+			        		<div class="modal-dialog modal-sm">
+			        			<div class="modal-content">
+			        				<div class="modal-header">
+			        					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			        						<span aria-hidden="true">&times;</span>
+			        					</button>
+										<h4>Mapping finished</h4>
+									</div>
+									<div class="modal-body popUpContainer">
+										<p>Mapping job has been scheduled. It will begin when selected.</p>							
+									</div>
+									<div id="acceptDiv" class="modal-footer">
+										<button id="acceptBtn" class="btn btn-primary closeBtns" data-dismiss="modal">Accept</button>
+									</div>
+								</div>
+							</div> 
+						</apex:outputPanel>
+					</div>
+	            </apex:form>
+	        </div>
+	    </div>
+    </div>
+    <div id="loadingDiv" class="overlay doNotDisplay">
+    	<apex:image id="loadingImg" url="{!URLFOR($Resource.DataMoverResources, 'LoadingGif.gif')}" styleClass="loader"/>
+    </div>
+</apex:component>

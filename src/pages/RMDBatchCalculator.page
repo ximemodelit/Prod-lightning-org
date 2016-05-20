@@ -1,0 +1,33 @@
+<apex:page controller="RMDBatchCalculatorController">
+    <apex:includeScript value="{!URLFOR($Resource.OverlayResource, 'js/overlay.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.OverlayResource, 'css/overlay.css')}"/>
+    
+    <style>
+        .errors{
+            color: red;
+            text-align:center;
+            font-weight:bold;
+            margin-bottom:12px;
+        }
+    </style>
+    <apex:form id="rmdCalculatorForm">
+        <apex:pageMessages />
+        <apex:pageBlock title="RMD Calculator" rendered="{!confirmationMsg == ''}"> 
+            <apex:pageBlockSection columns="1" title="Details" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Year" />
+                    <apex:inputText id="inputYear" value="{!year}" required="true" maxLength="4"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Notification Email" />
+                    <apex:outputText value="{!$User.Email}" />
+                </apex:pageBlockSectionItem>
+                <apex:outputText value="Disclaimer: This calculation is based on the Required Minimum Distribution (RMD) Worksheets provided by the Internal Revenue Service as of January 26, 2015. Each RMD must be recalculated every year and certain exceptions may exist that may affect the table used or the outcome of the calculations. The accuracy of this tool and its calculation is not guaranteed and is not intended as a substitute for specific legal, investment planning, or individualized tax advice."></apex:outputText>
+            </apex:pageBlockSection>    
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!calculateRMDAmount}" rerender="rmdCalculatorForm" value="Calculate" onclick="showOverlay();" oncomplete="hideOverlay();"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <div id="loadingDiv" class="overlay" style="display:none"><apex:image id="ajaxSpinner"  value="{!URLFOR($Resource.OverlayResource, 'images/loadinfo.gif')}" styleClass="loader"/></div>
+</apex:page>

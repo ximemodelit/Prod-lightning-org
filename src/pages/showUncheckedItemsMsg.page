@@ -1,0 +1,25 @@
+<apex:page controller="ShowUncheckedItemsMsgController">
+<apex:includeScript value="{!$Resource.jquery}"/>
+<apex:includeScript value="{!$Resource.jqueryUi}"/>
+<apex:stylesheet value="{!$Resource.jqueryUiDialogCSS}"/>
+<apex:stylesheet value="{!$Resource.jqueryUIaccordion}"/>
+<apex:stylesheet value="{!$Resource.jqueryUiCore}"/>
+<apex:stylesheet value="{!$Resource.jqueryUIResizable}"/>
+<apex:stylesheet value="{!$Resource.jqueryUiTheme}"/>
+
+<apex:form >
+<apex:actionFunction name="redirectToProcess" action="{!back}" />
+<apex:pageMessages />
+</apex:form> 
+<div id ="dialogDiv" title ="No Steps Selected" ></div>
+<script type="text/javascript">
+
+function showDialog()
+{
+    $( "#dialogDiv" ).html('No Process Steps have been selected. Please select at least one record.');
+    $( "#dialogDiv" ).dialog({ buttons: {"Ok": function() { $(this).dialog("close"); redirectToProcess();}} });
+}
+  
+showDialog();
+</script>
+</apex:page>

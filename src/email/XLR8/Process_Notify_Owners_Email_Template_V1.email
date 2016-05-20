@@ -1,0 +1,12 @@
+<messaging:emailTemplate subject="Alert: Step Assignment in {!relatedTo.Name} Process" recipientType="User" relatedToType="Process__c">
+<messaging:htmlEmailBody >
+You are receiving this email because you are assigned a step in the following process:
+<br></br>
+<br></br>
+Process: {!relatedTo.Name}
+<br></br>
+Click <apex:outputLink value="/{!relatedTo.Id}"> here
+</apex:outputLink> to go to the process detail page.
+
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

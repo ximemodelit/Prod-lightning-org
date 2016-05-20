@@ -1,0 +1,41 @@
+<apex:component controller="DataMoverStep1ComponentController">
+	<apex:attribute name="ComponentPageController" type="DataMoverPageController" assignTo="{!pageController}" description="The controller for the page." />
+	 <div id="step1component" >
+		<div id="navBarContainer" class="container">
+	    	<ul id="navBar" class="nav nab-tabs nav-justified">
+	        	<li class="allNavItems currentNavItem">1. Package</li>
+	            <li class="allNavItems inactiveNavItem">2. Object Mapping</li>
+	            <li class="allNavItems inactiveNavItem">3. Field Mapping</li>
+	            <li class="allNavItems inactiveNavItem">4. Schedule Job</li>
+	        </ul>
+	    </div>
+	    <div class="container">
+	    	<div class="titles">
+	        	<h2>Select Package</h2>
+	        </div>
+	        <div class="content">
+	        	<apex:form >
+		        	<div id="choosePackageDiv" class="form-inline">	        		
+		            	<label id="packageLbl" for="selectPackage"><h3>Package:</h3></label>
+		            	<apex:actionRegion >
+			            	<apex:selectList value="{!pageController.selectedPackage}" styleClass="form-control selectPackage" size="1" multiselect="false" >
+			            		<apex:selectOptions value="{!Packages}"/>
+			            	</apex:selectList> 
+			            	<p id="message">
+			            		<apex:repeat value="{!errorMsgs}" var="error" rendered="{!errorMsgs.size > 0}">
+			            			<apex:outputText styleClass="notAvailablePack" value="{!error}"/>
+			            		</apex:repeat>
+				            </p>
+				            <div class="divButtons">
+			           			<apex:commandButton styleClass="nextAndBackButton" action="{!goToStep2From1}" value="Next" id="nextOne" rerender="componentContainer" onClick="toggleDiv();" />
+		           			</div>
+	           			</apex:actionRegion>	            	
+		            </div>
+	           </apex:form>
+	        </div>
+	    </div>
+    </div>
+    <div id="loadingDiv" class="overlay doNotDisplay">
+    	<apex:image id="loadingImg" url="{!URLFOR($Resource.DataMoverResources, 'LoadingGif.gif')}" styleClass="loader"/>
+    </div>
+</apex:component>

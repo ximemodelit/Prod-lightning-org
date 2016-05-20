@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This is intended to be a one-time setting to turn on Predecessor functionality for existing XLR8 users receiving package upgrade XLR8 V3.0.  This setting turns Predecessor functionality on for any newly instantiated processes and will not affect already existing processes.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>UsePredecessorTasks__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Use Predecessor Tasks</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>UseTaskHistory__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Task History</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Settings</label>
+</CustomObject>

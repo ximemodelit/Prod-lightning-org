@@ -1,0 +1,13 @@
+<apex:page standardController="Process_Step__c" recordSetVar="steps" sidebar="false"
+ extensions="HandleMassComplete"  >
+<apex:form >
+<apex:actionFunction name="massComplete" action="{!firstItem}" />
+<apex:pageMessages />
+</apex:form>
+
+<script type="text/javascript">
+massComplete();
+</script>
+
+
+</apex:page>

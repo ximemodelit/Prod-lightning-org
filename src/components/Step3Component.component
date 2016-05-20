@@ -1,0 +1,227 @@
+<apex:component controller="DataMoverStep3ComponentController" allowDML="true">
+    <script>
+        highlightFirstSelectedObject();
+        window.setTimeout(function(){
+            triggerOnChangeOnTrgExternalId();
+            triggerTheOnChangeEvents();
+            $('#errorMsgs').empty();
+            highlightFirstSelectedObject();
+        }, 1000);
+    </script>
+    <apex:attribute name="ComponentPageController" type="DataMoverPageController" assignTo="{!pageController}" description="The controller for the page."/>
+    <apex:variable value="{!pageController.currentObject}" var="current"/> 
+    <apex:variable value="{!pageController.currentXlr8}" var="crrtXlr8" /> 
+    <apex:variable value="{!pageController.currentSource}" var="crrtSource"/>
+    <div id="step3component" >
+        <div id="navBarContainer" class="container">
+            <ul id="navBar" class="nav nab-tabs nav-justified">
+                <li class="allNavItems inactiveNavItem">1. Package</li>
+                <li class="allNavItems inactiveNavItem">2. Object Mapping</li>
+                <li class="allNavItems currentNavItem">3. Field Mapping</li>
+                <li class="allNavItems inactiveNavItem">4. Schedule Job</li>
+            </ul> 
+        </div> 
+        <div class="container">
+            <div class="titles">
+                <h2>Select Fields</h2> 
+            </div>
+                <apex:form >
+                    <apex:actionFunction name="showPopupValues" action="{!popUps}" rerender="chckPickPanel" oncomplete="showPopupBox()">
+                        <apex:param name="fieldSrc" assignTo="{!currentSrcFieldToShow}" value=""/>
+                        <apex:param name="fieldTrg" assignTo="{!currentTrgFieldToShow}" value=""/>
+                    </apex:actionFunction>
+                    <apex:actionFunction name="validateReqs" action="{!checkThatRequiredFieldsAndExtIdAreCompleted}" oncomplete="checkIfUserCanContinueToStep4({!externalIdsNotFilled}, {!requiredFieldsNotFilled}, {!differentReferences});" rerender="serverErrorsPanel"></apex:actionFunction>
+                    <apex:actionFunction name="goToStep4" action="{!goToStep4From3}"></apex:actionFunction>
+                    <apex:actionFunction name="updateObjectWrapper" action="{!updateObjectWrapper}" rerender="fieldsPanel" oncomplete="toggleDiv();"/>
+    
+                    <div class="content"> 
+                        <p class="infoText">Select the fields to be mapped for each object:</p>
+                        <div id="showPackage">
+                            <label id="packLbl">Package:&nbsp;</label>
+                            <apex:outputText value="{!pageController.selectedPackage}"></apex:outputText>                   
+                        </div >
+                        <table id="sidebarAndFields">
+                            <tr>
+                            <td id="objSidebar">
+                                <ul class="nav nav-pills nav-stacked" >
+                                    <apex:variable var="num" value="{!0}"/>
+                                    <apex:repeat value="{!pageController.srcTrgWrappers}" var="wr">
+                                        <li id="li{!num}" class="sidebarItem">
+                                            <apex:commandLink styleClass="sidebarItemLink" value="{!wr.sourceLabel}" action="{!changeCurrentObject}" rerender="fieldsPanel" oncomplete="hideRowThatIsExternalId();triggerTheOnChangeEvents();toggleDiv();showMessageIfSecurity();" onclick="toggleDiv();changeSelectedObject($(this).parent().attr('id'));">
+                                                 <apex:param name="newCurrent" value="{!wr.sourceLabel}" assignTo="{!newCurrent}"/>  
+                                            </apex:commandLink> 
+                                        </li>
+                                        <apex:variable value="{!num + 1}" var="num"/>   
+                                    </apex:repeat>
+                                </ul>
+                            </td>
+                            <td id="fieldsContainer" class="diffBackColor">
+                                <apex:outputPanel id="fieldsPanel">
+                                    <apex:outputPanel id="serverErrorsPanel" styleClass="errorMsgs centerWithPositionLeft25" >
+                                        <apex:outputText value="All external ids must be selected." rendered="{!externalIdsNotFilled}"></apex:outputText>
+                                        <apex:outputText value="The mapped REFERENCE fields refer to different objects." rendered="{!differentReferences}"></apex:outputText>
+                                    </apex:outputPanel>
+                                    <p id="warning" class="errorMsgs"></p>
+                                    <div id="changeTarget" class="centerTargetObject" >
+                                        <apex:outputLabel >Target Object:</apex:outputLabel>
+                                        <span id="targetObject">{!current.targetLabel}</span>  
+                                    </div>  
+                                    <div id="setExtId">
+                                        <table>
+                                        <caption><h4>External Id:</h4></caption>                                        
+                                            <tr>
+                                                <td>
+                                                    <span class="subtitle">Target:</span>
+                                                    <apex:SelectList id="trgExIdRequiredField" value="{!current.targetExtIdField}" size="1" styleClass="btn-default selectLists" onchange="showTypeForExtIdFields(this); hideRowThatIsExternalId();" required="true">
+                                                        <apex:SelectOptions value="{!TargetFieldLabelsForCurrentWithoutBooleansAndPicklists}"/>
+                                                    </apex:SelectList> 
+                                                </td>
+                                                <td>
+                                                    <span id="typeOfSourceReq" class="fieldText"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="subtitle">Source:</span>
+                                                    <apex:SelectList id="srcExIdRequiredField" value="{!current.sourceExtIdField}" size="1" styleClass="btn-default selectLists" onchange="showTypeForExtIdFields(this)" required="true">
+                                                        <apex:SelectOptions value="{!SourceFieldLabelsForCurrentWithoutBooleansAndPicklists}" />
+                                                    </apex:SelectList>
+                                                </td>   
+                                                <td>
+                                                    <span id="typeOfSourceReq" class="fieldText"></span>
+                                                </td>                               
+                                            </tr>
+                                        </table>                                            
+                                    </div>
+                                    <apex:outputPanel rendered="{!showRequired}">   
+                                        <div id="requiredFields" >
+                                            <table>
+                                                <caption><h4>Required Fields:</h4></caption>
+                                                <tr>
+                                                    <th class="subtitle">Target Name</th>
+                                                    <th class="subtitle">Type</th>
+                                                    <th class="subtitle">Source Name</th>
+                                                    <th class="subtitle">Type</th>                                      
+                                                </tr>
+                                                <apex:repeat value="{!current.allMatchingFieldsRequired}" var="reqFields">
+                                                    <tr>
+                                                        <td><apex:outputText value="{!current.allMatchingFieldsRequired[reqFields].trgFieldLbl}" styleClass="fieldText"></apex:outputText></td>
+                                                        <td><apex:outputText value="{!current.allMatchingFieldsRequired[reqFields].trgFieldType}" styleClass="fieldText"></apex:outputText></td>
+                                                        <td>
+                                                            <apex:SelectList id="srcRequiredField" value="{!current.allMatchingFieldsRequired[reqFields].srcFieldLbl}"  size="1" multiselect="false" styleClass="btn-default selectLists" onchange="showType(this)">
+                                                                <apex:SelectOptions value="{!SourceFieldLabelsForCurrent}"/>
+                                                            </apex:SelectList>                                  
+                                                        </td>
+                                                        <td><span id="typeOfSourceReq" class="fieldText"></span></td>
+                                                        <td class="hiddenBtn">
+                                                            <a onclick="showPopupValuesJS(this, '{!current.allMatchingFieldsRequired[reqFields].trgFieldLbl}')" class="btn fieldText valuesBtns">Values</a> 
+                                                        </td>
+                                                        <td class="filledValuesBox doNotDisplay">{!current.allMatchingFieldsRequired[reqFields].hasMoreThanOneCheckboxPicklist}</td>                                        
+                                                    </tr>   
+                                                </apex:repeat>
+                                            </table>
+                                        </div>
+                                    </apex:outputPanel> 
+                                    <div id="optionalFields">
+                                        <table class="tableFields">
+                                            <caption><h4>Optional Fields:</h4></caption>
+                                            <tr>
+                                                <th class="subtitle">Target Name</th>
+                                                <th class="subtitle">Type</th>
+                                                <th class="subtitle">Source Name</th>
+                                                <th class="subtitle">Type</th>
+                                                <th class="subtitle"></th>
+                                                <th class="subtitle doNotDisplay">Filled Values</th>                                                
+                                            </tr>   
+                                            <apex:variable value="{!1}" var="num"/>                                 
+                                            <apex:repeat value="{!current.allMatchingFieldsNotRequired}" var="notReqFields">
+                                                <tr id="row{!num}">                                             
+                                                    <td><apex:outputText value="{!current.allMatchingFieldsNotRequired[notReqFields].trgFieldLbl}" styleClass="fieldText"></apex:outputText></td>
+                                                    <td><apex:outputText value="{!current.allMatchingFieldsNotRequired[notReqFields].trgFieldType}" styleClass="fieldText"></apex:outputText></td>                                                                                  
+                                                    <td>
+                                                        <apex:SelectList id="optionalField" value="{!current.allMatchingFieldsNotRequired[notReqFields].srcFieldLbl}" size="1" styleClass="btn-default selectLists" onchange="showType(this); " multiselect="false">
+                                                            <apex:selectOptions value="{!SourceFieldLabelsForCurrent}"/>
+                                                        </apex:SelectList>
+                                                    </td>
+                                                    <td><span id="typeOfSourceReq" class="fieldText"></span></td>
+                                                    <td class="hiddenBtn">
+                                                        <a onclick="showPopupValuesJS(this, '{!current.allMatchingFieldsNotRequired[notReqFields].trgFieldLbl}')" class="btn fieldText valuesBtns">Values</a> 
+                                                    </td>
+                                                    <td class="filledValuesBox doNotDisplay">{!current.allMatchingFieldsNotRequired[notReqFields].hasMoreThanOneCheckboxPicklist}</td>                                              
+                                                </tr> 
+                                            <apex:variable value="{!num + 1}" var="num"/>   
+                                            </apex:repeat>                                      
+                                        </table>
+                                    </div> 
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>    
+                    <div id="nextStep3" class="divButtons">    
+                        <apex:commandButton styleClass="nextAndBackButton" action="{!goBackToStep2}" value="Back" onclick="toggleDiv();"/>    
+                        <input type="button" class="nextAndBackButton btnSfAlike" value="Next" onclick="validateFields();"/>
+                    </div>
+                    <div id="chckPick" class="modal fade" >
+                        <apex:outputPanel id="chckPickPanel">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4>Checkbox/Picklist Values</h4>
+                                    </div>
+                                    <div class="modal-body popUpContainer">
+                                        <h5>Select the values to be mapped:</h5>
+                                        <table class="tableFields ">
+                                            <tr>
+                                                <th class="centerText">Target Value</th>
+                                                <th class="centerText">Source Value</th>
+                                            </tr>
+                                            <apex:repeat value="{!TargetOneFieldWrapper.matchingValues}" var="vals">
+                                                <tr>
+                                                    <td><apex:outputText value="{!vals.trgValue}" styleClass="fieldText" /></td> 
+                                                    <td>
+                                                        <apex:SelectList id="chckPickRequiredValue" value="{!vals.srcValue}" size="1" styleClass="btn-default selectLists">
+                                                            <apex:SelectOptions value="{!SourceValuesForCurrentField}"/>
+                                                        </apex:SelectList>
+                                                    </td>
+                                                </tr>
+                                            </apex:repeat>
+                                        </table>
+                                    </div>
+                                    <div id="closeBtn" class="modal-footer">
+                                        <button id="closeBtn" class="btn btn-primary closeBtns" data-dismiss="modal" onclick="fillFilledValueBox()">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                    <div id="modalWarning" class="modal fade">
+                        <apex:outputPanel id="warningPanel">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4>Warning</h4>
+                                    </div>
+                                    <div class="modal-body popUpContainer">
+                                        <p>You haven't mapped at least one of the required fields.
+                                        Note that the job execution may fail because of this.</p>
+                                    </div>
+                                    <div id="closeBtn" class="modal-footer">
+                                        <button id="backBtn" class="btn btn-primary closeBtns" data-dismiss="modal">Back</button>
+                                        <button id="closeBtn" class="btn btn-primary closeBtns" data-dismiss="modal" onclick="toggleDiv();goToStep4();">OK</button>
+                                    </div>
+                                </div>  
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+            </apex:form>   
+        </div>
+    </div> 
+    <div id="loadingDiv" class="overlay doNotDisplay">
+        <apex:image id="loadingImg" url="{!URLFOR($Resource.DataMoverResources, 'LoadingGif.gif')}" styleClass="loader"/>
+    </div>
+</apex:component>

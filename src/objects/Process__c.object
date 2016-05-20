@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>editProcess</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>editProcess</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>XLR8 custom object for the Process Engine master record.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AutoCreateTask_ForLayout__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Display an image when &quot;Auto Create Task&quot; is ON</description>
+        <externalId>false</externalId>
+        <formula>IF(
+OR( 
+LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_290)) = &apos;https://xlr8dev-dev-ed.my.salesforce.com/&apos;, 
+LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_290)) = &apos;https://xlr8stage-dev-ed.my.salesforce.com/&apos;,
+LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_290)) = &apos;https://xlr8dev-dev-ed--c.na11.visual.force.com/&apos;) ,
+IF(Auto_Create_Tasks__c, IMAGE(&quot;/resource/Task_image_done&quot;, &quot;Auto Create&quot;,14,14),IMAGE(&quot;/resource/RedCross&quot;, &quot;Do Not Auto Create&quot;,14,14)),
+IF(Auto_Create_Tasks__c, IMAGE(&quot;/resource/XLR8CS__Task_image_done&quot;, &quot;Auto Create&quot;,14,14),IMAGE(&quot;/resource/XLR8CS__RedCross&quot;, &quot;Do Not Auto Create&quot;,14,14))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Auto Create Tasks</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Auto_Create_Tasks__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check this box when you want to auto create tasks for the steps</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box when you want to auto create tasks for the steps</inlineHelpText>
+        <label>Auto Create Tasks</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cancelled_Steps__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cancelled Steps</label>
+        <summaryFilterItems>
+            <field>Process_Step__c.Status__c</field>
+            <operation>contains</operation>
+            <value>Cancelled</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Process_Step__c.Process__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Processes</relationshipLabel>
+        <relationshipName>Processes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(Process_Template__r.Category__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Completed_Steps__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Completed Steps</label>
+        <summaryFilterItems>
+            <field>Process_Step__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Process_Step__c.Process__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Processes</relationshipLabel>
+        <relationshipName>Processes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Deadline__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the target completion date for the entire process.</inlineHelpText>
+        <label>Deadline</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Processes</relationshipLabel>
+        <relationshipName>SuperTasks</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Exclude_From_Auto_Create_Tasks__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Exclude From Auto Create Tasks</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipLabel>Processes</relationshipLabel>
+        <relationshipName>Processes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>NA_Steps__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used for the formula field Process Status</description>
+        <externalId>false</externalId>
+        <label>N/A Steps</label>
+        <summaryFilterItems>
+            <field>Process_Step__c.Status__c</field>
+            <operation>equals</operation>
+            <value>N/A</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Process_Step__c.Process__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Processes</relationshipLabel>
+        <relationshipName>Processes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Percent_Complete__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Total_Steps__c==0,0,(Completed_Steps__c +  NA_Steps__c)/Total_Steps__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Percent Complete</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Process_Template__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Process Template</label>
+        <referenceTo>Process_Template__c</referenceTo>
+        <relationshipLabel>Processes</relationshipLabel>
+        <relationshipName>Processes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Progress__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(
+OR( 
+LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_290)) = &apos;https://xlr8dev-dev-ed.my.salesforce.com/&apos;, 
+LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_290)) = &apos;https://xlr8stage-dev-ed.my.salesforce.com/&apos;) ,
+
+IF(Total_Steps__c==0 || (Completed_Steps__c + NA_Steps__c) == 0,IMAGE(&quot;/resource/white_progress_100&quot;, &quot;white&quot;, 15, 100) &amp; &apos; 0%&apos;, 
+IF(Total_Steps__c == (Completed_Steps__c + NA_Steps__c),IMAGE(&quot;/resource/blue_progress_100&quot;, &quot;green&quot;, 15, 100) &amp; &apos; 100%&apos;, 
+IMAGE(&quot;/resource/blue_progress&quot;, &quot;green&quot;, 15, IF(Total_Steps__c==0,0,( (Completed_Steps__c + NA_Steps__c)/Total_Steps__c)*100)) &amp; IMAGE(&quot;/resource/white_progress&quot;, &quot;white&quot;, 15, 100 - (IF(Total_Steps__c==0,0,( (Completed_Steps__c + NA_Steps__c)/Total_Steps__c)*100) ))&amp; &apos; &apos; &amp; TEXT(ROUND(IF(Total_Steps__c==0,0,( (Completed_Steps__c + NA_Steps__c)/Total_Steps__c)*100),0)) &amp; &apos;%&apos;)),
+
+IF(Total_Steps__c==0 || (Completed_Steps__c + NA_Steps__c) == 0,IMAGE(&quot;/resource/XLR8CS__white_progress_100&quot;, &quot;white&quot;, 15, 100) &amp; &apos; 0%&apos;, 
+IF(Total_Steps__c == (Completed_Steps__c + NA_Steps__c),IMAGE(&quot;/resource/XLR8CS__blue_progress_100&quot;, &quot;green&quot;, 15, 100) &amp; &apos; 100%&apos;, 
+IMAGE(&quot;/resource/XLR8CS__blue_progress&quot;, &quot;green&quot;, 15, IF(Total_Steps__c==0,0,( (Completed_Steps__c + NA_Steps__c)/Total_Steps__c)*100)) &amp; IMAGE(&quot;/resource/XLR8CS__white_progress&quot;, &quot;white&quot;, 15, 100 - (IF(Total_Steps__c==0,0,( (Completed_Steps__c + NA_Steps__c)/Total_Steps__c)*100) ))&amp; &apos; &apos; &amp; TEXT(ROUND(IF(Total_Steps__c==0,0,( (Completed_Steps__c + NA_Steps__c)/Total_Steps__c)*100),0)) &amp; &apos;%&apos;))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Progress</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(OR(Total_Steps__c == 0, AND(Total_Steps__c &gt; 0, Cancelled_Steps__c == 0,  Completed_Steps__c == 0, NA_Steps__c == 0 )), &apos;Not Started&apos;,
+IF(Cancelled_Steps__c &gt; 0, &apos;Cancelled&apos;, 
+IF( Total_Steps__c == (Completed_Steps__c + NA_Steps__c  ), &apos;Completed&apos;, &apos;In Progress&apos;)))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Template_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(Process_Template__r.Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Template Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Steps__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total Steps</label>
+        <summaryForeignKey>Process_Step__c.Process__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <label>Process</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Description__c</columns>
+        <columns>Completed_Steps__c</columns>
+        <columns>NA_Steps__c</columns>
+        <columns>Total_Steps__c</columns>
+        <columns>Progress__c</columns>
+        <columns>Deadline__c</columns>
+        <columns>AutoCreateTask_ForLayout__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Process Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Processes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Completed_Steps__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Steps__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Progress__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Deadline__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AutoCreateTask_ForLayout__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Completed_Steps__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total_Steps__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Progress__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Deadline__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AutoCreateTask_ForLayout__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Description__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Completed_Steps__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Total_Steps__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Progress__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Deadline__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AutoCreateTask_ForLayout__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Description__c</searchFilterFields>
+        <searchFilterFields>Completed_Steps__c</searchFilterFields>
+        <searchFilterFields>Total_Steps__c</searchFilterFields>
+        <searchFilterFields>Progress__c</searchFilterFields>
+        <searchFilterFields>Deadline__c</searchFilterFields>
+        <searchFilterFields>AutoCreateTask_ForLayout__c</searchFilterFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Completed_Steps__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Total_Steps__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Progress__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Deadline__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AutoCreateTask_ForLayout__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Parent_record_cannot_be_blank</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR( 
+AND(Template_Type__c == &apos;Entity&apos;, OR(ISBLANK( Entity__c ), ISCHANGED( Entity__c ))), 
+AND(Template_Type__c == &apos;Contact&apos;, OR(ISBLANK( Contact__c ), ISCHANGED( Contact__c ))), 
+AND(Template_Type__c == &apos;Case&apos;, OR(ISBLANK( Case__c ), ISCHANGED( Case__c ))), 
+AND(Template_Type__c == &apos;Lead&apos;, OR(ISBLANK( Lead__c ), ISCHANGED( Lead__c ))), 
+AND(Template_Type__c == &apos;Opportunity&apos;, OR(ISBLANK( Opportunity__c ), ISCHANGED( Opportunity__c )))
+)</errorConditionFormula>
+        <errorMessage>Parent record cannot be blank or edited</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Notify_Owners</fullName>
+        <availability>online</availability>
+        <description>This button will query the steps in the Process and send an email to all owners of tasks that the Process is starting and that they are responsible for a part of it.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Notify Owners</masterLabel>
+        <openType>replace</openType>
+        <page>processMailNotification</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Sequence_Predecessors</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Sequence &amp; Predecessors</masterLabel>
+        <openType>sidebar</openType>
+        <page>ProcessStepSequence</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Stop_Process</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Stop Process</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.location.href = &quot;{!IF(
+OR( 
+LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_290)) = &apos;https://xlr8dev-dev-ed.my.salesforce.com/&apos;, 
+LEFT($Api.Partner_Server_URL_290, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_290)) = &apos;https://xlr8stage-dev-ed.my.salesforce.com/&apos;) ,
+&quot;/apex/ProcessActions?id=&quot; + Process__c.Id  + &quot;&amp;action=stop&quot;, 
+&quot;/apex/XLR8CS__ProcessActions?id=&quot; + Process__c.Id + &quot;&amp;action=stop&quot;
+)
+}&quot;</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,8 @@
+<apex:page standardController="Process__c" extensions="ProcessStepSequenceController"
+	tabStyle="Process__c">
+<apex:form >
+	<apex:sectionHeader title="Sequence & Predecessors" subtitle="{!Process__c.Name}" />
+	<apex:pageMessages />
+	<c:SequencePredecessor saveAction="{!save}" cancelAction="{!cancel}" steps="{!Steps}" />
+</apex:form>
+</apex:page>

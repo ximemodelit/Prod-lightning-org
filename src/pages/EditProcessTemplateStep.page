@@ -1,0 +1,35 @@
+<apex:page standardController="Process_Template_Step__c" sidebar="true" 
+    tabStyle="Process_Template_Step__c" standardStylesheets="true" 
+    extensions="EditProcessTemplateStepController">
+<apex:sectionHeader title="Process Template Step Edit" subtitle="{!Process_Template_Step__c.name}"/>
+<apex:form >
+<apex:pageBlock title="Process Template Step Edit" mode="edit">
+<apex:pageMessages />
+<apex:pageBlockButtons >
+<apex:commandButton action="{!save}" value="Save" id="saveButton"/>
+<apex:commandButton action="{!saveAndNew}" value="Save & New" id="saveNewButton"/>
+<apex:commandButton action="{!cancel}" value="Cancel" id="cancelButton"/>
+</apex:pageBlockButtons>
+
+<apex:pageBlockSection title="Information" columns="1">
+    <apex:inputField value="{!Process_Template_Step__c.name}" required="true" style="width:200px"/>
+    <apex:inputField value="{!Process_Template_Step__c.Details__c}" style="width:200px"/>
+    <apex:inputField value="{!Process_Template_Step__c.Duration_In_Days__c}" style="width:200px"/>
+    <apex:outputField value="{!Process_Template_Step__c.Process_Template__c}"/>
+    <apex:inputField value="{!Process_Template_Step__c.Assign_To_Process_Owner__c}"/>
+    <apex:inputField value="{!Process_Template_Step__c.Assign_to_Record_Owner__c}"/>
+    <apex:inputField value="{!Process_Template_Step__c.Assign_to_User__c}" style="width:180px"/>
+    <apex:inputField rendered="{!TheType = 'Entity'}" 
+        value="{!Process_Template_Step__c.Assign_To_Role__c}" style="width:200px"/>
+    <apex:inputField rendered="{!TheType = 'Contact'}"
+        value="{!Process_Template_Step__c.Assign_To_Contact_Role__c}" style="width:200px"/>
+    <apex:inputField rendered="{!TheType = 'Lead'}" 
+        value="{!Process_Template_Step__c.Assign_To_Lead_Role__c}" style="width:200px"/>
+    <apex:inputField rendered="{!TheType = 'Opportunity'}" 
+        value="{!Process_Template_Step__c.Assign_To_Opportunity_Role__c}" style="width:200px"/>
+    <apex:inputField rendered="{!TheType = 'Case'}" 
+        value="{!Process_Template_Step__c.Assign_To_Case_Role__c}" style="width:200px"/>
+</apex:pageBlockSection>    
+</apex:pageBlock>
+</apex:form>
+</apex:page>

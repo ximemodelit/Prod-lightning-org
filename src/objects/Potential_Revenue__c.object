@@ -1,0 +1,3806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>XLR8 custom object that tracks the management of new policies and the renewal of existing policies.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Select or enter the date this Case is closed.</inlineHelpText>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Co_Insured_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Co-Insured Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Entity__c</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Potential_Revenue1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Co_Insured_Tobacco_Class__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Co-Insured Tobacco Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Co_Insured_Tobacco_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Co-Insured Tobacco Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chew/Dip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nicotine Patch/Gum</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Compensation_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Compensation Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Entity__c</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Pipeline_Prospects</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Coverage_Amount_Desired__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Coverage Amount Desired</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Coverage_Desired__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to record any notes pertinent to the coverage.</inlineHelpText>
+        <label>Coverage Desired Notes</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Coverage_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Coverage Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parent/Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Current_Death_Benefit__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Death Benefit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Detailed_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Use for entering detailed information up to 32K characters.</inlineHelpText>
+        <label>Detailed Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Entity_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Entity__r.RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This field looks at the Entity and displays the Entity Record Type.</inlineHelpText>
+        <label>Entity Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Entity</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Case Management</relationshipLabel>
+        <relationshipName>Potential_Revenue</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Estimated_Annual_Deposits__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Annual Deposits</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Annual_Premium__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Annual Premium</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Asset_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Estimated Asset Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Funding_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Funding Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Import_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Import ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurance_Case_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Insurance Case Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Insured_Date_of_Birth__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Insured_Name__r.Birthdate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insured Date of Birth</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Insured_Name__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Insured Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Contact.AccountId</field>
+                <operation>equals</operation>
+                <valueField>$Source.Entity__c</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Potential_Revenue</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Insured_Tobacco_Class__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Insured Tobacco Class</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Insured_Tobacco_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Insured Tobacco Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chew/Dip</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nicotine Patch/Gum</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Next_Step_Due_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Select or enter the due date for the next step.</inlineHelpText>
+        <label>Next Step Due Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Step_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the User responsible for performing the Next Step.</inlineHelpText>
+        <label>Next Step Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Pipeline_Prospects1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Next_Step__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the Next Step to be done. (Based on current Step selection)</inlineHelpText>
+        <label>Next Step</label>
+        <picklist>
+            <controllingField>Stage__c</controllingField>
+            <picklistValues>
+                <fullName>Phone / Email Contact</fullName>
+                <controllingFieldValues>Attempting to Contact</controllingFieldValues>
+                <controllingFieldValues>Contact Made</controllingFieldValues>
+                <controllingFieldValues>Not Started</controllingFieldValues>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Schedule Appointment</fullName>
+                <controllingFieldValues>Attempting to Contact</controllingFieldValues>
+                <controllingFieldValues>Contact Made</controllingFieldValues>
+                <controllingFieldValues>Not Started</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Send Forms</fullName>
+                <controllingFieldValues>Contract Presented</controllingFieldValues>
+                <controllingFieldValues>Discovery</controllingFieldValues>
+                <controllingFieldValues>Initial Appointment Complete</controllingFieldValues>
+                <controllingFieldValues>Initial Appointment Scheduled</controllingFieldValues>
+                <controllingFieldValues>Plan Design</controllingFieldValues>
+                <controllingFieldValues>Present Case</controllingFieldValues>
+                <controllingFieldValues>Proposal Accepted</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Schedule Follow-up</fullName>
+                <controllingFieldValues>Discovery</controllingFieldValues>
+                <controllingFieldValues>Initial Appointment Complete</controllingFieldValues>
+                <controllingFieldValues>Initial Appointment Scheduled</controllingFieldValues>
+                <controllingFieldValues>Plan Design</controllingFieldValues>
+                <controllingFieldValues>Present Case</controllingFieldValues>
+                <controllingFieldValues>Underwriting</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pend for Future Potential</fullName>
+                <controllingFieldValues>Contact Made</controllingFieldValues>
+                <controllingFieldValues>Contract Presented</controllingFieldValues>
+                <controllingFieldValues>Discovery</controllingFieldValues>
+                <controllingFieldValues>Initial Appointment Complete</controllingFieldValues>
+                <controllingFieldValues>Initial Appointment Scheduled</controllingFieldValues>
+                <controllingFieldValues>No Response</controllingFieldValues>
+                <controllingFieldValues>On Hold</controllingFieldValues>
+                <controllingFieldValues>Plan Design</controllingFieldValues>
+                <controllingFieldValues>Present Case</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Opened_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Select or enter the start date for this Case.</inlineHelpText>
+        <label>Opened Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The person in the firm responsible for this case.</inlineHelpText>
+        <label>Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Pipeline_Prospects</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Carrier_Provider__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Primary Carrier/Provider</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>contains</operation>
+                <value>General</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.Entity_Type__c</field>
+                <operation>contains</operation>
+                <value>Professional Associate</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.Entity_Sub_Type__c</field>
+                <operation>contains</operation>
+                <value>Carrier/Provider</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Potential_Revenue1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Producer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Primary Producer</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Potential_Revenue2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Producer_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Producer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Projected_Revenue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the amount of revenue expected to be generated.</inlineHelpText>
+        <label>Projected Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Referred_by_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Referral source Lookup to existing Contact.</inlineHelpText>
+        <label>Referred by Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Pipeline_Prospects1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Referred_by_Entity__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Referral source Lookup to existing Entity.</inlineHelpText>
+        <label>Referred by Entity</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Pipeline_Prospects1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Referred_by_Other__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Referral source text up to 30 characters.</inlineHelpText>
+        <label>Referred by Other</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Riders__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Riders</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Servicing_Firm_Entity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This is the Servicing Firm field that is a lookup to an Entity record.</description>
+        <externalId>false</externalId>
+        <label>Servicing Firm</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Case Management (Servicing Firm)</relationshipLabel>
+        <relationshipName>Case_Management</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Servicing_Firm__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the text field for Servicing Name</description>
+        <externalId>false</externalId>
+        <label>Servicing Firm Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the current point you are at in the process.</inlineHelpText>
+        <label>Step</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Appointment Scheduled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial Appointment Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plan Design</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Underwriting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Present Case</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proposal Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Presented</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>CASE(Stage__c, &apos;Inforce&apos;,&apos;Closed&apos;, &apos;Cancelled&apos;,&apos;Closed&apos;,&apos;Delete-Error&apos;,&apos;Closed&apos;,&apos;No Response&apos;,
+  &apos;Closed&apos;,&apos;On Hold&apos;,&apos;Closed&apos;,&apos;Proposal Accepted&apos;,&apos;Closed&apos;,&apos;Open&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This calculates the Status of the Case as either Open or Closed based on the Step of the record.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Targeted_Premium_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Targeted Premium Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Targeted_Products__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Targeted Products</label>
+        <picklist>
+            <picklistValues>
+                <fullName>401(a)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>401(k)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>403(b)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>457</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automobile</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Liability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive Bonus Plan (EBP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive Life Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Flexible Spending Account (FSA)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Reimbursement Account (HRA)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Spending Account (HSA)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indexed Universal Life</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Long Term Care (LTC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Long Term Disability (LTD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-qual 409A Deferred Comp Plan (DCP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-qual Suppl Exec Ret Plan (SERP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>P&amp;C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Short Term Disability (STD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survivorship Indexed Universal Life</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survivorship Term</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survivorship Universal Life</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Umbrella</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Universal Life</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Variable Universal Life</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vision</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Whole Life</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Workers Comp</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Targeted_Services__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Targeted Services</label>
+        <picklist>
+            <picklistValues>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Total_Eligible_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of eligible employees</inlineHelpText>
+        <label>Total Eligible Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The total number of employees</inlineHelpText>
+        <label>Total Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Waiver_of_Premium__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Waiver of Premium</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Case Management</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Case Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Case Management</pluralLabel>
+    <recordTypes>
+        <fullName>Commercial_Insurance</fullName>
+        <active>true</active>
+        <description>Commercial Auto, Liability, Property, Umbrella and Workers Comp</description>
+        <label>Commercial Insurance</label>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compensation_Type__c</picklist>
+            <values>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Coverage_Type__c</picklist>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Funding_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Case_Type__c</picklist>
+            <values>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Next_Step__c</picklist>
+            <values>
+                <fullName>Pend for Future Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone %2F Email Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Forms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Riders__c</picklist>
+            <values>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Present Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwriting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Products__c</picklist>
+            <values>
+                <fullName>Automobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Liability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Umbrella</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workers Comp</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Services__c</picklist>
+            <values>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Executive_Benefits</fullName>
+        <active>true</active>
+        <description>Executive Bonus, Life, Compensation, and Retirement</description>
+        <label>Executive Benefits</label>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compensation_Type__c</picklist>
+            <values>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Coverage_Type__c</picklist>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Funding_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Case_Type__c</picklist>
+            <values>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Next_Step__c</picklist>
+            <values>
+                <fullName>Pend for Future Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone %2F Email Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Forms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Riders__c</picklist>
+            <values>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Present Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwriting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Products__c</picklist>
+            <values>
+                <fullName>Executive Bonus Plan %28EBP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Life Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-qual 409A Deferred Comp Plan %28DCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-qual Suppl Exec Ret Plan %28SERP%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Services__c</picklist>
+            <values>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Group_Benefits</fullName>
+        <active>true</active>
+        <description>Group Health, Disability, and Life</description>
+        <label>Group Benefits</label>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compensation_Type__c</picklist>
+            <values>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Coverage_Type__c</picklist>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Funding_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Case_Type__c</picklist>
+            <values>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Next_Step__c</picklist>
+            <values>
+                <fullName>Pend for Future Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone %2F Email Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Forms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Riders__c</picklist>
+            <values>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Present Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Products__c</picklist>
+            <values>
+                <fullName>Dental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flexible Spending Account %28FSA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Reimbursement Account %28HRA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Spending Account %28HSA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Disability %28LTD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Short Term Disability %28STD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vision</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Services__c</picklist>
+            <values>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Individual_Life_Insurance</fullName>
+        <active>true</active>
+        <description>Case Management for Individual Life Insurance</description>
+        <label>Individual Life Insurance</label>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compensation_Type__c</picklist>
+            <values>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Coverage_Type__c</picklist>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Funding_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Case_Type__c</picklist>
+            <values>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Next_Step__c</picklist>
+            <values>
+                <fullName>Pend for Future Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone %2F Email Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Forms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Riders__c</picklist>
+            <values>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Present Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwriting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Products__c</picklist>
+            <values>
+                <fullName>Indexed Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survivorship Indexed Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survivorship Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survivorship Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Variable Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Whole Life</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Services__c</picklist>
+            <values>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Individual_Other_Insurance</fullName>
+        <active>true</active>
+        <description>Individual Insurance for Disability, Health, LTC, P&amp;C, Umbrella</description>
+        <label>Individual Other Insurance</label>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compensation_Type__c</picklist>
+            <values>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Coverage_Type__c</picklist>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Funding_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Case_Type__c</picklist>
+            <values>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Next_Step__c</picklist>
+            <values>
+                <fullName>Pend for Future Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone %2F Email Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Forms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Riders__c</picklist>
+            <values>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Present Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Underwriting</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Products__c</picklist>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care %28LTC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%26C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survivorship Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Umbrella</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Services__c</picklist>
+            <values>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Retirement_Plans</fullName>
+        <active>true</active>
+        <description>Group Retirement Plans - 401(a), 401(k), 403(b), 457</description>
+        <label>Retirement Plans</label>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compensation_Type__c</picklist>
+            <values>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Coverage_Type__c</picklist>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Funding_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Case_Type__c</picklist>
+            <values>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Next_Step__c</picklist>
+            <values>
+                <fullName>Pend for Future Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone %2F Email Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Forms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Riders__c</picklist>
+            <values>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discovery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plan Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Present Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proposal Accepted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Products__c</picklist>
+            <values>
+                <fullName>401%28a%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401%28k%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>403%28b%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>457</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Services__c</picklist>
+            <values>
+                <fullName>401K</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Wealth_Mgmt</fullName>
+        <active>false</active>
+        <description>Wealth Management</description>
+        <label>Wealth Mgmt</label>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Co_Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compensation_Type__c</picklist>
+            <values>
+                <fullName>Asset Based Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Combo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flat Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Coverage_Type__c</picklist>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Joint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent%2FChild</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Funding_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance_Case_Type__c</picklist>
+            <values>
+                <fullName>Additional Writing Advisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Formal Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Informal Application</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Class__c</picklist>
+            <values>
+                <fullName>Non-Smoker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smoker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Tobacco_Type__c</picklist>
+            <values>
+                <fullName>Chew%2FDip</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cigarettes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marijuana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nicotine Patch%2FGum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Occasional Cigar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipe</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Next_Step__c</picklist>
+            <values>
+                <fullName>Pend for Future Potential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone %2F Email Contact</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Schedule Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Schedule Follow-up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Forms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Riders__c</picklist>
+            <values>
+                <fullName>Accelerated Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiver of Premium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Stage__c</picklist>
+            <values>
+                <fullName>Attempting to Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Made</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Presented</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delete - Error</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Appointment Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initial Appointment Scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Products__c</picklist>
+            <values>
+                <fullName>401%28a%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401%28k%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>403%28b%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>457</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corporate Liability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Bonus Plan %28EBP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Life Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flexible Spending Account %28FSA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Reimbursement Account %28HRA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Spending Account %28HSA%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indexed Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Care %28LTC%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Disability %28LTD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-qual 409A Deferred Comp Plan %28DCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-qual Suppl Exec Ret Plan %28SERP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P%26C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Short Term Disability %28STD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survivorship Indexed Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survivorship Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survivorship Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Umbrella</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Variable Universal Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Whole Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Workers Comp</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Targeted_Services__c</picklist>
+            <values>
+                <fullName>Comprehensive Wealth Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estate Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retirement Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Planning</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Coaching</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reallocation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Insurance_Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Owner__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opened_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Stage__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Next_Step__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Next_Step_Owner__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Entity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Insurance_Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Owner__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opened_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Stage__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Next_Step__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Next_Step_Owner__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Entity__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Insurance_Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Owner__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Opened_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Stage__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Next_Step__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Next_Step_Owner__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Entity__c</searchFilterFields>
+        <searchFilterFields>Insurance_Case_Type__c</searchFilterFields>
+        <searchFilterFields>Owner__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Opened_Date__c</searchFilterFields>
+        <searchFilterFields>Stage__c</searchFilterFields>
+        <searchFilterFields>Next_Step__c</searchFilterFields>
+        <searchFilterFields>Next_Step_Owner__c</searchFilterFields>
+        <searchResultsAdditionalFields>Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Insurance_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Owner__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opened_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Stage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Next_Step__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Next_Step_Owner__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Closed_Date_Required</fullName>
+        <active>true</active>
+        <description>If Step contains Proposal Accepted, Inforce or Cancelled Proposal Accepted, then a Closed Date is required.</description>
+        <errorConditionFormula>AND(
+OR(
+IF(Text(Stage__c) = &quot;Inforce&quot;,TRUE, FALSE), 
+IF(Text(Stage__c) = &quot;Proposal Accepted&quot;,TRUE, FALSE), IF(Text(Stage__c) = &quot;Cancelled&quot;,TRUE, FALSE)),
+ISBLANK(Closed_Date__c))</errorConditionFormula>
+        <errorMessage>If Step is set to Proposal Accepted, Inforce or Cancelled Proposal Accepted, then a Closed Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CoIns_Smoker_Class_Requires_Tobacco_Type</fullName>
+        <active>true</active>
+        <description>If the Co-Insured Tobacco Class equals &quot;Smoker&quot;, then the Insured Co-Insured Tobacco Type must be populated.</description>
+        <errorConditionFormula>AND ( TEXT( Co_Insured_Tobacco_Class__c ) = &apos;Smoker&apos;, ISBLANK(TEXT(Co_Insured_Tobacco_Type__c) ))</errorConditionFormula>
+        <errorMessage>If the Co-Insured Tobacco Class equals &quot;Smoker&quot;, then the Insured Co-Insured Tobacco Type must be populated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Ins_Smoker_Class_Requires_Tobacco_Type</fullName>
+        <active>true</active>
+        <description>If the Insured Tobacco Class equals &quot;Smoker&quot;, then the Insured Tobacco Type must be populated.</description>
+        <errorConditionFormula>AND ( TEXT( Insured_Tobacco_Class__c ) = &apos;Smoker&apos;, ISBLANK(TEXT(Insured_Tobacco_Type__c) ))</errorConditionFormula>
+        <errorMessage>If the Insured Tobacco Class equals &quot;Smoker&quot;, then the Insured Tobacco Type must be populated.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Referral_Others_Required</fullName>
+        <active>true</active>
+        <description>If Referred by Entity and Referred by Contact are empty then Referred by Other is required.</description>
+        <errorConditionFormula>AND(
+ISBLANK( Referred_by_Entity__c ),
+ISBLANK( Referred_by_Contact__c ),
+ISBLANK( Referred_by_Other__c) 
+)</errorConditionFormula>
+        <errorDisplayField>Referred_by_Other__c</errorDisplayField>
+        <errorMessage>Please enter at least one referral source.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Potential_Revenue</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Case</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/35.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/35.0/apex.js&quot;)} 
+
+var error = sforce.apex.execute(&apos;XLR8CS/NFPSettingsValidator&apos;, &apos;validateCustomSettings&apos;,{}); 
+
+if (error == &apos;&apos;){ 
+window.open( &apos;/apex/XLR8CS__NFPPotentialRevenueRecordTypes?entityRecType={!Account.RecordType}&amp;entityName={!Account.Name}&amp;entityId={!Account.Id}&amp;retURL=%2F{!Account.Id}&apos;,&apos;_parent&apos;); 
+}else{ 
+alert(error); 
+}</url>
+    </webLinks>
+</CustomObject>

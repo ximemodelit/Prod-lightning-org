@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Settings to be used by Data Mover</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Namespace_Prefix__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Namespace Prefix of the Package</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Namespace Prefix of the Package</inlineHelpText>
+        <label>Namespace Prefix</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Package_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the Package</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the Package</inlineHelpText>
+        <label>Package Name</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>DataMoverSettings</label>
+</CustomObject>

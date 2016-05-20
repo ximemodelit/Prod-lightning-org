@@ -1,0 +1,30 @@
+<messaging:emailTemplate subject="Heads-up on task: {!relatedTo.Subject}" recipientType="User" relatedToType="Task">
+<messaging:htmlEmailBody >
+{!$User.FirstName} {!$User.LastName} has sent you an FYI email for the following task:
+<br />
+<br />  
+Task Subject: {!relatedTo.Subject}
+<br />  
+Assigned to: {!relatedTo.Owner.Name}
+<br />
+Entity: {!relatedTo.What.Name}
+<br />
+Contact: {!relatedTo.Who.Name}
+<br />
+Status: {!relatedTo.Status}
+<br />
+Task Type: {!relatedTo.Task_Type__c}
+<br />
+Category: {!relatedTo.Category__c}
+<br />
+Sub-Category: {!SUBSTITUTE(relatedTo.Sub_Category_Task__c, ';', '; ')}
+<br />
+Due Date: {!IF(!ISNULL(relatedTo.ActivityDate), TEXT(MONTH(relatedTo.ActivityDate)) & '/' & TEXT(DAY(relatedTo.ActivityDate)) & '/' & TEXT(YEAR(relatedTo.ActivityDate)), '')}
+<br />
+Task Link: <c:GetInstance />/{!relatedTo.Id}
+
+<br />  
+Comments:
+{!relatedTo.Description}
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

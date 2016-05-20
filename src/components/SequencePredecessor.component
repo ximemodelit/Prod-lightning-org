@@ -1,0 +1,145 @@
+<apex:component >
+<apex:attribute name="saveAction" description="save action" type="ApexPages.Action" />
+<apex:attribute name="cancelAction" description="cancel action" type="ApexPages.Action" />
+<apex:attribute name="steps" description="Steps" type="GenericStep[]" />
+<apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+<apex:includeScript value="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" />
+<apex:includeScript value="{!URLFOR($Resource.Chosen, 'chosen.jquery.js')}" />
+<apex:stylesheet value="{!URLFOR($Resource.Chosen, 'chosen.css')}" />
+<apex:pageBlock >
+	<apex:pageBlockButtons > 
+		<apex:commandButton value="Save" action="{!saveAction}" styleClass="saveButton" />
+		<apex:commandButton value="Cancel" action="{!cancelAction}" styleClass="cancelButton" />
+	</apex:pageBlockButtons>
+	<apex:pageBlockTable id="theTable" value="{!steps}" var="step" styleClass="sortable">
+		<apex:column headerValue="Step" styleClass="taskName">
+			{!step.TaskName} <apex:image id="theImage" value="{!$Resource.drag_handle}"
+				styleClass="dragHandle" style="width: 18px; opacity: .3; float: right;" 
+				title="Drag to change sort order."/>
+		</apex:column>
+ 		<apex:column headerValue="Predecessors">
+ 			<apex:inputHidden id="stepId" value="{!step.Id}" />
+ 			<apex:inputHidden id="predecessorIds" value="{!step.PredecessorIds}" />
+ 			<apex:inputHidden id="sequence" value="{!step.Sequence}" />
+			<select multiple="true" class="chzn-select" data-placeholder="Click Here to Add Predecessor Step(s)" 
+				style="width:350px" />
+		</apex:column>
+	</apex:pageBlockTable>
+</apex:pageBlock>
+<script type="text/javascript">
+$j = jQuery.noConflict();
+(function() {
+	var tasks = {};	
+	var fixHelper = function(e, ui) {
+		ui.children().each(function() {
+			$j(this).width($j(this).width());
+		});
+		return ui;
+	};
+	
+	$j(function() {
+		disableRowHighlighting();
+		initTasks();
+		enableChosen();
+		setMultiselectOptions(true);
+		$j("input.saveButton").click(function() { populatePredecessorIds() });
+	});
+	
+	// disables built-in row hover highlighting
+	function disableRowHighlighting() {
+		$j("table[id$=theTable] tbody tr").each(function(idx, element) {
+			element.onmouseover = null;
+			element.onmouseout = null;
+			element.onblur = null;
+			element.onfocus = null;
+		});
+	}
+	
+	function initTasks() {
+		$j("table[id$=theTable] tbody tr").each(function(idx, element) {
+			var id = $j(element).find("input[id$=stepId]").val();
+			var predecessorIds = $j(element).find("input[id$=predecessorIds]").val();
+			tasks[id] = {
+				id: id,
+				name: $j(element).find("td.taskName").text(),
+				predecessorIds: predecessorIds ? predecessorIds.split(";") : []
+			};
+		});
+	} 
+	
+	function setMultiselectOptions(initial) {
+		var taskIds = getTaskIds();
+		$j("table[id$=theTable] select").each(function(idx, element) {
+			var selectedIds = [];
+			if (initial) {
+				var task = tasks[$j(element).siblings("input[id$=stepId]").val()];
+				$j.each(task.predecessorIds, 
+					function(idx, value) {
+						selectedIds.push(value);
+					}
+				);
+			}
+			else {
+				$j(element).find("option:selected").each(function(idx, element) {
+					selectedIds.push($j(element).val());
+				});
+			}
+			$j(element).find("option").remove();
+			$j.each(taskIds, function(idx2, taskId) {
+				var task = tasks[taskId];
+				if (idx2 < idx) { 
+					if ($j.inArray(task.id, selectedIds) !== -1) { 
+						$j(element).append("<option selected value='" + task.id + "'>" + task.name 
+							+ "</option>");
+					}
+					else {
+						$j(element).append("<option value='" + task.id + "'>" + task.name + "</option>");
+					}
+				}
+			});
+			$j(element).trigger("liszt:updated");
+		});
+	}
+	
+	function enableChosen() {
+		var dropCount = 0;
+		$j("table[id$=theTable] tbody").sortable({ helper: fixHelper, handle: ".dragHandle" })
+			.disableSelection();
+		$j("table[id$=theTable] tbody").on("sortstop", function(evt, ui) {
+			setMultiselectOptions();
+		});
+		$j(".chzn-select").chosen();
+	} 
+	
+	function getTaskNames() {
+		var taskNames = [];
+		$j("table[id$=theTable] td.taskName").each(function(idx, element) {
+			taskNames.push($j(element).text());
+		});
+		return taskNames;
+	}
+	
+	function getTaskIds() {
+		var taskIds = [];
+		$j("table[id$=theTable] input[id$=stepId]").each(function(idx, element) {
+			taskIds.push($j(element).val());
+		});
+		return taskIds;
+	}
+	
+	function populatePredecessorIds() {
+		var sequence = 1;
+		$j("table[id$=theTable] tbody tr").each(function(idx, element) {
+			var predecessorIds = [];
+			$j(element).find("select.chzn-select option:selected").each(function(idx2, option1) {
+				predecessorIds.push($j(option1).val());
+			});
+			$j(element).find("input[id$=predecessorIds]").val(predecessorIds.join(";"));
+			$j(element).find("input[id$=sequence]").val(sequence);
+			sequence += 1;
+		});
+	}
+})();
+</script>
+
+</apex:component>

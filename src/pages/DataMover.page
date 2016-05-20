@@ -1,0 +1,451 @@
+<apex:page sidebar="false" controller="DataMoverPageController" docType="html-5.0"> 
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'dist/css/bootstrap.min.css')}"/>  
+    <apex:stylesheet value="{!URLFOR($Resource.DataMoverResources, 'DataMoverStyle.css')}"/>    
+    <apex:stylesheet value="{!URLFOR($Resource.DataMoverResources, 'jquery-ui-1.11.4.custom/jquery-ui.css')}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.DataMoverResources, 'jquery-2.1.3.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.DataMoverResources, 'jquery-ui-1.11.4.custom/jquery-ui.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, 'dist/js/bootstrap.min.js')}"/>     
+    <head>
+        <style>
+            .invisibleRow{ 
+                display: none;
+            } 
+              
+            .datePickers{
+                padding:0px;
+                line-height:28px !important; 
+            }
+            
+            /*step 2*/
+            #hidingDiv{
+                display:inline;
+            }
+            
+            .invisible{
+                visibility:hidden;
+            }
+            
+            .securitiesPanel{
+                margin:50px 0px;
+                padding: 10px;
+                height: 30px !important;
+            }
+            
+            .checkbox{
+                margin:2px 5px 0px 5px !important;
+                display: inline;
+            }
+            
+            .currentObject{
+                background-color:#80ADD3;
+            }
+            
+            .sidebarItemLink{
+                color:black;
+            }
+            
+            .sidebarItemLink:hover{
+                background-color:#D8E6F1;
+            }
+                        
+            .sidebarItemLink:focus{
+                background-color:#80ADD3 !important;
+                color:black;
+            }
+            
+            /*step 4*/
+            #startTime{
+                padding-top:15px;
+            }
+            .warning{
+                color:red;
+                font-size:14px !important;
+                line-height: 150% !important;
+                margin: 0px !important;
+                font-weight:normal !important;
+            }
+            .ui-datepicker-month{
+                color:black; 
+            }
+            .ui-datepicker-year{
+                color:black;
+            }
+        </style>
+        <script type="text/javascript">
+            
+            var currentRowUsedForValues = "";
+            var thereIsADaySelected = false;
+            
+            $(document).ready(function(){
+                showType();
+                showValues();
+                $("#valLink").click(showPopupValuesJS(src, trg));
+                $( "input[id$=startDateInput]" ).datepicker();
+                $( "input[id$='endDateInput']" ).datepicker();
+            });
+            
+            /*
+             * Triggers the onchange event on the select lists
+             */
+            function triggerTheOnChangeEvents(){
+                $("select[id*='RequiredField']").trigger("onchange");
+                $("select[id*='optionalField']").trigger("onchange");
+                fillFilledValueBox();
+            }
+            
+            /*
+             * Shows the type of field for the selected external id fields
+             */         
+            function showTypeForExtIdFields(lblAndType){
+                var lblType = $(lblAndType).val();
+                var arrayLblType = lblType.split('-');
+                 $(lblAndType).parent().next().children().empty();
+                 $(lblAndType).parent().next().children().append(arrayLblType[1]);
+            }
+            
+            /*
+             * Shows the type of field for the selected field
+             */ 
+            function showType(lblAndType){
+                var lblType = $(lblAndType).val();
+                var arrayLblType = lblType.split('-');
+                 $(lblAndType).parent().next().children().empty();
+                 $(lblAndType).parent().next().children().append(arrayLblType[1]);
+                 checkPicklistsandCheckboxes(lblAndType, arrayLblType[1]);
+            }
+            
+            /*
+             * Shows the Values button if there is a field that 
+             * has both picklists, both checkboxes or one of each
+             */ 
+            function checkPicklistsandCheckboxes(element, srcType){
+                var trgType = $(element).parent().prev().children().text();
+                if((trgType == "PICKLIST" || trgType == "BOOLEAN") &&
+                (srcType == "PICKLIST" || srcType == "BOOLEAN")){
+                    $(element).parent().next().next().removeClass("hiddenBtn");
+                    if($(element).parent().next().next().next().text() != "YES"){
+                        $(element).parent().next().next().next().empty().text("NO");
+                    }                       
+                }else{
+                    $(element).parent().next().next().addClass("hiddenBtn");
+                }
+            }
+            
+            
+            /* 
+             * Shows the pop up values for each field,
+             * it also assigns the current row to currentRowUsedForValues
+             */
+            function showPopupValuesJS(element, fieldTrg){
+                currentRowUsedForValues = $(element).parent().parent().attr("id");
+                var lblType = $(element).parent().prev().prev().children().val();
+                var arrayLblType = lblType.split('-');
+                showPopupValues(arrayLblType[0], fieldTrg);
+            }
+            
+            /*
+             *scrolls up the page
+             */
+            function scrollUp(){
+                window.setTimeout(function(){
+                    window.scrollTo(0, 150);
+                }, 1630);               
+            } 
+            /*
+             * shows the final modal and disables the elements
+             */
+            function showFinalMessage(){
+                $('input').attr('disabled', true);
+                $('select').attr('disabled', true);
+                $('#successMsg').modal('show');
+            }
+            
+            /*
+             * validates the required fields for step 4
+             */
+            function validateFieldsFor4(){
+                $("#errorsFromJs").empty();
+                var reqJobName = "Job Name is required";
+                var reqStartTime = "Preferred Start Time is required";
+                var reqWeeklyFreq = "Weekly frequency is required";
+                var reqWeekOfMonth = "The week of the month is required";
+                var reqStartDate = "The Start Date is required";
+                var reqEndDate = "The End Date is required";
+                var jobNameAlreadyExists = "Selected Job Name already exists";
+                var endDateBeforeStartDate = "End Date cannot be a date before Start Date";
+                var thereAreErrorsOnStep4 = false;
+                
+                if($("input[id$=jobNameInput]").val() === ""){
+                    $("#errorsFromJs").append(reqJobName + "</br>");
+                    thereAreErrorsOnStep4 = true;
+                }
+                if($("select[id$=prefStartTimeSelect] :selected").val() === "None"){
+                    $("#errorsFromJs").append(reqStartTime + "</br>");
+                    thereAreErrorsOnStep4 = true;
+                }
+                //if the option selected is weekly
+                if($("input[value|='Weekly']").attr("checked") == "checked"){
+                    if($("input[id*='daysOfWeek']:checked").length < 1){
+                        $("#errorsFromJs").append(reqWeeklyFreq + "</br>");
+                        thereAreErrorsOnStep4 = true;
+                    }
+                }else{//if the option selected is monthly
+                    if($("input[id*='daysOrDate:0']").attr("checked") == "checked"){
+                        if($("select[id$=selectedWeek]").val() == "None"){
+                            $("#errorsFromJs").append(reqWeekOfMonth + "</br>");
+                            thereAreErrorsOnStep4 = true;
+                        }
+                    }
+                }
+                //if there are no values in start date 
+                if($("input[id$=startDateInput]").val() == null || $("input[id$=startDateInput]").val() == 'dd/mm/aaaa' ||
+                $("input[id$=startDateInput]").val() == ''){
+                    $("#errorsFromJs").append(reqStartDate + "</br>");
+                    thereAreErrorsOnStep4 = true;
+                }
+                //if there are no values in end date
+                if($("input[id$=endDateInput]").val() == null || $("input[id$=endDateInput]").val() == 'dd/mm/aaaa' || 
+                $("input[id$=endDateInput]").val() == ''){
+                    $("#errorsFromJs").append(reqEndDate + "</br>");
+                    thereAreErrorsOnStep4 = true;
+                }
+                //if end date is before start date
+                if($("input[id$=endDateInput]").val() != null && $("input[id$=endDateInput]").val() != 'dd/mm/aaaa' && 
+                $("input[id$=endDateInput]").val() != '' && $("input[id$=startDateInput]").val() != null &&
+                $("input[id$=startDateInput]").val() != 'dd/mm/aaaa' && $("input[id$=startDateInput]").val() != ''){
+                    
+                    //convert string of dates to date
+                    var arrayEnd = $("input[id$=endDateInput]").val().split('/');
+                    var end = new Date(arrayEnd[2], arrayEnd[0], arrayEnd[1]);
+                    
+                    var arrayStart = $("input[id$=startDateInput]").val().split('/');
+                    var start = new Date(arrayStart[2], arrayStart[0], arrayStart[1]);
+                    
+                    if(end < start){
+                        $("#errorsFromJs").append(endDateBeforeStartDate + "</br>");
+                        thereAreErrorsOnStep4 = true;
+                    }
+                } 
+                //if there are errors, scroll up
+                if(thereAreErrorsOnStep4){
+                    window.scrollTo(0, 150);                    
+                }else{
+                    //check if the name already exists
+                    $(".warning").text("");
+                    checkJobName($("input[id$=jobNameInput]").val());
+                    toggleDiv();
+                }
+            }
+            
+            /*
+             * Checks if there are any errors and saves and shows modal
+             * It is executed on the oncomplete of checkJobName
+             */
+            function checkIfMappingCanBeFinished(jobExists){
+                toggleDiv();
+                if(!jobExists){
+                    showFinalMessage();
+                }
+            }
+            
+            /*
+             * Validates the fields on step 3
+             */
+            function validateFields(){
+                
+                var reqValues = "All the values for any picklist or boolean must be mapped</br>"; 
+                $('#errorMsgs').empty();
+                var missingValue = false;
+                $("#requiredFields .filledValuesBox").each(function(){
+                    if($(this).text() === 'NO'){
+                        missingValue = true;
+                    }
+                })  
+                if(missingValue === true){
+                    $('#errorMsgs').append(reqValues);
+                    window.scrollTo(0, 150);
+                }else{
+                    toggleDiv();
+                    validateReqs();
+                }
+                
+            }
+            
+            /*
+             * Checks if there are no validation errors on step 3
+             * and if there are not, it continues to step 4
+             */
+            function checkIfUserCanContinueToStep4(externalIdsNotFilled, requiredFieldsNotFilled, differentRefs){
+                window.scrollTo(0, 150);
+                if(externalIdsNotFilled || differentRefs){
+                    toggleDiv();
+                }else{
+                    if(requiredFieldsNotFilled){
+                        //show modal
+                        toggleDiv();
+                        $("#modalWarning").modal("show");
+                    }else{
+                        goToStep4();
+                    }
+                }
+            }
+            
+            /* 
+             * If the values were selected, it fills the 
+             * filled value box with 'Yes'
+             */
+            function fillFilledValueBox(){
+                var notFilled = false;
+                jQuery( 'select[id$=chckPickRequiredValue]' ).each(function(){
+                    if($(this).val() === 'N/A'){
+                        notFilled = true;
+                    }
+                })
+                if(notFilled === false){
+                    $("#" + currentRowUsedForValues).children().last().empty().text('YES');
+                }else{
+                    $("#" + currentRowUsedForValues).children().last().empty().text('NO');
+                }
+            }
+            
+            /*
+             * Shows the pop up box for the corresponding field
+             */
+            function showPopupBox(){
+                $("#chckPick").modal("show");
+            }
+            
+            /*
+             * Toggles the display of the div shown when loading a step 
+             */
+            function toggleDiv(){
+                $("#loadingDiv").toggleClass("doNotDisplay");
+            }
+            
+            /*
+             * When the external id field is changed this function
+             * finds the row with the same field and hides it
+             */
+            function hideRowThatIsExternalId(){
+            
+                $("tr[class='invisibleRow']").toggleClass("invisibleRow");
+                var txtOfRowToHide = $("select[id$=trgExIdRequiredField] :selected").text();
+                $("span[class='fieldText']").each(function(){
+                    if($(this).text() == txtOfRowToHide){
+                        $(this).parent().parent().toggleClass("invisibleRow");
+                    }
+                })
+                var allRequiredHidden = true;
+                $("select[id$=srcRequiredField]").each(function(){
+                    if(!$(this).parent().parent().hasClass("invisibleRow")){
+                        allRequiredHidden = false;
+                    }
+                }) 
+                if(allRequiredHidden){
+                    $("#requiredFields").css("display", "none");
+                }else{
+                    $("#requiredFields").css("display", "");
+                }
+            }
+            
+            /*
+             * Triggers the onchange event on the select list of target ext id
+             * so that the functions associated with it are executed
+             */
+            function triggerOnChangeOnTrgExternalId(){
+                $("select[id$=trgExIdRequiredField]").trigger("onchange");
+            }
+            
+            /*
+             * It toggles the visibility of the select list
+             * next to checkbox when the latter is clicked on
+             */
+            function showListObjectsToMapSecurity(){
+                $("#hidingDiv").toggleClass("invisible");
+            }
+            
+            /*
+             *Validates fields in step 2 to see if securities and A&L were mapped if
+             *the securities checkbox was checked 
+             */
+            function validateFieldsStep2(){
+                $(".errorMessage").text("");
+                scrollUp();
+                var assets = false;
+                var securitiesMapping = false;
+                if(!$("#hidingDiv").hasClass("invisible")){
+                    $("select[id$='sourceLabels'] :selected").each(function(){
+                        if($(this).text() == "Assets & Liabilities"){
+                            assets = true;
+                        }           
+                    })
+                    if($("select[id$='mappedToSecurity'] :selected").val() != 'N/A'){
+                        securitiesMapping = true;
+                    }
+                    if(assets && securitiesMapping){
+                        //everything fine, go to step 3
+                        goToStep3();
+                    }else{
+                        toggleDiv();
+                        if(!assets){
+                            $(".errorMessage").text("Assets & Liabilities should be mapped to an object.");
+                        }
+                        if(!securitiesMapping){
+                            $(".errorMessage").text("An object should be mapped to Security.");
+                        }
+                    }
+                }else{
+                    //if it is invisible, checkbox not checked, go to step 3
+                    goToStep3();
+                    highlightFirstSelectedObject();
+                }
+            }
+            
+            /*
+             * Changes the style of the selected
+             * current object
+             */          
+            function changeSelectedObject(elem){
+                //remove class from other objects
+                $(".sidebarItem").each(function(){
+                    $(this).removeClass("currentObject");
+                    if($(this) == $("#" + elem) && $(this).is(":first")){
+                        $(".sidebarItem").first().css('border-top-left-radius', '20px');
+                    }
+                })
+                //add class to li (parent) of selected object
+                $("#" + elem).addClass("currentObject");
+            }
+            
+            /*
+             * Shows a warning message if the source object is mapped to securities
+             */
+            function showMessageIfSecurity(){
+                $(".errorMsgs").text("");
+                if($("#targetObject").text() === 'Security'){
+                    $("#warning").text("It is not necessary to map external ids when selecting securities.");
+                }
+            }
+            
+            /*
+             * Highlights the current object, which, when the third
+             * step is shown, is the first of the objects 
+             */
+            function highlightFirstSelectedObject(){
+                $(".sidebarItem").first().addClass("currentObject");
+                $(".sidebarItem").first().css('border-top-left-radius', '20px');
+            } 
+            
+        </script>
+    </head>
+    <body> 
+        <apex:outputPanel id="componentContainer">
+            <div id="pageContainer">
+                <c:Step1Component rendered="{!showStep1}" ComponentPageController="{!this}"/>
+                <c:Step2Component rendered="{!showStep2}" ComponentPageController="{!this}"/>  
+                <c:Step3Component rendered="{!showStep3}" ComponentPageController="{!this}"/> 
+                <c:Step4Component rendered="{!showStep4}" ComponentPageController="{!this}"/>   
+            </div>
+        </apex:outputPanel>      
+    </body>  
+</apex:page>

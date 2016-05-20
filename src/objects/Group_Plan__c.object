@@ -1,0 +1,1988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Annual_Enrollment_Review_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Annual Enrollment/Review Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Enroll_Pct__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Auto Enroll %</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Escalate_Pct__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Auto Escalate %</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Carrier_Provider__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Carrier/Provider</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Active_Status__c</field>
+                <operation>equals</operation>
+                <value>Active</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.Entity_Sub_Type__c</field>
+                <operation>equals</operation>
+                <value>Carrier/Provider</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Group_Plans1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contributions__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contributions</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contributory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Contributory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voluntary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bonused Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Crediting_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Crediting Date</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Last business day of each payroll period</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last business day of each plan year</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last business day of each calendar quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last business day of each month</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Any business day on which salary deferrals are credited</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Policy premium due date</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Domestic_Partners_Covered__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Domestic Partners Covered</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No Domestic Partners</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opposite Sex</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Same Sex</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Same and Opposite Sex</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EE_Contribution__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>EE Contribution</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ERISA_Plan_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ERISA Plan Number</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ER_Contribution__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ER Contribution</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Eligibility_Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Eligibility Notes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Eligibility_Rule__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Eligibility Rule</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0 Days</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30 Days</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60 Days</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>90 Days</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 months</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6 months</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12 months</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st of month following: Date of Hire</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st of month following: 30 days</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st of month following: 60 days</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st of month following: 90 days</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st of month following: 6 months</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st of month following: 12 months</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>See Eligibility Notes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Employer_Match__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Employer Match</label>
+        <length>225</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The Client Business the Plan is related to.</inlineHelpText>
+        <label>Entity</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Corporate Plans</relationshipLabel>
+        <relationshipName>Group_Plans</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Import_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Import ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insured_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Insured Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Number_Eligible_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number Eligible Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_Enrolled_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number Enrolled Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Open_Enrollment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Open Enrollment Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Entry__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The timing of which a participant can get into the plan.</inlineHelpText>
+        <label>Plan Entry</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Next Payroll Date</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Semi-Annually</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Plan Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Notes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Plan Notes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Plan_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Plan Number</label>
+        <length>25</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Plan_Sub_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Plan Sub-Type</label>
+        <picklist>
+            <controllingField>Plan_Type__c</controllingField>
+            <picklistValues>
+                <fullName>10-year</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15-year</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20-year</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>25-year</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30-year</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5-year Renewable</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Annually Renewable</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automobile</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CASD/Equity Split Dollar</fullName>
+                <controllingFieldValues>Executive Life Insurance</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Discount</fullName>
+                <controllingFieldValues>Dental</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Fee for Service</fullName>
+                <controllingFieldValues>Dental</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental HMO</fullName>
+                <controllingFieldValues>Dental</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental PPO</fullName>
+                <controllingFieldValues>Dental</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disability (LTD)</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disability (STD)</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Endorsement Split Dollar</fullName>
+                <controllingFieldValues>Executive Life Insurance</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EPO (Exclusive Provider Organization)</fullName>
+                <controllingFieldValues>Medical</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group Replacement</fullName>
+                <controllingFieldValues>Executive Life Insurance</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HMO (Health Maintenance Organization)</fullName>
+                <controllingFieldValues>Medical</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Homeowners</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Involuntary Bonus</fullName>
+                <controllingFieldValues>EBP (Executive Bonus Plan)</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Life</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LTC</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pet</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>POS (Point of Service)</fullName>
+                <controllingFieldValues>Medical</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PPO (Preferred Provider Organization)</fullName>
+                <controllingFieldValues>Medical</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Term to Specified Age</fullName>
+                <controllingFieldValues>Term</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vision</fullName>
+                <controllingFieldValues>Voluntary</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vision Benefit</fullName>
+                <controllingFieldValues>Vision</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vision Discount</fullName>
+                <controllingFieldValues>Vision</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voluntary Bonus</fullName>
+                <controllingFieldValues>EBP (Executive Bonus Plan)</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Plan Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>401(a)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>401(k)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>403(b)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>457</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCP (Nonqualified 409A Deferred Compensation Plan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EBP (Executive Bonus Plan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive Life Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FSA (Flexible Spending Account)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HRA (Health Reimbursement Account)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HSA (Health Spending Account)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Long Term Disability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roth IRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SERP (Nonqualified Supplemental Executive Retirement Plan)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Short Term Disability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Simple IRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vision</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voluntary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Plan_Year__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Plan Year</label>
+        <length>75</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Potential_Revenue__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Case Management Record</label>
+        <referenceTo>Potential_Revenue__c</referenceTo>
+        <relationshipName>Group_Plans</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Producer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Primary Producer</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>Group_Plans</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Producer_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Producer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Product_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rabbi_Trust__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a lookup to a Rabbi Trust Entity record.</inlineHelpText>
+        <label>Rabbi Trust</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Trust</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Corporate Plans (Rabbi Trust)</relationshipLabel>
+        <relationshipName>Corporate_Plans</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Refunded_Money__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Refunded Money</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Renewal_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Renewal Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retirement_Plan_Administrator__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The third-party administrator for the retirement plan.</inlineHelpText>
+        <label>Retirement Plan Administrator</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Group_Plans2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Safe_Harbor_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Safe Harbor Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Termination_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Termination Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Testing_Passed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The employee passed testing.</inlineHelpText>
+        <label>Testing Passed</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Total_Employees__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Entity__r.NumberOfEmployees</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is the total employees, taken from the Employees field on the Client Business Entity.</inlineHelpText>
+        <label>Total Employees</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Corporate Plan</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Entity__c</columns>
+        <columns>Product_Name__c</columns>
+        <columns>Carrier_Provider__c</columns>
+        <columns>Plan_Number__c</columns>
+        <columns>Plan_Type__c</columns>
+        <columns>Effective_Date__c</columns>
+        <columns>Renewal_Date__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CP-{00000}</displayFormat>
+        <label>Corp Plan ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Corporate Plans</pluralLabel>
+    <recordTypes>
+        <fullName>Executive_Benefits</fullName>
+        <active>true</active>
+        <description>Executive Benefits</description>
+        <label>Executive Benefits</label>
+        <picklistValues>
+            <picklist>Contributions__c</picklist>
+            <values>
+                <fullName>Bonused Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contributory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Contributory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voluntary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Crediting_Date__c</picklist>
+            <values>
+                <fullName>Any business day on which salary deferrals are credited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each calendar quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each payroll period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each plan year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy premium due date</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Partners_Covered__c</picklist>
+            <values>
+                <fullName>No Domestic Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Sex</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EE_Contribution__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ER_Contribution__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Eligibility_Rule__c</picklist>
+            <values>
+                <fullName>0 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 12 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 30 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 6 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 60 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 90 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A Date of Hire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Eligibility Notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Entry__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Next Payroll Date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Semi-Annually</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Sub_Type__c</picklist>
+            <values>
+                <fullName>10-year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CASD%2FEquity Split Dollar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endorsement Split Dollar</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Group Replacement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Involuntary Bonus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voluntary Bonus</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Type__c</picklist>
+            <values>
+                <fullName>DCP %28Nonqualified 409A Deferred Compensation Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EBP %28Executive Bonus Plan%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Executive Life Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SERP %28Nonqualified Supplemental Executive Retirement Plan%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Refunded_Money__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Testing_Passed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Group_Benefits</fullName>
+        <active>true</active>
+        <description>Group Benefits - Fully Insured and Self-Insured Plans</description>
+        <label>Group Benefits</label>
+        <picklistValues>
+            <picklist>Contributions__c</picklist>
+            <values>
+                <fullName>Bonused Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contributory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Contributory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voluntary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Crediting_Date__c</picklist>
+            <values>
+                <fullName>Any business day on which salary deferrals are credited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each calendar quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each payroll period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each plan year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy premium due date</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Partners_Covered__c</picklist>
+            <values>
+                <fullName>No Domestic Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opposite Sex</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Sex</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same and Opposite Sex</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EE_Contribution__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ER_Contribution__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Eligibility_Rule__c</picklist>
+            <values>
+                <fullName>0 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 12 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 30 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 6 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 60 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 90 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A Date of Hire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Eligibility Notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Entry__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Next Payroll Date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Semi-Annually</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Sub_Type__c</picklist>
+            <values>
+                <fullName>10-year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15-year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20-year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>25-year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30-year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-year Renewable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Annually Renewable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automobile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental Discount</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental Fee for Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental HMO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental PPO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability %28LTD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disability %28STD%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EPO %28Exclusive Provider Organization%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HMO %28Health Maintenance Organization%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeowners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LTC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Life</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>POS %28Point of Service%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PPO %28Preferred Provider Organization%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term to Specified Age</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vision Benefit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vision Discount</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Type__c</picklist>
+            <values>
+                <fullName>Dental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FSA %28Flexible Spending Account%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HRA %28Health Reimbursement Account%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HSA %28Health Spending Account%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Long Term Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Short Term Disability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vision</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voluntary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Refunded_Money__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Testing_Passed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Retirement_Plan</fullName>
+        <active>true</active>
+        <description>Retirement Plans, 401K</description>
+        <label>Retirement Plan</label>
+        <picklistValues>
+            <picklist>Contributions__c</picklist>
+            <values>
+                <fullName>Bonused Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contributory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Contributory</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voluntary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Crediting_Date__c</picklist>
+            <values>
+                <fullName>Any business day on which salary deferrals are credited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each calendar quarter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each payroll period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last business day of each plan year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Policy premium due date</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Partners_Covered__c</picklist>
+            <values>
+                <fullName>No Domestic Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same Sex</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EE_Contribution__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ER_Contribution__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Eligibility_Rule__c</picklist>
+            <values>
+                <fullName>0 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 12 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 30 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 6 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 60 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A 90 days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1st of month following%3A Date of Hire</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>30 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90 Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>See Eligibility Notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insured_Type__c</picklist>
+            <values>
+                <fullName>Fully Insured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Insured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Entry__c</picklist>
+            <values>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Next Payroll Date</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Semi-Annually</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Sub_Type__c</picklist>
+            <values>
+                <fullName>EPO %28Exclusive Provider Organization%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Plan_Type__c</picklist>
+            <values>
+                <fullName>401%28a%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>401%28k%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>403%28b%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>457</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Roth IRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Simple IRA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Producer_Type__c</picklist>
+            <values>
+                <fullName>Inside</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outside</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Refunded_Money__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Testing_Passed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Plan_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Plan_Sub_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Plan_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Plan_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Carrier_Provider__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Renewal_Date__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Entity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Plan_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Plan_Sub_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Plan_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Plan_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Carrier_Provider__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Renewal_Date__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Entity__c</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Plan_Type__c</searchFilterFields>
+        <searchFilterFields>Plan_Sub_Type__c</searchFilterFields>
+        <searchFilterFields>Plan_Number__c</searchFilterFields>
+        <searchFilterFields>Product_Name__c</searchFilterFields>
+        <searchFilterFields>Plan_Name__c</searchFilterFields>
+        <searchFilterFields>Renewal_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Plan_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Plan_Sub_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Plan_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Plan_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Carrier_Provider__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Renewal_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

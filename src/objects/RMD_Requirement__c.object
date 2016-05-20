@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>XLR8 custom object for tracking RMD Requirements.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Financial_Account__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Financial Account</label>
+        <referenceTo>XLR8_Assets_Liabilities__c</referenceTo>
+        <relationshipLabel>RMD Requirements</relationshipLabel>
+        <relationshipName>RMD</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RMD_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF ( RMD_Override__c &gt; 0, RMD_Override__c, RMD_Calculated__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is the final RMD Amount required for the RMD Year.  It is a formula that uses the RMD Override if populated, otherwise uses the RMD Calculated amount.</inlineHelpText>
+        <label>RMD Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Calculated__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RMD Calculated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Calculation_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RMD Calculation Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>JOINT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SINGLE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UNIFORM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Deadline__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF (  Financial_Account__r.RMD_Member__r.Date_Turns_70_5__c  &lt;=  DATE( VALUE( RMD_Year__c )  - 1 ,12,31), DATE( VALUE( RMD_Year__c ),12,31),   IF( AND(Financial_Account__r.RMD_Member__r.Date_Turns_70_5__c  &gt;= DATE( VALUE( RMD_Year__c )  ,1, 1),Financial_Account__r.RMD_Member__r.Date_Turns_70_5__c  &lt;= DATE( VALUE( RMD_Year__c ) , 12, 31 )), DATE( VALUE( RMD_Year__c ) + 1, 4, 1), NULL))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>RMD Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Factor__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the RMD factor used in the RMD Amount calculation, taken from the IRS Life Expectancy Table.</inlineHelpText>
+        <label>RMD Factor</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RMD_Last_Updated_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date of the last update.</description>
+        <externalId>false</externalId>
+        <label>RMD Last Updated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Member_Age_EOY__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>FLOOR( (DATE(VALUE( RMD_Year__c ), 12, 31) - Financial_Account__r.RMD_Member__r.Birthdate ) / 365.25)</formula>
+        <label>RMD Member Age EOY</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RMD_Member__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; + Financial_Account__r.RMD_Member__c ,  Financial_Account__r.RMD_Member__r.FirstName + &quot;  &quot; + Financial_Account__r.RMD_Member__r.LastName)</formula>
+        <label>RMD Member</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RMD_Override__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>If the RMD has to be manually calculated in the case of Inherited IRAs, etc, then the user will manually calculate the RMD and populate this field with the amount.  If the override is done, that is the amount that will appear in the final RMD Amount field</inlineHelpText>
+        <label>RMD Override</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RMD_Spouse_Age_EOY__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(OR( ISPICKVAL( RMD_Calculation_Method__c , &apos;UNIFORM&apos;),ISPICKVAL( RMD_Calculation_Method__c , &apos;SINGLE&apos;) ),NULL, FLOOR((DATE( VALUE( RMD_Year__c ), 12, 31) - Financial_Account__r.RMD_Spouse__r.Birthdate ) / 365.25))</formula>
+        <label>RMD Spouse Age EOY</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RMD_Spouse__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; + Financial_Account__r.RMD_Spouse__c , Financial_Account__r.RMD_Spouse__r.FirstName + &quot; &quot; + Financial_Account__r.RMD_Spouse__r.LastName)</formula>
+        <label>RMD Spouse</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RMD_Year__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>RMD Year</label>
+        <length>4</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value_Previous_EOY__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Value Previous EOY</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>RMD Requirement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Financial_Account__c</columns>
+        <columns>Value_Previous_EOY__c</columns>
+        <columns>RMD_Calculated__c</columns>
+        <columns>RMD_Deadline__c</columns>
+        <columns>RMD_Factor__c</columns>
+        <columns>RMD_Amount__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>X2014_RMD_Calculated</fullName>
+        <columns>NAME</columns>
+        <columns>Financial_Account__c</columns>
+        <columns>RMD_Calculated__c</columns>
+        <columns>RMD_Calculation_Method__c</columns>
+        <columns>RMD_Year__c</columns>
+        <columns>RMD_Deadline__c</columns>
+        <columns>RMD_Factor__c</columns>
+        <columns>RMD_Last_Updated_Date__c</columns>
+        <columns>RMD_Member__c</columns>
+        <columns>Value_Previous_EOY__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RMD_Year__c</field>
+            <operation>equals</operation>
+            <value>2014</value>
+        </filters>
+        <label>2014 RMD Calculated</label>
+    </listViews>
+    <listViews>
+        <fullName>X2015_RMD_Calculated</fullName>
+        <columns>NAME</columns>
+        <columns>Financial_Account__c</columns>
+        <columns>RMD_Calculated__c</columns>
+        <columns>RMD_Calculation_Method__c</columns>
+        <columns>RMD_Year__c</columns>
+        <columns>RMD_Deadline__c</columns>
+        <columns>RMD_Factor__c</columns>
+        <columns>RMD_Last_Updated_Date__c</columns>
+        <columns>RMD_Member__c</columns>
+        <columns>Value_Previous_EOY__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>2015 RMD Calculated</label>
+    </listViews>
+    <nameField>
+        <label>RMD Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>RMD Requirements</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Format_of_Name</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( Name=( Financial_Account__r.Name + &apos;-&apos; +  RMD_Year__c  ))</errorConditionFormula>
+        <errorMessage>The RMD Name must be in the format of Financial Account Number, plus dash, followed by RMD Year.  Example:  1234567-2013</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Numeric_Year</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(NOT(ISNUMBER( RMD_Year__c )), LEN(RMD_Year__c ) &lt;&gt; 4)</errorConditionFormula>
+        <errorMessage>RMD Year must be a four digits year</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RMD_Blank_Member</fullName>
+        <active>true</active>
+        <description>This validation rules ensures that when the RMD Requirement record is created and the RMD Calculation Method = Uniform or RMD Calculation Method = Single, the RMD Member  must be populated.</description>
+        <errorConditionFormula>ISBLANK( Financial_Account__r.RMD_Member__c )</errorConditionFormula>
+        <errorMessage>The RMD Member field must be populated on the Asset &amp; Liability Retirement Asset record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RMD_Joint_Calc_Requires_Member_Spouse</fullName>
+        <active>true</active>
+        <description>This validation rules ensures that when the RMD Requirement record is created and the RMD Calculation Method = Joint, the RMD Member and RMD Spouse both must be populated.</description>
+        <errorConditionFormula>AND (TEXT(RMD_Calculation_Method__c)=&apos;JOINT&apos;,OR(ISBLANK(  Financial_Account__r.RMD_Member__c ), ISBLANK( Financial_Account__r.RMD_Spouse__c )))</errorConditionFormula>
+        <errorMessage>When the RMD Calculation Method equals Joint, both the RMD Member and RMD Spouse fields must be populated on the Asset &amp; Liability Retirement Asset record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Year_cannot_be_greater_than_current_year</fullName>
+        <active>true</active>
+        <description>RMD Requirements cannot be created for a year greater than the current year</description>
+        <errorConditionFormula>VALUE(RMD_Year__c) &gt; YEAR(TODAY())</errorConditionFormula>
+        <errorMessage>RMD Requirements cannot be created for a year greater than the current year</errorMessage>
+    </validationRules>
+</CustomObject>

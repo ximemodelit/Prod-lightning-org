@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This emails the Admin about a newly created Suggestion</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>New Suggestion Created</name>
+    <style>none</style>
+    <subject>A New Suggestion ***{!XLR8_Suggestions__c.Subject__c}*** Has Been Created!</subject>
+    <type>text</type>
+</EmailTemplate>

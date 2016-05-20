@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;IMG border=0 alt=&quot;&quot; align=left src=&quot;https://c.na7.content.force.com/servlet/servlet.FileDownload?file=XLR8/XLR8_Logo_for_Home.jpg&quot;&gt;</body>
+    <pageComponentType>imageOrNote</pageComponentType>
+</HomePageComponent>

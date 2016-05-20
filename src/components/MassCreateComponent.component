@@ -1,0 +1,31 @@
+<apex:component >
+<apex:includeScript value="{!URLFOR($Resource.JQueryDatepicker, 'js/jquery-1.11.2.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.JQueryDatepicker, 'js/jquery-ui.min.js')}"/>
+	<apex:stylesheet value="{!URLFOR($Resource.JQueryDatepicker, 'css/jquery-ui.min.css')}"/>
+	<script>
+	  $(function() {
+	    $( ".deadlineDatepicker" ).datepicker({ dateFormat: 'mm/dd/yy' });
+	  });
+	  </script>
+	  <apex:messages />
+	<apex:attribute name="recordCount" type="String" description="Record Count" required="true" />
+	<apex:attribute name="selectedTemplateId" type="String" description="Template Id" required="true" />
+	<apex:attribute name="deadline" type="String" description="Process deadline" required="true" />
+	<apex:attribute name="templateSelectOptions" type="SelectOption[]" description="Template SelectOption list" required="true" />
+	<apex:pageBlockSection columns="1">
+		<apex:pageBlockSectionItem >
+			<apex:outputLabel value="Records Selected" />
+ 			<apex:outputText value="{!recordCount}" />
+		</apex:pageBlockSectionItem>
+		<apex:pageBlockSectionItem >
+			<apex:outputLabel value="Process Template" />
+ 				<apex:selectList size="1" value="{!selectedTemplateId}">
+					<apex:selectOptions value="{!templateSelectOptions}" />
+				</apex:selectList>
+		</apex:pageBlockSectionItem>
+		<apex:pageBlockSectionItem >
+			<apex:outputLabel value="Deadline" />
+ 			<apex:inputText value="{!deadline}" styleClass="deadlineDatepicker"/>
+		</apex:pageBlockSectionItem>
+	</apex:pageBlockSection>
+</apex:component>

@@ -1,0 +1,1 @@
+<apex:component access="global" controller="TestGetInstance" > {!display} </apex:component>

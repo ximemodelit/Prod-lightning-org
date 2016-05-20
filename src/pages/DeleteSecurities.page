@@ -1,0 +1,27 @@
+<apex:page controller="DeleteSecuritiesController">
+<apex:includeScript value="{!$Resource.jquery}"/>
+<apex:form >
+    <apex:pageBlock title="Delete Security Records">
+        <apex:outputPanel rendered="{!NOT(Started)}">
+            <p>There are <strong>{!RecordCount}</strong> security records. Clicking &quot;Delete All Security Records&quot;
+            will result in unrecoverable deletion of all Security records.</p>
+            
+            <p><apex:commandButton id="deleteSecuritiesButton" value="Delete All Security Records" 
+                action="{!startDeletion}" /></p>
+        </apex:outputPanel>     
+        <apex:outputPanel rendered="{!Started}">
+            <p>The delete process has started and could take several minutes depending on system availability.</p> 
+            <p>An email message will be sent when all records have been deleted.</p>
+        </apex:outputPanel>
+    </apex:pageBlock>
+</apex:form>
+<script language="JavaScript">
+var $j = jQuery.noConflict();
+$j('input[id$="deleteSecuritiesButton"]').click(function(evt) {
+    if (!confirm("Are you sure you want to delete all security records?")) {
+        evt.preventDefault();
+    } 
+    
+});
+</script>
+</apex:page>

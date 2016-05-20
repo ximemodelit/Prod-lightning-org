@@ -1,0 +1,29 @@
+<apex:component >
+	<apex:attribute name="templateType" type="String" description="Process Template Type" required="true" />
+	<apex:attribute name="processes" type="XLR8ProcessWrapper[]" description="Process Template Type" required="true" />
+	
+	<apex:sectionHeader title="{!templateType}" subtitle="Mass Create Processes" />
+
+	    <apex:pageBlock title="Recently Created Processes">
+	        <apex:pageBlockTable value="{!processes}" var="item">
+	          <apex:column headerValue="{!templateType}">
+	            	<apex:outputLink value="/{!item.parentRecordId}">{!item.parentRecordName}</apex:outputLink>
+	            </apex:column> 
+	            <apex:column headerValue="Process">
+	            	<apex:outputLink value="/{!item.processRecord.Id}">{!item.processRecord.Name}</apex:outputLink>
+	            </apex:column>
+	            <apex:column headerValue="Auto Create Tasks Default" style="text-align: center;">
+	            	<apex:image URL="{!if(item.processRecord.Process_Template__r.Auto_Create_Tasks_Default__c, $Resource.Task_image_done, $Resource.RedCross)}" style="height:17px"/>
+	            </apex:column>
+	            <apex:column headerValue="Auto Create Current Setting" style="text-align: center;">
+	            	<apex:image URL="{!if(item.processRecord.Auto_Create_Tasks__c, $Resource.Task_image_done, $Resource.RedCross)}" style="height:17px"/>
+	            </apex:column>
+	            <apex:column headerValue="All Steps Assigned?" style="text-align: center;">
+	            	<apex:image URL="{!if(item.unassignedSteps,$Resource.RedCross, $Resource.Task_image_done)}" style="height:17px"/>
+	            </apex:column>
+	            
+	        </apex:pageBlockTable> 
+	
+	    </apex:pageBlock> 
+		
+</apex:component>

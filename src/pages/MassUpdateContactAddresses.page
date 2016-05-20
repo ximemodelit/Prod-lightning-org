@@ -1,0 +1,99 @@
+<apex:page standardController="Account" title="Mass Update Contact Addresses"  extensions="MassUpdateContactFieldsController"
+      id="mucontaddr" tabStyle="Contact">
+    <!-- recordSetVar="contacts" -->
+    
+    <apex:form id="mucntctaddr">
+        <apex:pageBlock title="{!cntctAccount.name} Entity Addresses" >
+           
+         
+            <apex:pageBlockSection title="Entity Addresses" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Choose Entity Address to Copy From:" for="chooseAddress"/>
+                    <apex:selectList id="chooseAddress"  value="{!accountaddress2copy}" size="1" >
+                        <apex:selectOption itemValue="first" itemLabel="Primary"/>
+                        <apex:selectOption itemValue="second" itemLabel="Secondary"/>
+                        <apex:selectOption itemValue="third" itemLabel="Third"/>
+                        <apex:selectOption itemValue="fourth" itemLabel="Fourth"/>
+                    </apex:selectList>   
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem />
+                    <apex:outputField value="{!cntctAccount.Primary_Address_Formatted__c}"/>
+                    <apex:outputField value="{!cntctAccount.Third_Address_Formatted__c}"/>
+                    <apex:outputField value="{!cntctAccount.Secondary_Address_Formatted__c}"/>
+                    <apex:outputField value="{!cntctAccount.Fourth_Address_Formatted__c}"/>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Select Contact(s) for Update" id="muselectedcontactlist">
+        <apex:pageBlockSection title="Contact Addresses" columns="1">
+           <!-- <h3>Choose Contact Address To Copy To:</h3> -->
+           <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Choose Contact Address To Copy To:" for="chooseConAddress"/>
+            <apex:actionRegion >
+            <apex:selectList id="chooseConAddress" value="{!targetcontactaddress}" size="1">
+                <apex:selectOption itemValue="first" itemLabel="Primary"/>
+                <apex:selectOption itemValue="second" itemLabel="Secondary"/>
+                <apex:selectOption itemValue="third" itemLabel="Third"/>
+                <apex:selectOption itemValue="fourth" itemLabel="Fourth"/>
+                <apex:actionSupport event="onchange" 
+                                action="{!whchCntctAddress}"
+                                status="cntAddrStatus"
+                                rerender="cntAddrsPnl" />
+            </apex:selectList>
+            <!--<apex:actionStatus id="cntAddrStatus" 
+                           startText=" (fetching Address...)" 
+                           stopText=" (ready)"/> -->
+            </apex:actionRegion>
+            </apex:pageBlockSectionItem>
+             
+            
+            <apex:pageMessages />
+            <apex:outputPanel id="cntAddrsPnl">
+            <apex:pageBlockTable value="{!wrapperContacts}" var="cons" id="mustab">
+                <apex:column headerValue="Update">
+                    <apex:inputCheckbox value="{!cons.selected}" />
+                 </apex:column>
+                <apex:column value="{!cons.con.name}" id="conname"/>
+                
+                <apex:column value="{!cons.con.Primary_Street__c}" id="conpstr" rendered="{!prmry}"/>
+                <apex:column value="{!cons.con.Primary_Street_2__c}" id="conpstr2" rendered="{!prmry}"/>
+                <apex:column value="{!cons.con.Primary_City__c}" id="conpcty" rendered="{!prmry}"/>
+                <apex:column value="{!cons.con.Primary_State__c}" id="conpstate" rendered="{!prmry}"/>
+                <apex:column value="{!cons.con.Primary_Zip__c}" id="conpzip" rendered="{!prmry}"/>
+                <apex:column value="{!cons.con.Primary_Country__c}" id="conpcntr" rendered="{!prmry}"/>
+                
+                <apex:column value="{!cons.con.Secondary_Street__c}" id="consstr" rendered="{!scndry}"/>
+                <apex:column value="{!cons.con.Secondary_Street_2__c}" id="consstr2" rendered="{!scndry}"/>
+                <apex:column value="{!cons.con.Secondary_City__c}" id="conscty" rendered="{!scndry}"/>
+                <apex:column value="{!cons.con.Secondary_State__c}" id="consstate" rendered="{!scndry}"/>
+                <apex:column value="{!cons.con.Secondary_Zip__c}" id="conszip" rendered="{!scndry}"/>
+                <apex:column value="{!cons.con.Secondary_Country__c}" id="conscntr" rendered="{!scndry}"/>
+                
+                <apex:column value="{!cons.con.Third_Street__c}" id="contstr" rendered="{!thrd}"/>
+                <apex:column value="{!cons.con.Third_Street_2__c}" id="contstr2" rendered="{!thrd}"/>
+                <apex:column value="{!cons.con.Third_City__c}" id="contcty" rendered="{!thrd}"/>
+                <apex:column value="{!cons.con.Third_State__c}" id="contstate" rendered="{!thrd}"/>
+                <apex:column value="{!cons.con.Third_Zip__c}" id="contzip" rendered="{!thrd}"/>
+                <apex:column value="{!cons.con.Third_Country__c}" id="contcntr" rendered="{!thrd}"/>
+                
+                <apex:column value="{!cons.con.Fourth_Street__c}" id="confstr" rendered="{!frth}"/>
+                <apex:column value="{!cons.con.Fourth_Street_2__c}" id="confstr2" rendered="{!frth}"/>
+                <apex:column value="{!cons.con.Fourth_City__c}" id="confcty" rendered="{!frth}"/>
+                <apex:column value="{!cons.con.Fourth_State__c}" id="confstate" rendered="{!frth}"/>
+                <apex:column value="{!cons.con.Fourth_Zip__c}" id="confzip" rendered="{!frth}"/>
+                <apex:column value="{!cons.con.Fourth_Country__c}" id="confcntr" rendered="{!frth}"/>
+                
+                <!-- c.Primary_Type__c, c.Primary_Mailing_Notes__c,  c.Primary_C_O__c --> 
+                                                 
+            </apex:pageBlockTable>
+            </apex:outputPanel>
+            </apex:pageBlockSection>
+            <apex:commandButton action="{!updateFields}" value="Update" disabled="{!updateDisabled}" id="updateButton"/>
+            <apex:commandButton action="{!cancel}" value="Done"/>
+        </apex:pageBlock>
+    </apex:form>
+  
+  
+
+</apex:page>

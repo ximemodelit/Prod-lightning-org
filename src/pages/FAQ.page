@@ -1,0 +1,693 @@
+<apex:page sidebar="false" >
+<apex:pageBlock title="Hello {!$User.FirstName}!">
+<html>
+<h2 id="basicstoc"> Welcome to our library of XLR8 Frequently Asked Questions!</h2><br>
+<br></br>
+Our library contains not only the answers to the most frequently asked questions but will also provide you with our recommendation on some best practices.  These will be noted as "Tip" throughout the document.
+ If you have a question that does not appear that you would like to see included, please issue us a case to our partner portal and we will add it for you.
+</br>
+<OL>
+<li><a href="#XLR8ReleaseHistory">Where can I obtain a history of XLR8 releases and their content?</a></li>
+<li><a href="#personalinfo">How do I edit my personal information?</a></li>
+<li><a href="#alias">How do I change my alias?</a></li>
+<li><a href="#password">How do I change my password?</a></li>
+<li><a href="#token">How do I reset my security token?</a></li>
+<li><a href="#create-event">How do I create an event?</a></li>
+<li><a href="#create-task">How do I create a task?</a></li>
+<li><a href="#group-event">How do I create a group task/multiple person task?</a></li>
+<li><a href="#calendar-sharing">How do I add a user/group to calendar sharing?</a></li>
+<li><a href="#recurring">How do I setup recurring events/tasks?</a></li>
+<li><a href="#log-call">How do I log a client call?</a></li>
+<li><a href="#sf-newsletter">How do I stop receiving the Salesforce newsletter?</a></li>
+<li><a href="#tabs">How do I customize tabs that appear across the top of XLR8?</a></li>
+<li><a href="#pages">How do I customize my pages?</a></li>
+<li><a href="#email-settings">How do I change my email settings?</a></li>
+<li><a href="#mass-email-c">How do I send a mass email to Contacts?</a></li>
+<li><a href="#single-mail-merge">How do I create a single mail merge document?</a></li>
+<li><a href="#mass-mail-merge">How do I create a mass mail merge document?</a></li>
+<li><a href="#activities">What is the difference between Open Activities and Activity History lists?</a></li>
+<li><a href="#tag">What is a tag?</a></li>
+<li><a href="#sync-contacts">How do I sync my Microsoft Outlook contacts?</a></li>
+<li><a href="#sync-schedule">How do I set up a sync schedule?</a></li>
+<li><a href="#email-to-task">How do I convert an Outlook email to an open XLR8 task?</a></li>
+<li><a href="#address-book">How do I use my XLR8 Address book as my address book in Outlook?</a></li>
+<li><a href="#entity-contact">What is the difference between an XLR8 Entity and a Contact?</a></li>
+<li><a href="#xlr8-naming">What are the XLR8 Entity Naming Standards?</a></li>
+<li><a href="#xlr8-rectypes">What are the XLR8 record types?  How are they used?</a></li>
+<li><a href="#xlr8-classification">What value does the XLR8 type and subtype classification provide?</a></li>
+<li><a href="#convert-prospect">How do I convert an XLR8 prospect to a client?</a></li>
+<li><a href="#related-contact">How do I relate a contact belonging to one entity to another entity?</a></li>
+<li><a href="#view-activities">How do I create a customized view of my Activities?</a></li>
+<li><a href="#view-contacts">How do I create a customized view of my Contacts?</a></li>
+<li><a href="#view-entities">How do I create a customized view of my Entities?</a></li>
+<li><a href="#share-view">How do I share customized views with other users?</a></li>
+<li><a href="#share-reports">How do I share reports with other users?</a></li>
+<li><a href="#contact-xlr8">How do I communicate with the XLR8 team?</a></li>
+<li><a href="#xlr8-project">How do I request project work with the XLR8 team?</a></li>
+<li><a href="#export-report">What options are there for exporting data from a report?</a></li>
+<li><a href="#sf-email">What are the benefits of using Salesforce email versus Outlook email?</a></li>
+<li><a href="#activation-link">What is an activation link?</a></li>
+<li><a href="#search">What is the difference between basic search and advanced search?</a></li>
+<li><a href="#doc-link">What is the purpose of the Document Connect link that appears on the Entity Client page layout?</a></li>
+<li><a href="#multi-generational">How do I show the relationships of a multi-generational family?</a></li>
+<li><a href="#same-named">When is it OK to have a Contact and an Entity with the same name?  </a></li>
+<li><a href="#contact-relationships">What happens if I have a Contact who has more than one relationship to my firm? </a></li>
+<li><a href="#minimize-sections">How do I minimize sections of a page?</a></li>
+<li><a href="#view-report">What is the difference between a view and a report?</a></li>
+<li><a href="#task-widget">What is the difference between the tasks component on the home page and the activity list view?</a></li>
+<li><a href="#event-task">What is the difference between an event and a task?</a></li>
+<li><a href="#private-activity">What makes an activity private?</a></li>
+</OL>
+<h3><span class="style1"><a name="XLR8ReleaseHistory"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    Where can I obtain a history of XLR8 releases and their content?</span></h3>
+<UL>
+<LI>Click on the following link to view the Release History: <a href="https://s3.amazonaws.com/XLR8Releases/XLR8ReleaseHistory.pdf" target="_blank">XLR8 Release History</a></LI>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+</UL>
+
+<h3><span class="style1"><a name="personalinfo"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I edit my personal information?</span></h3>
+<ul>
+    <li><p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li><p class="MsoNormal">Under the <b>Personal Setup </b> heading on the left Click Personal Information</p></li>
+    <li><p class="MsoNormal">Enter your Personal Information</p></li>
+    <li><p class="MsoNormal">Save</p></li>
+ </ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+
+<h3><span class="style1"><a name="alias"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I change my alias?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the <b>Personal Setup</b> heading on the left Click Personal Information</p></li>
+    <li> <p class="MsoNormal">Click the Edit Button</p></li>
+    <li> <p class="MsoNormal">Enter your Alias Info</p></li>
+    <li> <p class="MsoNormal">Note: If you change your Alias, you MUST also change your Alias name in the FYI List custom field picklist on the Task Object.</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+
+
+<h3><span class="style1"><a name="password"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I change my password?</span></h3>
+
+<ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the Personal Setup heading on the left Click Change My 
+        Password</p></li>
+    <li> <p class="MsoNormal">Enter Password Information</p></li>
+    <li> <p class="MsoNormal">Note 1:  Every time you change your password, you must also change it in ANY external application that accesses Salesforce (ex. Outlook, Microsoft Word, etc.)</p></li>
+    <li> <p class="MsoNormal">Note 2:  Every time you change your password, Salesforce will email you a new Security Token which must be appended to the end of your password for any external application access to Salesforce (ex. Outlook, Microsoft Word, etc.)</p></li>
+
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="token"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I reset my security token?</span></h3>
+  <ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the Personal Setup heading on the left Click Reset My Security Token</p></li>
+    <li> <p class="MsoNormal">Click Reset Security Token Button</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+    <li> <p class="MsoNormal">Tip: An email will be sent to your email associated with your user account containing your security token.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="create-event"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create an event?</span></h3>
+    <ul type="disc">
+    <li> <p class="MsoNormal">Always start on the related object (Entity, Contact, Asset/Liability record, Insurance record, etc) that you want to relate to the Event.</p></li>
+    <li> <p class="MsoNormal">Hover over Open Activities Click New Event Button</p></li>
+    <li> <p class="MsoNormal">Assign a User</p></li>
+    <li> <p class="MsoNormal">Enter Event Information</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="create-task"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a task?</span></h3>
+    <ul type="disc">
+    <li> <p class="MsoNormal">Always start on the related object (Entity, Contact, Asset/Liability record, Insurance record, etc) that you want to relate to the Task.</p></li>
+    <li> <p class="MsoNormal">Hover over Open Activities Click New Task Button</p></li>
+    <li> <p class="MsoNormal">Assign a User (default you are the assigned user)</p></li>
+    <li> <p class="MsoNormal">Enter Task Information. </p></li>
+    <li> <p class="MsoNormal">Check Send Notification Email box if assigning the task to someone other than yourself.</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="group-event"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a group task/multiple person task?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">Tip: This will create a separate task for each person in the 
+        group you assign. </p></li>
+    <li> <p class="MsoNormal">Create a New Task</p></li>
+    <li> <p class="MsoNormal">Click the Lookup Icon next to Assigned User field</p></li>
+    <li> <p class="MsoNormal">Select Multiple Users</p></li>
+    <li> <p class="MsoNormal">Add users/groups to the Selected Members List</p></li>
+    <li> <p class="MsoNormal">Click Done</p></li>
+    <li> <p class="MsoNormal">Finish Creating the Task</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="calendar-sharing"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I add a user/group to calendar sharing?</span></h3>
+ <ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the Personal Setup heading on the left Click My Personal 
+        Information</p></li>
+    <li> <p class="MsoNormal">Click Calendar Sharing</p></li>
+    <li> <p class="MsoNormal">Click the Add button</p></li>
+    <li> <p class="MsoNormal">Add User/Group</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="recurring"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I setup recurring events/tasks?</span></h3>
+ <ul type="disc">
+    <li> <p class="MsoNormal">Create a New Event/Task</p></li>
+    <li> <p class="MsoNormal">Click the Checkbox Called “Create Recurring Series of Events”</p></li>
+    <li> <p class="MsoNormal">Select Frequency</p></li>
+    <li> <p class="MsoNormal">Select Start Date</p></li>
+    <li> <p class="MsoNormal">Select End Date</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="log-call"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I log a client call?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">From the Contact page (since it is more than likely a "person" that will be calling), hover over Activity History link</p></li>
+    <li> <p class="MsoNormal">Click Log a Call</p></li>
+    <li> <p class="MsoNormal">Edit Subject Field (SalesForce will default this field with "Call")</p></li>
+    <li> <p class="MsoNormal">Assign Category and Subcategory</p></li>
+    <li> <p class="MsoNormal">Enter details of the call in the Description field.</p></li>
+    <li> <p class="MsoNormal">If you need to create a follow up task, complete the second half of the page with the task information.</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="sf-newsletter"></a></span>
+    <span class="style1" style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+   How do I stop receiving the Salesforce newsletter?</span></h3>
+   <ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the Personal Setup heading on the left Click My Personal Information</p></li>
+    <li> <p class="MsoNormal">Edit your Personal Information</p></li>
+    <li> <p class="MsoNormal">At the bottom of the screen, un-check the checkbox for receiving the Salesforce newsletter.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="tabs"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I customize tabs that appear across the top of XLR8?</span></h3>
+   
+<ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the Personal Setup heading on the left Click My Personal 
+        Information</p></li>
+    <li> <p class="MsoNormal">Click Change My Display</p></li>
+    <li> <p class="MsoNormal">Click Customize My Tabs Button</p></li>
+    <li> <p class="MsoNormal">Select the Tabs to display </p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="pages"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I customize my pages?</span></h3>
+
+<ul type="disc">
+    <li> <p class="MsoNormal">Tip: We do not recommend customizing your pages as it may 
+        alter the user experience and is difficult to troubleshoot issues, especially at the beginning of the transition period to the new system. Check with 
+        your admin before customizing any pages.</p></li>
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the Personal Setup heading on the left Click My Personal 
+        Information</p></li>
+    <li> <p class="MsoNormal">Click Change My Display</p></li>
+    <li> <p class="MsoNormal">Select Page to Edit from Picklist</p></li>
+    <li> <p class="MsoNormal">Click the Customize My Pages Button</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="home-page"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a new home page layout?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the App Setup heading on the left Click Customize</p></li>
+    <li> <p class="MsoNormal">Click Home</p></li>
+    <li> <p class="MsoNormal">Click Create a New Home Page Layout</p></li>
+    <li> <p class="MsoNormal">Edit</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="email-settings"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I change my email settings?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">Click the Setup link at the top of the page</p></li>
+    <li> <p class="MsoNormal">Under the Personal Setup heading on the left Click Email</p></li>
+    <li> <p class="MsoNormal">Click My Email Settings</p></li>
+    <li> <p class="MsoNormal">Change Email Settings</p></li>
+    <li> <p class="MsoNormal">Save</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="mass-email-c"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I send a mass email to Contacts?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Go to Contacts Tab</p></li>
+    <li> <p class="MsoNormal">Under Tools Section at bottom of the page Click Mass Email Contacts</p></li>
+    <li> <p class="MsoNormal">Tip: If you have no views to select, you must create a new view by clicking the Create New View button to build recipient list.</p></li>
+    <li> <p class="MsoNormal">Tip: Include in your view any fields you are displaying in your email template.  This will ensure you have data to generate in your emails.</p></li>
+    <li> <p class="MsoNormal">Tip: Contacts without email addresses on their Contact record will NOT be included in your view results.</p></li>
+    <li> <p class="MsoNormal">Select Recipients</p></li>
+    <li> <p class="MsoNormal">Tip: You can manually uncheck any recipients you do not wish to include.</p></li>
+    <li> <p class="MsoNormal">Select an email template</p></li>
+    <li> <p class="MsoNormal">Click Go.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="single-mail-merge"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a single mail merge document?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Hover over Activity History link for the desired Entity/Contact or XLR8 Custom Object</p></li>
+    <li> <p class="MsoNormal">Click the Mail Merge button</p></li>
+    <li> <p class="MsoNormal">Select the Record to Merge</p></li>
+    <li> <p class="MsoNormal">Select a Mail Merge Template</p></li>
+    <li> <p class="MsoNormal">To Create a Task Record: Click the Checkbox next to Log an Activity</p></li>
+    <li> <p class="MsoNormal">Click Generate.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="mass-mail-merge"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a mass mail merge document?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">The Administrator on your account must first enable Extended Mail Merge.</p></li>
+    <li> <p class="MsoNormal">Go to Setup | Customize | User Interface</p></li>
+    <li> <p class="MsoNormal">Check the box next to Activate Extended Mail Merge.</p></li>
+    <li> <p class="MsoNormal">You may optionally choose to save Extended Mail Merge documents to the Document tab.</p></li>
+    <li> <p class="MsoNormal">If you do not select this option, all generated mail merge documents will be emailed to the user who generates them.</p></li>
+    <li> <p class="MsoNormal">Once, enabled, click on the Entities or Contacts Tab</p></li>
+    <li> <p class="MsoNormal">Under Tools section at the bottom of the page Click Mass Mail Merge</p></li>
+    <li> <p class="MsoNormal">Follow the Wizard</p></li>
+    <li> <p class="MsoNormal">Tip: If you have no views to select, you must create a new view by clicking the Create New View button to build recipient list.</p></li>
+    <li> <p class="MsoNormal">Select the Record to Merge</p></li>
+    <li> <p class="MsoNormal">Select a Mail Merge Template</p></li>
+    <li> <p class="MsoNormal">To Create a Task Record: Click the Checkbox next to Log an Activity</p></li>
+    <li> <p class="MsoNormal">Click Generate.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="activities"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is the difference between the Open Activities and Activity History lists?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">The open activity list contains all tasks that are not completed and all events that have not occurred.  Activity history contains all tasks that are completed and all events that have occurred.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="tag"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is a tag?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">A tag is a short word or phrase that you can use to describe your data.  You can then group data using these tags. You can also run reports based on tags.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="sync-contacts"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I sync my Microsoft Outlook contacts?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">The procedure for syncing between Outlook and Salesforce is customized for each firm and depends on your firm&#39;s standard process. Contact 
+        your administrator for details.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="sync-schedule"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I set up a sync schedule?</span></h3>
+
+<ul type="disc">
+    <li> <p class="MsoNormal">Assuming you have contacted your administrator and understand your company&#39;s process:</p></li>
+    <li> <p class="MsoNormal">From Outlook, go to Tools</p></li>
+    <li> <p class="MsoNormal">Click Salesforce Options</p></li>
+    <li> <p class="MsoNormal">Under the General Tab, navigate to the Synchronization Preferences section and check the option “Synchronize on Schedule on Every”</p></li>
+    <li> <p class="MsoNormal">Select the number of hours from the picklist (1-8 hours) for your schedule.</p></li>
+    <li> <p class="MsoNormal">Click the OK button</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="email-to-task"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I convert an Outlook email to an open XLR8 task?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">Click on the email you wish to convert</p></li>
+    <li> <p class="MsoNormal">Click the Salesforce Add Email button in your Outlook toolbar</p></li>
+    <li> <p class="MsoNormal">The Add to Salesforce.com dialogue box appears, it will automatically search for the Contact/Entity in XLR8</p></li>
+    <li> <p class="MsoNormal">Confirm the Contact/Entity if correct. If incorrect, search for the desired Contact/Entity</p></li>
+    <li> <p class="MsoNormal">Under Assigned To, it will default your name. If this is incorrect, click the Change button and reassign the Task to another user.</p></li>
+    <li> <p class="MsoNormal">Under the Status picklist, change from Completed to Not Started</p></li>
+    <li> <p class="MsoNormal">Click the Add to Salesforce.com button</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="address-book"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I use my XLR8 Address book as my address book in Outlook?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">Tip: If you regularly sync your contacts between Salesforce 
+        and Outlook, then you already have the same Contacts in XLR8 and Outlook.  If you think your Contacts in Outlook are 
+        out of sync, follow the procedure below to find the XLR8 Contact:</p></li>
+    <li> <p class="MsoNormal">Click on a new message in Outlook</p></li>
+    <li> <p class="MsoNormal">Click on the Salesforce.com tab</p></li>
+    <li> <p class="MsoNormal">Click on the Salesforce.com address book button</p></li>
+    <li> <p class="MsoNormal">A dialogue box will appear where you can search for the XLR8 contact you wish to use.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="entity-contact"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is the difference between an XLR8 Entity and a Contact?</span></h3>
+ <ul type="disc">
+    <li> <p class="MsoNormal">An Entity does NOT represent a real person, it represents the household in the case of a client and a firm in the case of a business record.  Therefore it contains information about the household or business as a whole.</p></li>
+    <li> <p class="MsoNormal">A Contact represents a real person and contains all types of personal information about that person. For example, birthdate, social security number, etc.</p></li>
+    <li> <p class="MsoNormal">There will typically be one Entity record with many Contact records under that Entity.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="xlr8-naming"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What are the XLR8 Entity Naming Standards?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">For clients, the naming standard is Last Name, First Name of Primary Client and First Name of Secondary Client.</p></li>
+    <li> <p class="MsoNormal">Example 1: John Smith is a single client.  Entity Name: Smith, John</p></li>
+    <li> <p class="MsoNormal">Example 2: Two John Smiths exist in the CRM.  Entity Name: Smith, John A. and Entity Name: Smith, John L.</p></li>
+    <li> <p class="MsoNormal">Example 3: John Smith is married to Barbara Smith.  Entity Name: Smith, John and Barbara</p></li>
+    <li> <p class="MsoNormal">Example 4: John Smith is married to Barbara Brown, John is primary point of contact. Entity Name: Smith, John and Brown, Barbara</p></li>
+    <li> <p class="MsoNormal">Example 5: John Smith and Gary Gray are domestic partners, Gary is primary point of contact. Entity Name: Gray, Gary and Smith, John</p></li>
+    <li> <p class="MsoNormal">Tip:  We recommend using the word "and" instead of an ampersand in the client names due to HTML rendering of the ampersand symbol.</p></li>
+    <li> <p class="MsoNormal">For Businesses, the naming convention is typically the business legal name with the exception of businesses which start with the word "The".</p></li>
+    <li> <p class="MsoNormal">Example 1: Business names having the word "The" at the beginning of it, such as The UPS Store.  Entity Name: UPS Store, The</p></li>
+    <li> <p class="MsoNormal">Example 2:  A business name begins with a person’s name.  In this case, we will use the legal name and will not switch it to Lastname, Firstname like for Clients.  Entity Name: Tom Smith and Associates or Entity Name:  John Doe, Inc.</p></li>
+  
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="xlr8-rectypes"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What are the XLR8 record types and how are they used?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Client: Use this record type for any household, company or trust that is a client of your firm.</p></li>
+    <li> <p class="MsoNormal">Prospect: Use this record type for any household, company or trust that is a prospective client of your firm.</p></li>
+    <li> <p class="MsoNormal">General: Use this record type for professional associates, vendors, or other relationships with which your firm does business, refers clients, engages for educational purposes, etc.</p></li>
+    <li> <p class="MsoNormal">Employee: Use this record type for each current and former employee of the firm.  It will contain information that you would retain only for employees, such as position and hire date.</p></li>
+    <li> <p class="MsoNormal">Investment Entity: Use this record type for managers or funds that have a relationship with your firm.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+  <h3><span class="style1"><a name="xlr8-classification"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What value does the XLR8 type and subtype classification provide?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">It allows you to easily produce views and reports of just certain types of records.  These views can then be used in conjunction with the Salesforce mail merge and mass email functionality.</p></li>
+    <li> <p class="MsoNormal">It also allows you to utilize workflow and validation rules based on those classifications.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="convert-prospect"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I convert an XLR8 prospect to a client?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">When viewing the prospect record (not in edit mode), click on the Change link next to the Entity Record Type field (in upper right column).</p></li>
+    <li> <p class="MsoNormal">Select the Client record type from the drop down list and click the Continue button.</p></li>
+    <li> <p class="MsoNormal">This will bring you into edit mode of the Entity Record.  Make any changes you require and click the Save button.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="related-contact"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I relate a contact belonging to one entity to another entity?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">There are two ways you can do this. The first is from the Entity record.</p></li>
+    <li> <p class="MsoNormal">1. Navigate to the Entity record that you want to relate the contact "to".</p></li>
+    <li> <p class="MsoNormal">2. Hover on the Contacts Related to Entity related list link at the top of the Entity page.</p></li>
+    <li> <p class="MsoNormal">3. Click the "New Contacts Related to Entity" button.</p></li>
+    <li> <p class="MsoNormal">4. In the Contact field, click the lookup link and find the Contact you want to relate to this Entity.</p></li>
+    <li> <p class="MsoNormal">5. In the Relationship field, select a relationship value from the drop-down list.</p></li>
+    <li> <p class="MsoNormal">6. In the Comments field, add any additional comments needed to explain the relationship.</p></li>
+    <li> <p class="MsoNormal">The second method is from the Contact record.</p></li>
+    <li> <p class="MsoNormal">1. Navigate to the Contact record that you want to relate to the Entity. </p></li>
+    <li> <p class="MsoNormal">2. Hover on the Entities Related to This Contact related list link at the top of the Contact page.</p></li>
+    <li> <p class="MsoNormal">3. Click the "New Entity Related to This Contact" button.</p></li>
+    <li> <p class="MsoNormal">4. In the Entity field, click the lookup link and find the Entity you want to relate to this contact.</p></li>
+    <li> <p class="MsoNormal">5. In the Relationship field, select a relationship value from the drop-down list.</p></li>
+    <li> <p class="MsoNormal">6. In the Comments field, add any additional comments needed to explain the relationship.</p></li>
+  </ul>
+  <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+  <h3><span class="style1"><a name="view-activities"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a customized view of my Activities?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">From the Home Page sidebar, navigate to Custom Links and click on the Activity List View.</p></li>
+    <li> <p class="MsoNormal">Click the Create New View link.</p></li>
+    <li> <p class="MsoNormal">Step 1: Provide a name for your view.</p></li>
+    <li> <p class="MsoNormal">Step 2: Specify filters for your view.</p></li>
+    <li> <p class="MsoNormal">Step 3: Select fields you want to see in your view.</p></li>
+    <li> <p class="MsoNormal">Step 4: Restrict the Visibility for your view for how you want to share it with others (or not).</p></li>
+    <li> <p class="MsoNormal">Tip:  To only view tasks, you must select the field Task in the filter criteria and set it equal to True.  To only view Events, you must select the field Task in the filter criteria and
+    set it equal to False.</p></li>
+    <li> <p class="MsoNormal">Click Save.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="view-contacts"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a customized view of my Contacts?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Click on the Contacts Tab</p></li>
+    <li> <p class="MsoNormal">Click the Create New View link.</p></li>
+    <li> <p class="MsoNormal">Step 1: Provide a name for your view.</p></li>
+    <li> <p class="MsoNormal">Step 2: Specify filters for your view.</p></li>
+    <li> <p class="MsoNormal">Step 3: Select fields you want to see in your view.</p></li>
+    <li> <p class="MsoNormal">Step 4: Restrict the Visibility for your view for how you want to share it with others (or not).</p></li>
+    <li> <p class="MsoNormal">Click Save.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="view-entities"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I create a customized view of my Entities?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Click on the Entities Tab</p></li>
+    <li> <p class="MsoNormal">Click the Create New View link.</p></li>
+    <li> <p class="MsoNormal">Step 1: Provide a name for your view.</p></li>
+    <li> <p class="MsoNormal">Step 2: Specify filters for your view.</p></li>
+    <li> <p class="MsoNormal">Step 3: Select fields you want to see in your view.</p></li>
+    <li> <p class="MsoNormal">Step 4: Restrict the Visibility for your view for how you want to share it with others (or not).</p></li>
+    <li> <p class="MsoNormal">Click Save.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="share-view"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I share customized views with other users?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Navigate to the view in the view drop-down list.</p></li>
+    <li> <p class="MsoNormal">Click the Edit link below the view name.</p></li>
+    <li> <p class="MsoNormal">Scroll down to Step 4 and change the visibility settings.</p></li>
+    <li> <p class="MsoNormal">Click Save.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="share-reports"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I share reports with other users?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">Report security is controlled by the folder in which the report is stored.</p></li>
+    <li> <p class="MsoNormal">Click on the Reports tab.</p></li>
+    <li> <p class="MsoNormal">Under the Reports Folder banner, select the folder name from the drop-down list that your report is in and click Edit.</p></li>
+    <li> <p class="MsoNormal">Make the necessary changes to the folder security.</p></li>
+    <li> <p class="MsoNormal">Click Save.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="contact-xlr8"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I communicate with the XLR8 team?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">From the Home Page sidebar, you can open a case by clicking on the XLR8 Open Case link.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="xlr8-project"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I request project work with the XLR8 team?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">From the Home Page sidebar, you can open a case by clicking on the XLR8 Open Case link.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="export-report"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What options are there for exporting data from a report?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">You can export Salesforce report data to CSV file or Excel.</p></li>
+    <li> <p class="MsoNormal">After you run the report, click the Export Details button and select your choice of file type.</p></li>
+    <li> <p class="MsoNormal">Follow the instructions to open your file.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="sf-email"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What are the benefits of using Salesforce email versus Outlook email?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">We recommend using Salesforce email if you want to create an Activity History record for that email which will appear with the Client record.</p></li>
+    <li> <p class="MsoNormal">We also recommend Salesforce email for form-type emails that you frequently send to clients.</p></li>
+    <li> <p class="MsoNormal">Outlook email has the benefit of being able to resend it in email format; whereas Salesforce emails do not provide the ability to create an email chain.  The email becomes a historial activity in text format.</p></li>
+    <li> <p class="MsoNormal">We recommend Outlook email for one-off emails where you are going to be communicating back and forth with the client.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="activation-link"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is an activation link?</span></h3>
+    
+<ul type="disc">
+    <li> <p class="MsoNormal">When you logged into your Salesforce account for the very first time, Salesforce automatically recognized the IP address of your computer.</p></li>
+    <li> <p class="MsoNormal">Anytime you log into Salesforce from a different computer (or IP address), it will require that you "activate" that PC and authenticate that you are who they think you are.</p></li>
+    <li> <p class="MsoNormal">When you attempt to log in from a new computer, you will be prompted with a message about an activation being required.</p></li>
+    <li> <p class="MsoNormal">Click on the Send Activation Link button.</p></li>
+    <li> <p class="MsoNormal">An email will be sent to your email address on file with your account.</p></li>
+    <li> <p class="MsoNormal">Click on the activation link provided in that email from the computer that needs to be authenticated.  It will display a "successful activation" message.</p></li>
+    <li> <p class="MsoNormal">Re-log into Salesforce.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+
+ <h3><span class="style1"><a name="search"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is the difference between basic search and advanced search?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">The basic sidebar search is very limited and typically only searches objects by the standard name field.</p></li>
+    <li> <p class="MsoNormal">The Advanced Search option allows you to search custom fields.</p></li>
+</ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="doc-link"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is the purpose of the Document Connect link that appears on the Entity Client page layout?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">If you are using a windows-based filing system, the XLR8 team can configure this link to connect to the client folder for that Entity. </p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="multi-generational"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I show the relationships of a multi-generational family?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">By creating a heirarchy using the Parent Entity field.</p></li>
+    <li> <p class="MsoNormal">Edit each Entity record, filling in the Parent Entity with the "top" family in the heirarchy.</p></li>
+    <li> <p class="MsoNormal">To view the heirarchy, click on the "View Heirarchy" link next to any Entity Name in the family.</p></li>
+    
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="same-named"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    When is it OK to have a Contact and an Entity with the same name?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">If the Entity is a single person in a household.</p></li>
+    <li> <p class="MsoNormal">The Entity might be Smith, John and the Contact will be John Smith.</p></li>
+    
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="contact-relationships"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What happens if I have a Contact who has more than one relationship to my firm? 
+        </span></h3>
+<ul type="disc">
+ <li> <p class="MsoNormal">Example: A client who is also an attorney for a firm, working on behalf of my other clients</p></li>
+    <li> <p class="MsoNormal">The client relationship always takes priority. </p></li>
+    <li> <p class="MsoNormal">You create the "Contact" record under the client entity and you create a "Contact Related To Entity" record for the relationship as Attorney. </p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="minimize-sections"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    How do I minimize sections of a page?</span></h3>
+ <ul type="disc">
+   <li> <p class="MsoNormal">Click the arrow next to the section name.</p></li>
+ </ul>
+ <p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="view-report"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is the difference between a view and a report? </span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">A view limits your fields and filtering to one object at a time. A report enables you to filter and display fields from multiple objects.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="task-widget"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is the difference between the tasks component on the home page and the 
+    activity list view?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">The home page task list is not customizable and limits you to open tasks only.</p></li>
+    <li> <p class="MsoNormal">The activity list view is customizable and allows you to display not only tasks but events (open or closed) based on your filter criteria.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+<h3><span class="style1"><a name="event-task"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What is the difference between an event and a task?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">An event has a time component, is always displayed on the calendar, and automatically rolls into activity history when the event has passed.</p></li>
+    <li> <p class="MsoNormal">A task does <b>not</b> have a time component and remains in the Open Activity list until a user changes the task Status to "Completed".</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+ <h3><span class="style1"><a name="private-activity"></a></span>
+    <span class="style1" 
+        style="font-size: 12.0pt; mso-fareast-font-family: SimSun; mso-bidi-font-family: mso-font-kerning: .5pt; mso-ansi-language: EN-US; mso-fareast-language: HI; mso-bidi-language: HI">
+    What makes an activity private?</span></h3>
+<ul type="disc">
+    <li> <p class="MsoNormal">If you do not relate a task or event to an entity or a contact, it will be private to the person who created it.  It will not be viewable by other users.</p></li>
+</ul>
+<p style="text-align: center"><a target="_self" href="#">back to top</a></p>
+</html>
+</apex:pageBlock>
+</apex:page>

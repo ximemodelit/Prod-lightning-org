@@ -1,0 +1,1020 @@
+<apex:page controller="FAQController">
+<apex:pageBlock title="Hello {!$User.FirstName}!">
+<head>
+    <style type="text/css">
+          .pagetitlestyle
+        {
+            text-align: left;
+            font-size: medium;
+            color:black;
+            font-family: Arial;
+        }
+          .topictitlestyle
+        {
+            font-family: Arial, ;
+            color: blue;
+            font-weight: bold;
+            font-size: medium;  }
+        .boldstyle
+        {
+            font-weight: bold;
+        }
+        .bluebboldstyle
+        {
+            color: blue;
+        }
+        .pstyle
+        {
+            font-family: Arial;
+            font-size: small;
+        }
+        .italicbold
+        {
+            font-family: Arial;
+            font-size: small;
+            font-style: italic;
+            font-weight: bold;
+        }
+        .boldunderline
+        {
+            font-family: Arial;
+            font-size: small;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<html>
+    <div class="pagetitlestyle">
+    <p>
+    Welcome to XLR8, the premier CRM designed specifically to be the most powerful, cost-effective tool for Financial Advisors and Wealth Management Professionals. &nbsp;
+    Concenter Services has partnered with Salesforce.com to deliver XLR8 which is powered by Force.com - the only proven enterprise platform for building and running business applications in the cloud.  </p>
+     <p>
+     I bet you are wondering....where do I begin?&nbsp;&nbsp;Read on and follow our sequential guide of topics to get you started...</p> </div>
+ <p></p>
+ 
+<hr>
+</hr>
+
+<p class="topictitlestyle">
+Topic 1: &nbsp;Configuration Steps for XLR8</p>
+
+<p class="pstyle">To get started using XLR8, you will need to add users to your XLR8 account and then allocate the use of the XLR8 license to those users.  There are also other configuration steps required to make your system fully functional which are detailed in this guide.&nbsp;</p>
+<UL>
+<LI>To access the configuration guide, click <a href="{!URLFOR($Resource.XLR8ConfigurationGuide)}" target="_blank">here.</a></LI>
+</UL>
+
+<p class="topictitlestyle">
+Topic 2: &nbsp;Understand the XLR8 Data Model</p>
+<p class="pstyle">
+XLR8 is architected to build key account information and relationships under a single record (Entity).  
+All financial, contact, activity, communication, and business processes related to the account can be seen from a single location.</p>
+<p>
+The XLR8 concept provides a single location where the advisor can see a bird's-eye view of all activities going on with a given client.</p>
+
+<UL>
+<LI>To accomplish this, XLR8 has created the Entity record.</LI>
+<LI>The Entity record is the Client's &quot;homepage&quot;.</LI>
+<LI>From the Entity record, you can see an overview containing all of the client's information, including related records.</LI>
+<LI>This XLR8 diagram shows how related records are connected to the Entity record. It is important that all Contact records be associated with an Entity record.&nbsp;
+Therefore, you should <u>create the Entity record first</u>, then add all Contacts and other Related records associated with the Entity.</LI>
+</UL>
+<p> </p>
+<IMG SRC="{!$Resource.XLR8DataModel}"></IMG>
+
+<p><br></br></p>
+      
+<p class="topictitlestyle">
+Topic 3: &nbsp;View the Navigating Salesforce Video</p>
+<p class="pstyle">
+    We highly recommend that all new Salesforce CRM users watch the Getting Started: Navigating Salesforce training videos available in Salesforce Help &amp; Training link.  Salesforce has greatly improved on the Help &amp; Training interface to make it very easy for you to learn through videos, documentation and use cases.  By taking advantage of this, it will give you the jump start you need to navigate effectively on the Salesforce.com platform, the foundation upon which XLR8 is built.  Please note that the video is based on a non-customized Salesforce CRM and the screens may look different than XLR8, but the basic navigation and setup is the same.</p>
+
+<p class="pstyle">
+     The videos provide a very good overview of the concepts, terms, and setup of Salesforce. Users will learn how to navigate through the application, 
+     search for information, modify personal settings, and find additional help, as well as perform other basic tasks.</p>
+
+<UL>
+<LI>Log into Salesforce and click on the blue Help &amp; Training link in the upper right top corner of your XLR8 application</LI>
+<LI>From the box style menu, click on the first blue box labeled "Getting Started" and click the Go There button.</LI>
+<LI>On the next screen, under the GO FURTHER/Training topic, click on the "Navigating Salesforce" link to take the training.</LI>
+</UL>
+<p></p>
+
+<p class="topictitlestyle">
+Topic 4: &nbsp;Adopt An Entity Naming Standard</p>
+
+<p class="pstyle">It is important to define and communicate how you will name your records.  The success of any system lies in the consistency and accuracy of its data.</p>
+
+<p class="pstyle">Many people will be entering information which will be visible across your entire organization. &nbsp;In order to maximize efficiency, it is important to set policy on data entry as soon as possible, especially surrounding the most visible or critical data points (fields).</p>
+
+<p class="pstyle">One very visible AND critical field is “Entity Name”. It is the very core of how your firm relates with clients, business associates and virtually every business or contact entered into the CRM.</p>
+
+<p class="pstyle">Create a <b>consistent</b> approach in your firm. <b>Conformity here is a must!</b></p>
+                
+<p class="italicbold">Why is it important?</p>
+          <p class="pstyle">
+             Predictability / Reliability / Efficiency – Everyone in the firm must be able to find 
+              Entities in the system, even if another user entered the information. 
+              &nbsp; When it comes to reporting, all users must all be able to assume consistency. Sorting by Entity name, for example, should yield the expected results 
+           </p>
+          <p class="pstyle">
+              The most important aspect of this exercise is defining the naming rules and educating the users on why the rules are crucial to the success of the CRM implementation. &nbsp;
+              The following naming convention addresses just one field, but this concept can be applied to all other fields. &nbsp;The higher the expectations, the more clear the instruction,
+              the better the quality of data in your CRM!</p>
+          <p class="pstyle">
+              The following is Concenter Services' recommendation for naming Entities:</p>
+           <p class="boldunderline">
+              Client Households</p>
+   <p class="pstyle">
+             Example 1: John Smith is a single client</p>
+            <UL>
+            <LI>Entity Name:  "Smith, John"</LI>
+            </UL>
+  <p class="pstyle">
+             Example 2: Two John Smith's exist in the CRM</p>
+            <UL>
+            <LI>Entity Name:  "Smith, John A."</LI>
+            <LI>Entity Name:  "Smith, John L."</LI>
+            </UL>
+  <p class="pstyle">
+             Example 3: John Smith is married to Barbara Smith</p>
+            <UL>
+            <LI>Entity Name: "Smith, John and Barbara"</LI>              
+            </UL>
+  <p class="pstyle">
+             Example 4: John Smith is married to Barbara Brown, John is primary point of contact.</p>
+            <UL>
+            <LI>Entity Name: "Smith, John and Brown, Barbara"</LI>
+            </UL>
+   <p class="pstyle">
+             Example 5: John Smith and Gary Gray are domestic partners, Gary is primary point of contact.</p>
+            <UL>
+            <LI>Entity Name: "Gray, Gary and Smith, John"</LI>
+            </UL>
+                         
+              <p class="pstyle">
+              Note that we purposely suggest using the word “and” instead of the symbol ampersand (&amp;) because of how 
+              html renders the ampersand in the interface.</p>
+
+            <p class="boldunderline">Client Businesses or General Businesses</p>
+
+ <p class="pstyle">
+The Entity Name field is also used for the names of client businesses, professional associates, vendors, employees, and other types of entity records.&nbsp;
+In general, when naming businesses, we suggest going with the legal business name, 
+except in the case when the business name begins with the word “The” as in Example 1.&nbsp;</p>
+              
+     <p class="pstyle">
+          Example 1:  Business names containing the word “The” should place “The” after the 
+          name to appropriately place the company in proper alphabetical order in sorted lists.</p>
+            <UL>
+                <LI>Entity Name: “UPS Store, The”</LI>
+            </UL>
+            
+     <p class="pstyle">
+            Example 2:&nbsp;Business names that begin with a person’s name should use the legal name 
+                      and not &quot;Lastname, Firstname&quot;&nbsp; as suggested for Client record types.</p>
+            <UL>
+                <LI>Entity Name:&nbsp; “Tom Smith and Associates, LLC”</LI>
+                <LI>Entity Name:&nbsp; “John Doe, Inc.”</LI>
+            </UL>     
+<p><br></br></p>
+            
+<p class="topictitlestyle">
+Topic 5: &nbsp;Decide How You Will Categorize Your Entities</p>
+
+<p class="pstyle">
+XLR8 maximizes CRM power and flexibility by allowing you to group, filter, and classify records by both standard Salesforce records and custom XLR8 records.&nbsp;
+To facilitate grouping, filtering, and classifying of Entities, Concenter Services has employed the use of Salesforce record types in conjunction
+ with the XLR8 custom fields, <b>Entity Type</b> and <b>Entity Sub-Types</b>, to further categorize your Entity records.</p>
+
+<p class="pstyle">
+A <b>record type</b> controls the fields that appear on the page as well as control over the different sets of values that appear in any picklist on the Entity records.&nbsp;
+For example by using record types, a “Client Household” Entity can have a completely different visual layout, with a different set of values in a standard or custom 
+picklist than one that has a “General” record type.&nbsp;This allows great flexibility in your application.</p>
+
+<p class="pstyle">
+The XLR8 template is delivered with the following 7 record types.  You have the ability to turn off the use of any record type at any time by editing the record type and un-checking the “Active” checkbox as long as there are no records currently assigned to the record type.  If there are active records, you must first reassign them to an Active record type before you can de-activate that record type. (Concenter Services will be happy to work with you to create more record types to fit your company's unique needs)</p>
+
+<p class="boldunderline">
+Client Household</p>
+<p class="pstyle">
+Use this record type for any client that is a household.</p>
+
+<p class="boldunderline">
+Client Business</p>
+<p class="pstyle">
+Use this record type for any client that is a business.</p>
+
+<p class="boldunderline">
+Prospect</p>
+<p class="pstyle">
+Use this record type for a Client Household, Client Business or Trust that is a prospective client of your firm.</p>
+
+<p class="boldunderline">
+Trust</p>
+<p class="pstyle">
+Use this record type for a Trust that you monitor or manage.</p>
+
+<p class="boldunderline">
+General</p>
+<p class="pstyle">
+Use this record type for professional associates, vendors, or other relationships with which your firm does business, refers clients, engages for educational purposes, etc.</p>
+
+<p class="boldunderline">
+Employee</p>
+<p class="pstyle">
+Use this record type for each current and former employee of the firm.  It will contain information that you would retain only for employees, such as position and hire date. </p>
+
+<p class="boldunderline">
+Investment Entity</p>
+<p class="pstyle">
+Use this record type to track the due diligence of Alternative Investments and Mutual Funds.</p>
+
+<p class="pstyle">
+In addition to the record type customization, XLR8 provides the Entity Type and Entity Sub-Type picklist fields shown in the chart below, which allow you to further categorize your records within record type.  These can be further customized if needed.</p>
+
+<p></p>
+
+<TABLE ALIGN="CENTER" FRAME="BOX" CELLSPACING="0" COLS="3" BORDER="1">
+    <TBODY>
+
+  <TR>
+           <TD COLSPAN="3" ALIGN="CENTER" BGCOLOR="PINK" HEIGHT="27"><B><FONT SIZE="4" COLOR="#000000">Entity Categorization</FONT></B></TD>
+        </TR>
+
+        <TR>
+
+            <TD ROWSPAN="2" WIDTH="225" HEIGHT="36" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Record Type</FONT></B></TD>
+            <TD ROWSPAN="2" WIDTH="200" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Entity Type</FONT></B></TD>
+            <TD WIDTH="225" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Entity Sub-Type</FONT></B></TD>
+        </TR>
+
+    </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#FFCC99">Client Household</TD>
+            <TD ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#FFCC99"></TD>
+            <TD ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#FFCC99"></TD>
+
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#ffffb2">Client Business</TD>
+              
+              
+                <TD ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#ffffb2">B-Corporation (B-Corp)</TD>
+            <TD ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#ffffb2"></TD>
+        </TR>    
+ <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">C-Corporation (C-Corp)</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+ <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">General Partnership</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Joint Venture</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Limited Liability Company (LLC)</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Limited Liability Partnership (LLP)</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Municipality</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Nonprofit</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Professional Corporation (PC)</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Professional LLC (PLLC)</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Public Limited Company (PLC)</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">S-Corporation (S-Corp)</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+<TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#ffffb2">Sole Proprietorship</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#ffffb2"><BR/></TD>
+        </TR>
+
+     <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#CCFFCC">Prospect</TD>
+            <TD ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#CCFFCC"></TD>
+            <TD ALIGN="LEFT" VALIGN="TOP" BGCOLOR="#CCFFCC"></TD>
+        </TR>
+  
+        
+    <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4">Trust</TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Asset Protection</TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Charitable</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Constructive</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Irrevocable</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Revocable</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Special Needs</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Spend Thrift</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Tax By-Pass</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#f4ccf4">Totten</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#f4ccf4"><BR/></TD>
+        </TR>
+   
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF">General</TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Professional Associate</TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Accounting Firm</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Advisory Firm</TD>
+
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Banking Services</TD>
+        </TR>
+
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Broker</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Business Consultant</TD>
+
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Business Services</TD>
+        </TR>
+
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Business Valuation</TD>
+        </TR>
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Carrier/Provider</TD>
+        </TR>
+        
+          <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Insurance</TD>
+
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Investment Products &amp; Services</TD>
+
+        </TR>
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Law Firm</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Mortgage</TD>
+
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Psychology</TD>
+
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Public Relations</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Real Estate</TD>
+
+        </TR>
+
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Vendor</TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Office Professionals</TD>
+
+        </TR>
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Office Services</TD>
+        </TR>
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Office Supplies</TD>
+
+        </TR>
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Personal Services</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Restaurant/Club</TD>
+
+        </TR>
+
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Technology</TD>
+
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Travel</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Other</TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Academic</TD>
+
+        </TR>
+    <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Charity</TD>
+
+        </TR>
+
+
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Foundation</TD>
+
+        </TR>
+        <TR>
+
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Friends and Family</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Government Agency</TD>
+        </TR>
+
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Media/Public Relations</TD>
+
+        </TR>
+
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Medical</TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF">Professional Association</TD>
+        </TR>
+    </TBODY>
+
+    <TBODY>
+        <TR BGCOLOR="PINK">
+            <TD HEIGHT="18" ALIGN="LEFT">Employee</TD>
+
+            <TD ALIGN="LEFT"></TD>
+            <TD ALIGN="LEFT"><BR/></TD>
+        </TR>
+    </TBODY>
+    <TBODY>
+
+        <TR>
+            <TD HEIGHT="18" ALIGN="LEFT" BGCOLOR="#C0C0C0">Investment Entity</TD>
+
+            <TD ALIGN="LEFT" BGCOLOR="#C0C0C0">Alternative Investment</TD>
+            <TD ALIGN="LEFT" BGCOLOR="#C0C0C0"><BR/></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="17" ALIGN="LEFT" BGCOLOR="#C0C0C0"><BR/></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#C0C0C0">Mutual Fund</TD>
+          <TD ALIGN="LEFT" BGCOLOR="#C0C0C0"><BR/></TD>
+        </TR>
+          
+    </TBODY>
+
+</TABLE>
+<p><br></br></p>
+
+<p class="topictitlestyle">
+Topic 6:&nbsp;Decide How You Will Categorize Your Activities</p>
+<p class="pstyle">
+All activities such as Tasks, Events, or Phone Calls can be categorized and later reported against to give a firm a view into how productive time is being spent.&nbsp;
+It can provide a clear audit of all client activities as well as internal operational activities to better manage your firm.&nbsp;
+XLR8 comes with a set of picklist values for these fields as defined in the table below.  Evaluate them and determine if they match your firm’s style.  If not, they can be customized as needed.</p> 
+
+<p></p>
+
+<TABLE ALIGN="CENTER" CELLSPACING="0" COLS="3" BORDER="1">
+    <TBODY>
+        <TR>
+            <TD COLSPAN="3" BGCOLOR="PINK" WIDTH="550" HEIGHT="27" ALIGN="CENTER"><B><FONT SIZE="4" COLOR="#000000">Activity Categorization in XLR8</FONT></B></TD>
+            </TR>
+         <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="CENTER" VALIGN="MIDDLE" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Event Type</FONT></B></TD>
+            <TD ALIGN="CENTER" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Task Type</FONT></B></TD>
+        </TR>
+    </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><B><FONT COLOR="#000000">Type</FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Meeting - Internal</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Phone</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Meeting - External</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Email</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Web Meeting</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">ToDo</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" BGCOLOR="#FFCC99" ALIGN="LEFT"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Conference Call</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Note</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" BGCOLOR="#FFCC99" ALIGN="LEFT"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Personal</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+        </TR>
+        </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT"><FONT SIZE="1" COLOR="#000000">Type should reflect the format of the meeting</FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="#000000"><BR/></FONT></TD>
+        </TR>
+         </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="CENTER" VALIGN="MIDDLE" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Category</FONT></B></TD>
+            <TD ALIGN="CENTER" VALIGN="MIDDLE" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Sub-Category (Event)</FONT></B></TD>
+            <TD ALIGN="CENTER" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Sub-Category (Task)</FONT></B></TD>
+        </TR>
+    </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><B><FONT COLOR="#000000">Client Operations</FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Account Open/Close</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Contract</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Trades: Cash Mgmt</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Trades: Rebal</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Transfer</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#FFCC99"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#FFCC99"><FONT COLOR="#000000">Renewal</FONT></TD>
+        </TR> 
+    </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000">Client Services</FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Charitable Giving</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Charitable Giving</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Estate Planning</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Estate Planning</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Financial Planning</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Financial Planning</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Insurance Planning</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Insurance Planning</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Investment Management</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Investment Management</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Performance</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Performance</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Annual Review</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Annual Review</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Tax Planning</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000">Tax Planning</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCFFCC"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCFFCC"><FONT COLOR="#000000"><BR/></FONT></TD>
+        </TR>
+    </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000">Internal Operations</FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Accounting</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Accounting</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Marketing</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Marketing</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Planning</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Planning</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Review</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Human Resources</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Strategic Planning</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Strategic Planning</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Team</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Team</FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Tradeshow</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000"><BR/></FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000">Training</FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000"><BR/></FONT></TD>
+        </TR>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="#CCCCFF"><B><FONT COLOR="#000000"><BR/></FONT></B></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT" BGCOLOR="#CCCCFF"><FONT COLOR="#000000"><BR/></FONT></TD>
+        </TR>
+    </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT" BGCOLOR="PINK"><B><FONT COLOR="#000000">Personal</FONT></B></TD>
+            <TD ALIGN="CENTER" VALIGN="MIDDLE" BGCOLOR="PINK"><FONT COLOR="#000000">--</FONT></TD>
+            <TD ALIGN="CENTER" VALIGN="MIDDLE" BGCOLOR="PINK"><FONT COLOR="#000000">--</FONT></TD>
+        </TR>
+        </TBODY>
+    <TBODY>
+        <TR>
+            <TD HEIGHT="19" ALIGN="LEFT"><FONT SIZE="1" COLOR="#000000">Category and Sub-Category should reflect the specific topic</FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="#000000"><BR/></FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="#000000"><BR/></FONT></TD>
+        </TR>
+    </TBODY>
+</TABLE>
+<p><br></br></p>
+
+<p class="topictitlestyle">
+Topic 7: &nbsp;Using FYI Email for Tasks</p>
+
+<p class="pstyle">XLR8 is equipped with functionality to send an informational email to another user in your system regarding the status of a Task.  This is quite helpful in keeping your team members informed on the progress of a certain activity/task.&nbsp;</p>
+
+<UL>
+<LI>To learn how to use the FYI Email feature click <a href="{!URLFOR($Resource.FYIEmailFunctionalityinXLR8)}" target="_blank">here.</a></LI>
+</UL>
+
+<p class="topictitlestyle">
+Topic 8: &nbsp;Using Meaningful Activity Tracking for Tasks and Events</p>
+
+<p class="pstyle">Meaningful Activity Tracking is designed to allow users to indicate when a task or event is considered meaningful contact with a client, and thus update a corresponding date field when completed.  Every firm has a different definition of what they consider to be a meaningful activity.  XLR8 comes preloaded with a set of default picklist values that correspond to the existing XLR8 Review Date fields on the client entity record.  Your Salesforce administrator can add or remove fields to the picklist, as well as add or remove corresponding fields on the entity record to track those dates.  To learn how to use the Meaningful Activity Tracking features watch the training video under Topic 13: Meaningul Activity Tracking.</p>
+<UL>
+<LI>To learn how to customize Meaningful Activity Tracking to track dates that are tailored to your business model, click <a href="{!URLFOR($Resource.MeaningfulActivityCustomizationinXLR8)}" target="_blank">here.</a></LI>
+</UL>
+
+<p class="topictitlestyle">
+Topic 9: &nbsp;Task History Tracking</p>
+
+<p class="pstyle"> XLR8 includes the ability to track the history of changes made to Task records.  For example, preserving the Comments recorded for a client activity.  This functionality records changes made each time a Task record is edited, and inserts a snapshot of that Task record into the Task History Table, creating an audit trail for compliance purposes.  
+If a Task is deleted, it also records that the Task was deleted, preserving the history of that Task in the Task History table.  To learn more, watch the video under Topic 13: Compliance.</p>
+
+<p class="pstyle"> To learn best practices for maintaining the volume of your Task History table and the feature for turning it on or off, click <a href="{!URLFOR($Resource.TaskHistoryRecordMaintenance)}" target="_blank">here.</a></p>
+
+<p class="topictitlestyle">
+Topic 10: &nbsp;XLR8 Suggestions Module</p>
+
+<p class="pstyle"> XLR8 includes a Suggestions module which can be used to manage employee requests for the XLR8 interface.  Your Salesforce administrator can configure the Suggestions workflow to manage the communication from Suggestions.  Click the plus sign (+) tab to access the Suggestions module.  To learn how to use the Suggestions module, watch the video under Topic 13: Suggestions.</p>
+
+
+<p class="topictitlestyle">
+Topic 11: &nbsp;Automate Your Business Processes With the XLR8 Process Engine!</p>
+
+<p class="pstyle">The XLR8 Process Engine is designed to assist firms in establishing consistent repeatable processes within an organization.&nbsp;
+By building process templates, operational policy and procedures are clearly defined (Examples: Client Acquisition Process, Year-end Tax Process).&nbsp;
+One repository can house all processes used within your firm. &nbsp;Individual users can pull from this repository when executing processes for an Entity, 
+creating a consistent execution every time. &nbsp;With processes well defined, the XLR8 Process Engine can facilitate the training of new employees. &nbsp;
+If your firm consistently utilizes the Process Engine, any XLR8 user can look at an Entity and clearly see the status of all the processes in progress. &nbsp;
+The XLR8 Process Engine is designed to boost operational excellence!   Watch the two videos in Topic 13: How to Create Process Templates and Using the Process Engine to familiarize yourself with the functionality. &nbsp;
+
+<UL>
+<LI>To learn how to customize the Process Engine with Assign to Roles that are tailored to your business model, click <a href="{!URLFOR($Resource.ProcessEngineRolesCustomizationinXLR8)}" target="_blank">here.</a></LI>
+</UL>
+</p>
+<p class="topictitlestyle">
+Topic 12: &nbsp;Further Automation of Business Processes With XLR8 Workflow Rules!</p>
+
+<p class="pstyle">XLR8 comes with the following workflow rules designed to further improve your productivity by triggering tasks and emails based on &nbsp;
+data conditions changing in your system.  These workflow rules are not activated by default because they require some intervention on your part.  &nbsp;
+They are designed to give you a head start in understanding how workflow functions and how easily it can be used to assist you in automating pieces of &nbsp;
+your business.</p>
+
+<p class="pstyle">You can view these workflow rules under Setup/Build/Create/Workflow and Approvals/Workflow Rules.</p>
+
+<p class="boldunderline">ENTITY WORKFLOWS</p>
+
+<p class="italicbold">
+1. Client Address Change Workflow</p>
+<p class="pstyle">This rule is designed to fire when any of the four addresses on an Entity record are changed and that Entity record’s Active Status is Active. An email is generated to the record owner of the account.  It is not turned on by default to allow your Administrator to set who the correct person is who should receive the email.</p>  
+<p></p>
+
+<p class="italicbold">
+2. Update Hierarchy Group ID As Text Workflow</p>
+<p class="pstyle">This workflow rule updates the Hierarchy Group ID as Text field with the value from the Hierarchy Group ID and runs every time an Entity is created or edited.  This workflow rule is turned on automatically in your org and should remain that way if you are using the Hierarchy Reporting in XLR8.   It ensures that the ID recorded is the correct 18-character id, required for accurate reporting.</p>  
+<p></p>
+
+<p class="italicbold">
+3. Terminated Client Workflow</p>
+<p class="pstyle">This rule is designed to fire when the Active Status on an Entity record is changed from Active to Terminated. It is not activated by default so that your Administrator can determine who should receive the Task assignments and Email notifications.  The actions of this workflow are:</p>
+<OL>
+<LI>Task generated to “Mail Terminated Letter to client”</LI>
+<LI>Task generated to “Notify the Custodian”</LI>
+<LI>Email generated to entire team to notify them of the client terminating</LI>
+</OL>
+<p></p>
+
+<p class="boldunderline">CONTACT WORKFLOWS</p> 
+
+<p class="italicbold">
+1. Deceased Client Workflow</p>
+<p class="pstyle">This rule is designed to fire when a Contact record’s Deceased checkbox is checked. It is not activated by default so that your Administrator can determine who should receive the Task assignments.  The actions of this workflow are:</p>  
+
+<OL>
+<LI>Task generated to “Notify the Custodian”</LI>
+<LI>Task generated to “Send Card to Family”</LI>
+</OL>
+<p></p>
+
+<p class="italicbold">
+2. Reset OK to Change Birthdate Checkbox</p>
+<p class="pstyle">This rule is designed to protect against inadvertent Contact birthdate changes where the Contact exists as an RMD Member on a Retirement Asset record.  When changing a birthdate with this condition, it requires that you confirm the change by checking the “OK to Change Birthdate” field and after saving the change, the workflow rule updates the field back to unchecked.  This workflow rule is turned on automatically in your org and should remain that way if you are using the RMD Module.</p>  
+<p></p>
+
+<p class="boldunderline">EVENT WORKFLOW</p>
+
+<p class="italicbold">
+Meaningful Activity Event Trigger Workflow</p>
+<p class="pstyle">This workflow rule is already activated in your XLR8 org and needs to remain active in order for Meaningful Activity to function properly for Events created in the future.  It kicks off a time-based workflow action to update the corresponding Entity date field when the Event date passes.</p>  
+<p></p>
+
+<p class="boldunderline">CASE MANAGEMENT WORKFLOWS</p>
+
+<p class="italicbold">
+1. Notify Case Management Next Step Owner On Creation Workflow</p>
+<p class="pstyle">This workflow rule is already activated in your XLR8 org and fires whenever the Case Management record is created and the Next Step Owner field is not blank.  It automatically sends an email to user in the Next Step Owner field.</p>
+<p></p>
+
+<p class="italicbold">
+2. Notify Case Management Next Step Owner Workflow</p>
+<p class="pstyle">This workflow rule is already activated in your XLR8 org and fires whenever the Case Management Next Step Owner or the Next Step field changed and automatically sends an email to user in the Next Step Owner field.</p>
+<p></p>
+
+<p class="boldunderline">SUGGESTIONS WORKFLOWS</p>
+
+<p class="pstyle">There are also several workflow rules set up if you are using the Suggestions module of XLR8, which is designed to assist in the management of suggestions received from your team.  You can explore these rules if you decide to use the module in your firm.</p>  
+<p></p>
+
+<p class="topictitlestyle">
+Topic 13: &nbsp;XLR8 Training Videos</p>
+
+<p class="pstyle">These videos are powered by the Technical Documentation team at Concenter Services. We strive to bring you videos that illuminate features, answer questions, and help you get the most out of XLR8.</p>
+<UL>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8EntityContact.mp4" target="_blank">Entities and Contacts</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8InvestmentEntities.mp4" target="_blank">Investment Entities</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8UpdatingContactAddresses.mp4" target="_blank">Updating Contact Addresses</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8Activities.mp4" target="_blank">Activities</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8TaskTimer.mp4" target="_blank">Task Timer</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8MeaningfulActivityTracking.mp4" target="_blank">Meaningful Activity Tracking</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8Compliance.mp4" target="_blank">Compliance (includes Task History Tracking and Critical Notes)</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8HowToCreateProcessTemplates.mp4" target="_blank">How to Create Process Templates</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8UsingProcessEngine.mp4" target="_blank">Using the Process Engine</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8MassCreatingProcesses.mp4" target="_blank">Mass Creating Processes</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8AssetsLiabilities.mp4" target="_blank">Assets and Liabilities</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8RMD.mp4" target="_blank">RMD</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8PotentialRevenue.mp4" target="_blank">Case Management</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8IncomeExpense.mp4" target="_blank">Income and Expense</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8Insurance.mp4" target="_blank">Insurance</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8GroupPlansandParticipants.mp4" target="_blank">Corporate Plans and Plan Participants</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8EstatePlansGifting.mp4" target="_blank">Estate Plans and Gifting</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8IncomeTax.mp4" target="_blank">Income Tax</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8Goals.mp4" target="_blank">Goals</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8HierarchyReporting.mp4" target="_blank">Hierarchy Reporting</a></LI>
+<LI><a href="https://s3.amazonaws.com/xlr8training/XLR8Suggestions.mp4" target="_blank">Suggestions</a></LI>
+</UL>
+<p></p>
+
+<p></p>
+<p class="topictitlestyle">
+Topic 14: &nbsp;Automation for Deleting Security Records in XLR8</p>
+
+<p class="pstyle">If you are currently loading XLR8 Security (holdings) records via a portfolio data integration, the process to delete those security records is being simplified by the Delete Securities function (released in XLR8 v3.0).  This process performs the deletion from within the XLR8 interface and would replace your existing process of using the Salesforce DataLoader tool.
+System Administrators can access the Delete Securities tab from the (+) All Tabs view.  Once you click the tab name, XLR8 will notify you of the number of Securities records found.  After you click the Delete All Securities Records button, you will receive an email with confirmation of the deletion.</p>
+
+<p class="topictitlestyle">
+Topic 15: &nbsp;Get Help With Concenter Services Professional Services</p>
+
+<p class="pstyle">Concenter Services is a full-service consulting firm and a certified Salesforce Partner.  
+We are committed to ensuring that your CRM not only improves efficiency at your firm but enhances your competitive advantage!  
+If you are interested in any of our professional services, please contact us at <a href="http://www.concenterservices.com" target="_blank">www.concenterservices.com</a></p>
+
+<p class="italicbold">
+Migrating your data into XLR8</p>
+
+<p class="pstyle">Concenter Services provides data migration services from virtually any system.  
+We are experienced in migrating data from a wide variety of sources including, ACT!, Junxure, Redtail, ProTracker, Siebel on Demand, Goldmine, Outlook, etc.  </p>
+
+<p class="italicbold">
+Customize XLR8 for your firm</p>
+<p class="pstyle">Concenter Services will work with you to define your requirements and design a solution that incorporates best practices.  </p>
+
+<p class="italicbold">
+Integration with Portfolio Management and Financial Planning Systems</p>
+
+<p class="pstyle">Concenter Services is committed to integrating key systems with XLR8.  Any system you are currently using that has “export functionality”, 
+can be easily integrated with XLR8.  Let Concenter Services help you set this up and get you integrated today!</p>
+
+<p class="pstyle">Single Sign On and automated integration is important to you and Concenter Services.  Each integration is carefully selected and implemented following the highest design, security and quality standards.  Contact us today to see if your financial planning tools are set up with automated integration.</p>
+
+<p class="italicbold">
+Microsoft Outlook, Word and Excel Integration</p>
+
+<p class="pstyle">XLR8 can be integrated with the Microsoft tools you are accustomed to using on your desktop today.  
+Concenter Services will work with you to setup Microsoft integrations and help you determine when and what to sync.  
+We will work with you to define and train on best practice usage for syncing contacts, email, events, and calendar usage.  </p>
+
+<p class="italicbold">
+Document Management Integration</p>
+
+<p class="pstyle">Concenter Services is a Certified Netdocuments Consulting Partner.  We have a very robust integration with the Netdocuments product.  
+If you are interested in a total “Cloud” solution, let us show you the integration between XLR8 and Netdocuments!  It will take your system to the next level.</p>
+
+<p class="italicbold">
+XLR8 Customized Training</p>
+
+<p class="pstyle">Do you feel your firm needs customized training?  
+Training is an important aspect of becoming an XLR8 customer.  Concenter Services offers onsite or web-based training.  
+Training is customized specifically for your firm and is performed on your system with your firm’s customizations and data.</p>
+<p><br></br></p>
+ 
+</html>
+</apex:pageBlock>
+</apex:page>

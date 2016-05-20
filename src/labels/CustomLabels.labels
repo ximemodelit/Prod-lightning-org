@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>FYI_List_Invalid_Alias</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FYI List Invalid Alias</shortDescription>
+        <value>The alias {0} does not match a currently active user, please deselect it to continue, and notify your system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>FYI_Sent_Comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FYI Sent Comment</shortDescription>
+        <value>FYI Sent to {0} on {1}.</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,4 @@
+<apex:page standardController="Process_Template__c" extensions="CloneTemplateController"
+	action="{!init}">
+	<apex:messages />
+</apex:page>

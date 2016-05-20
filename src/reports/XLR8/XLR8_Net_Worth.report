@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>XLR8_Assets_Liabilities__c.Asset_Classification__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>XLR8_Assets_Liabilities__c.Value_Balance__c</field>
+    </columns>
+    <columns>
+        <field>XLR8_Assets_Liabilities__c.As_of_Date__c</field>
+    </columns>
+    <description>XLR8 Report of Net Worth by Client (Used on Entity Button called &quot;Net Worth Report&quot;)</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Entity_ID_18__c</column>
+            <operator>equals</operator>
+            <value>001A000000Q2zF5aa1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>XLR8_Assets_Liabilities__c.Include_In_Net_Worth__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Net Worth</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$XLR8_Assets_Liabilities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

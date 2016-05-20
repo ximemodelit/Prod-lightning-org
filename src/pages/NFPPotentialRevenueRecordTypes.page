@@ -1,0 +1,36 @@
+<apex:page controller="NFPPotentialRevenueRecordTypesController" tabStyle="Potential_Revenue__c" action="{!loadRecordTypes}">
+    <apex:form >
+        <apex:outputPanel layout="block" rendered="{!errors == ''}">
+            <apex:sectionHeader title="New Case Management" description="Select a record type for the new case."
+            subtitle="Select Case Management Record Type"/>
+            <apex:pageBlock title="Select Case Management Record Type">
+                <apex:pageBlockSection columns="2" >
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Record Type of new record"/>
+                        <apex:selectList value="{!selectedPotentialRevenueRecordType}" size="1" required="true">
+                            <apex:selectOptions value="{!CorrectSelectList}"/>
+                        </apex:selectList> 
+                    </apex:pageBlockSectionItem>                
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockButtons location="bottom">
+                    <apex:commandButton value="Continue" action="{!openNewPotentialRevenueRecord}" />
+                    <apex:commandButton value="Cancel" action="{!goBackToEntity}"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+            <apex:pageBlock mode="mainDetail">
+                <apex:outputText style="font-weight:bold;font-size:12px;" value="Available Case Management Record Types" />
+                <apex:pageBlockTable style="margin-top:5px;" value="{!recordTypes}" var="recordType"
+                cellspacing="0" >
+                    <apex:column value="{!recordType.Name}" style="font-weight:bold;"/>
+                    <apex:column value="{!recordType.Description}"/> 
+                </apex:pageBlockTable>
+            </apex:pageBlock> 
+        </apex:outputPanel>
+        <apex:outputPanel style="color:red;" rendered="{!errors != ''}">              
+            <apex:sectionHeader title="New Case Management" />
+            <apex:outputPanel layout="block" style="margin-left: 45px; margin-bottom: 15px; color:red;"> {!errors}</apex:outputPanel> 
+            <apex:outputPanel layout="block" style="margin-left: 45px;"><apex:commandButton value="Cancel" action="{!goBackToEntity}"/></apex:outputPanel>
+        </apex:outputPanel>      
+    </apex:form>
+</apex:page>

@@ -1,0 +1,70 @@
+<apex:page extensions="TaskTimerActivitiesListController" standardController="Task" tabstyle="Task_Timer_Activity__c">
+
+	<body oncontextmenu="return false;">
+		<apex:form >
+			<apex:pageMessages />	
+			<apex:pageblock id="CustomList" title="Timed Tasks Activities"  >
+				<apex:pageBlockButtons location="top">
+                	<input type="button" class="btn" onclick="window.open('{!createNewURL}','_parent');" value="New Task Timer Activity"/>
+            	</apex:pageBlockButtons>
+            	<apex:outputPanel layout="block" rendered="{!activities.size>0}">
+            		<apex:outputPanel layout="block" id="recordsPanel">
+						<apex:pageBlockTable value="{!activities}" var="activity" >
+							<apex:column headerValue="Action" style="width: 10% !important;">                  
+		  						<apex:outputLink target="_parent" value="/{!activity.id}/e?retURL={!activity.Task_ID__c}" style="color: #015ba7;">Edit</apex:outputLink>
+		 						<apex:outputPanel rendered="{!isTaskActivityTimerDeletable}">&nbsp; | &nbsp;</apex:outputPanel>   
+		 						<apex:commandlink rendered="{!isTaskActivityTimerDeletable}" target="_parent" action="{!deleteTaskTimer}" value="Delete" style="color: #015ba7;" onmousedown="RightClickDisabled(event)">
+		 							<apex:param name="activityId" value="{!activity.Id}"/>
+		 						</apex:commandlink>
+							</apex:column>
+							<apex:column headerValue="Description">
+								<apex:outputLink target="_parent" value="/{!activity.id}" >{!activity.Description__c}</apex:outputLink>
+							</apex:column>
+							<apex:column value="{!activity.Billable__c}"/>
+							<apex:column value="{!activity.Duration__c}"/>
+							<apex:column value="{!activity.Date__c}"></apex:column>
+						</apex:pageBlockTable>
+					</apex:outputPanel>
+	   				<apex:outputPanel layout="block" id="paginationButtons" styleClass="paginator">
+						<apex:outputPanel layout="iniline" styleClass="prevNextLinks">
+							<apex:outputPanel layout="inline" styleClass="prevNext">
+								<apex:commandLink action="{!firstPage}"  rendered="{!NOT(disablePrevious)}" reRender="recordsPanel,paginationButtons" >
+									<apex:image value="/s.gif" title="First Page" alt="First Page" styleClass="first"/>
+								</apex:commandLink>
+								<apex:image value="/s.gif" title="First Page" alt="First Page" styleClass="firstoff"  rendered="{!disablePrevious}"/>
+							</apex:outputPanel>
+							
+							<apex:outputPanel layout="inline" styleClass="prevNext">
+								<apex:commandLink action="{!previousPage}"  rendered="{!NOT(disablePrevious)}" reRender="recordsPanel,paginationButtons" >
+									<apex:image value="/s.gif" title="Previous" alt="Previous" styleClass="prev"/>
+									Previous
+								</apex:commandLink>
+								<apex:image value="/s.gif" title="Previous" alt="Previous" styleClass="prevoff" rendered="{!disablePrevious}" />
+								<apex:outputPanel rendered="{!disablePrevious}">Previous</apex:outputPanel>		
+							</apex:outputPanel>
+							
+							<apex:outputPanel layout="inline" styleClass="prevNext">
+								<apex:commandLink action="{!nextPage}"  rendered="{!NOT(disableNext)}" reRender="recordsPanel,paginationButtons" >
+									Next
+									<apex:image value="/s.gif" title="Next" alt="Next" styleClass="next"/>								
+								</apex:commandLink>
+								<apex:outputPanel rendered="{!disableNext}">Next</apex:outputPanel>	
+								<apex:image value="/s.gif" title="Previous" alt="Previous" styleClass="nextoff" rendered="{!disableNext}" />								
+							</apex:outputPanel>
+							
+							<apex:outputPanel layout="inline" styleClass="prevNext">
+								<apex:commandLink action="{!lastPage}"  rendered="{!NOT(disableNext)}" reRender="recordsPanel,paginationButtons">
+									<apex:image value="/s.gif" title="Last Page" alt="Last Page" styleClass="last"/>
+								</apex:commandLink>
+								<apex:image value="/s.gif" title="Last Page" alt="First Page" styleClass="lastoff" rendered="{!disableNext}"/>
+							</apex:outputPanel>
+						</apex:outputPanel>
+				    </apex:outputPanel>
+				</apex:outputPanel>
+				<apex:outputPanel layout="block" rendered="{!activities.size==0}">
+					<apex:outputLabel value="No records to display"  styleClass="noRowsHeader"/>
+				</apex:outputPanel>
+			</apex:pageblock>
+		</apex:form>
+	</body>
+</apex:page>

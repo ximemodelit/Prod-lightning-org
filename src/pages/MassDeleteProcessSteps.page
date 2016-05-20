@@ -1,0 +1,30 @@
+<apex:page extensions="MassDeleteProcessStepsController" standardController="Process_Step__c" recordSetVar="steps" >
+    <apex:includeScript value="{!URLFOR($Resource.OverlayResource, 'js/overlay.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.OverlayResource, 'css/overlay.css')}"/>
+    <apex:form id="massDeleteErrors">   
+        <apex:sectionHeader title="Mass Delete Proces Steps" subtitle="{!processName}" />
+        <apex:outputPanel rendered="{! errors != null && errors.size > 0}">
+            <apex:pageMessages />   
+            <apex:commandLink action="{!goBack}" value="Go back" style="margin-left: 20px;"/>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!selectedSteps != null && selectedSteps.size > 0 && errors.size == 0}">
+            <apex:pageBlock title="Do you want to delete the steps below?" >
+                <apex:pageBlockButtons location="top">
+                    <apex:commandButton action="{!deleteProcessSteps}" value="Yes" onclick="showOverlay();"/>
+                    <apex:commandButton action="{!goBack}" value="Cancel"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockTable value="{!steps}" var="step" >
+                    <apex:column value="{!step.Name}"/>
+                    <apex:column value="{!step.Sequence__c}"/>
+                    <apex:column value="{!step.Duration_In_Days__c}"></apex:column>
+                    <apex:column value="{!step.Step_Details__c}"></apex:column>
+                    <apex:column value="{!step.Predecessor_Steps__c}"/>
+                    <apex:column value="{!step.Assigned_To__c}"/>
+                    <apex:column value="{!step.Status__c}"></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        <div id="loadingDiv" class="overlay" style="display:none"><apex:image id="ajaxSpinner"  value="{!URLFOR($Resource.OverlayResource, 'images/loadinfo.gif')}" styleClass="loader"/></div>
+    </apex:form>
+</apex:page>

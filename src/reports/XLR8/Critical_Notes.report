@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Critical_Note__c.Contact__c</field>
+    </columns>
+    <columns>
+        <field>Critical_Note__c.Short_Description__c</field>
+    </columns>
+    <columns>
+        <field>Critical_Note__c.Note__c</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <description>XLR8 Report of Critical Notes by Client (Used on Entity Button called &quot;Critical Notes Summary&quot;)</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Entity_ID_18__c</column>
+            <operator>equals</operator>
+            <value>001G0000019I8OfIAK</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Critical Notes</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$Critical_Note__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>CUST_CREATED_DATE</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

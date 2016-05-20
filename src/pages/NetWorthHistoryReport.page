@@ -1,0 +1,17 @@
+<apex:page standardController="Account" extensions="ReportIDController">
+  <script type="text/javascript">
+      function OpenReport(url){
+           var url = '/'+url+'?pv1={!Account.Entity_ID_18__c}';
+           window.parent.location.replace(url);
+           //window.location.reload();
+       }
+</script>
+  <H1>Net Worth History</H1>
+  <!--This is: NetWorthHistoryReport -->
+   <apex:outputLink onclick="OpenReport('{!XLR8NetWorthHistoryID}');">
+   <analytics:reportChart reportId="{!XLR8NetWorthHistoryReportVFID}" 
+                         filter="{column:'{!colFKAccountEntityID18}', operator:'equals', value:'{!Account.Entity_ID_18__c}'}, 
+                                {column:'{!colNtWrthHstAsOfDt}', operator:'greaterThan', value:'N_DAYS_AGO:366'}"
+                         size="tiny" cacheResults="false" rendered="true"></analytics:reportChart>                     
+  </apex:outputLink>
+  </apex:page>

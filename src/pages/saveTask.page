@@ -1,0 +1,15 @@
+<apex:page controller="HandleStepOperation">
+<apex:form >
+<apex:actionFunction name="saveTask" action="{!redirectAfterTaskCreation}" />
+<apex:pageMessages />
+</apex:form>
+<apex:includeScript value="{!$Resource.jquery}"/>
+
+<script type="text/javascript">
+$j = jQuery.noConflict();
+$j(function () {
+	saveTask();
+});
+</script>
+
+</apex:page>

@@ -1,0 +1,42 @@
+<apex:page standardController="Process__c" tabStyle="Process__c" extensions="EditProcessController">
+
+<apex:includeScript value="{!$Resource.jquery}"/>
+<script src="/soap/ajax/19.0/connection.js" type="text/javascript"></script>
+<script src="/soap/ajax/19.0/apex.js" type="text/javascript"></script>
+<apex:sectionHeader title="Process Edit" subtitle="{!ProcessName}"/>
+<apex:form >
+    <apex:pageMessages />
+    <apex:pageBlock >
+        <apex:pageBlockSection rendered="{!Process__c.Process_Template__c == null}" title="Template">
+            <apex:pageBlockSectionItem >
+                <apex:inputField value="{!Process__c.Process_Template__c}" required="true" />
+                <apex:commandButton value="Select Template" action="{!selectTemplate}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection rendered="{!Process__c.Process_Template__c != null}" >
+            <apex:inputField value="{!Process__c.Name}" required="true" />
+            <apex:inputField value="{!Process__c.Entity__c}" 
+                rendered="{!TemplateType == 'Entity'}" />
+            <apex:inputField value="{!Process__c.Opportunity__c}" 
+                rendered="{!TemplateType == 'Opportunity'}" />
+            <apex:inputField value="{!Process__c.Case__c}" 
+                rendered="{!TemplateType == 'Case'}" />
+            <apex:inputField value="{!Process__c.Contact__c}" 
+                rendered="{!TemplateType == 'Contact'}" />
+            <apex:inputField value="{!Process__c.Lead__c}" 
+                rendered="{!TemplateType == 'Lead'}" />
+            <apex:outputField value="{!Process__c.Process_Template__c}" />
+            <apex:inputField value="{!Process__c.Deadline__c}" />
+            <apex:inputField value="{!Process__c.Auto_Create_Tasks__c}" />
+        </apex:pageBlockSection>
+        <apex:pageBlockSection columns="1" rendered="{!Process__c.Process_Template__c != null}" >
+            <apex:inputField value="{!Process__c.Description__c}" style="width: 100%; height: 80px;" />
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons rendered="{!Process__c.Process_Template__c != null}">
+            <apex:commandButton value="Save" action="{!save}" />
+            <apex:commandButton value="Cancel" action="{!cancel}" />
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+
+</apex:form>
+</apex:page>

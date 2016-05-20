@@ -1,0 +1,80 @@
+<apex:page controller="HandleStepOperation">
+<apex:includeScript value="{!$Resource.jquery}"/>
+<apex:includeScript value="{!$Resource.jqueryUi}"/>
+<apex:stylesheet value="{!$Resource.jqueryUiDialogCSS}"/>
+<apex:stylesheet value="{!$Resource.jqueryUIaccordion}"/>
+<apex:stylesheet value="{!$Resource.jqueryUiCore}"/>
+<apex:stylesheet value="{!$Resource.jqueryUIResizable}"/>
+<apex:stylesheet value="{!$Resource.jqueryUiTheme}"/>
+
+
+<apex:form >
+<apex:messages />
+<apex:actionFunction name="handlePageOperation" action="{!handlePageOperation}" 
+rerender="out" status="template_change"/>
+
+<apex:actionFunction name="redirectToProcess" 
+action="{!redirectPage}" />
+
+<apex:actionFunction name="submitForTaskCreation" action="{!createTask}"/>
+
+</apex:form>
+
+
+<apex:outputPanel id="out">
+<apex:actionStatus id="template_change" onstop="isTaskCreated('{!taskCreated}')">
+</apex:actionStatus>
+<apex:actionStatus id="create_sf_task" onstop="redirectToProcess();">
+</apex:actionStatus>
+</apex:outputPanel>
+
+<table id="main_table" style="width:800px;" border="0">
+<tbody>
+<tr><td style = "height:20px">&nbsp;</td></tr>
+<tr><td style="height:100%;vertical-align:middle;text-align:center">
+<apex:image id="ajaxSpinner"  value="{!$Resource.ajax_loader_img}" width="24" height="24" />
+</td></tr>
+<tr><td style = "height:20px">&nbsp;</td></tr>
+<tr><td id="msg_td" style="height:100%;vertical-align:middle;text-align:center;font-size:15px">
+
+</td></tr>
+</tbody>
+</table>
+
+<div id ="dialogDiv" title = "Task Creation Error"> </div>
+
+  
+<script type="text/javascript">
+
+
+function isTaskCreated(bCreated)
+{
+    if(bCreated == 'Y')
+    {
+        $( "#dialogDiv" ).html('A task has already been created from this Step.');
+        $( "#dialogDiv" ).dialog({ buttons: {"Ok": function() { $(this).dialog("close"); redirectToProcess();}
+                                               } });
+    }
+    else
+    {
+        submitForTaskCreation();
+    }
+}
+
+function displayProcessImage()
+{
+    var calledFor = '{!JSENCODE($CurrentPage.parameters.called_for)}';
+    var msg = 'Please hold, completing step';
+    if (calledFor == 'createTask')
+    {
+        msg = 'Please hold, creating task';
+    }
+    $('#msg_td').html(msg);
+    $('#ajaxSpinner').show();
+    handlePageOperation();
+}
+displayProcessImage();
+
+
+</script>
+</apex:page>

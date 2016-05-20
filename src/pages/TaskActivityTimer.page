@@ -1,0 +1,4 @@
+<apex:page standardController="Task_Timer_Activity__c" tabStyle="Task">
+<c:TaskTimerComponent ></c:TaskTimerComponent>
+    
+</apex:page>
